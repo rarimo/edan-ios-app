@@ -2,7 +2,10 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        VStack {}
+        ZStack(alignment: .topLeading) {
+            MainView()
+            AlertManagerView()
+        }
     }
 }
 

@@ -75,6 +75,8 @@
 		CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA03F092C7C7A17002F218A /* View+IsLoading.swift */; };
 		CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9032D1AF35B00089589 /* Alamofire */; };
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
+		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
+		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -176,6 +178,8 @@
 		CE9E82E22BA8975F00AAF885 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		CE9E82E62BA89CE300AAF885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		CEA03F092C7C7A17002F218A /* View+IsLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IsLoading.swift"; sourceTree = "<group>"; };
+		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
+		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		CE5777AF2D1AE401001A6270 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */,
 				CE5777B02D1AE406001A6270 /* AppView.swift */,
 			);
 			path = Views;
@@ -503,6 +508,7 @@
 		CE9E82C72BA8852700AAF885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
 			);
 			path = Modules;
@@ -515,6 +521,22 @@
 				CE9E82E22BA8975F00AAF885 /* Production.xcconfig */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		CEA7E90A2D1AFE7C00089589 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7E90B2D1AFE8000089589 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CEA7E90B2D1AFE8000089589 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7E90C2D1AFEA500089589 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CEC562122BD92804002D4954 /* Frameworks */ = {
@@ -652,6 +674,7 @@
 				CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */,
 				561C3C392BADE64B00FBB3B9 /* Fonts.swift in Sources */,
 				CEFF68BF2CB6A3E7008769EA /* CircuitBuilderManager.swift in Sources */,
+				CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */,
 				CED314692C04889D00DF31D5 /* UIDevice+modelName.swift in Sources */,
 				CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */,
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
@@ -660,6 +683,7 @@
 				56474ADA2BB9ED6E0017AA25 /* AnyTransition+Backslide.swift in Sources */,
 				56DAA3052BB72E35002CF710 /* InfoAlert.swift in Sources */,
 				56933E012BBBFDD90068C894 /* CirclesLoader.swift in Sources */,
+				CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */,
 				561C3C282BADA8A600FBB3B9 /* Icons.swift in Sources */,
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
