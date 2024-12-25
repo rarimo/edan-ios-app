@@ -101,6 +101,9 @@
         }
       }
     },
+    "Account setup" : {
+
+    },
     "Address" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -456,6 +459,9 @@
         }
       }
     },
+    "Create a new account" : {
+
+    },
     "Create Account" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -587,6 +593,9 @@
           }
         }
       }
+    },
+    "Edan" : {
+
     },
     "Enable" : {
       "extractionState" : "stale",
@@ -1359,6 +1368,9 @@
           }
         }
       }
+    },
+    "Recover a lost account" : {
+
     },
     "Repeat Passcode" : {
       "extractionState" : "stale",

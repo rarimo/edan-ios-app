@@ -52,6 +52,8 @@
 		C75512942C870AFD000258AD /* StepIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75512932C870AFD000258AD /* StepIndicator.swift */; };
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
+		CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92532D1C0EF3008979AF /* IntroView.swift */; };
+		CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -156,6 +158,9 @@
 		C75512932C870AFD000258AD /* StepIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepIndicator.swift; sourceTree = "<group>"; };
 		C75512952C87617B000258AD /* RemoveCase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoveCase.mp4; sourceTree = "<group>"; };
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		CE1D92532D1C0EF3008979AF /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		CE1D92572D1C1B59008979AF /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundContainer.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 		56F48BBC2BC02E02001F3AA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92572D1C1B59008979AF /* Untitled.swift */,
 				5641CC442C874E2B007B7A0D /* AppAlert.swift */,
 				56F48BBD2BC02E82001F3AA4 /* AppButton.swift */,
 				56E7AD092BDAA4F000D3A258 /* AppRadioButton.swift */,
@@ -333,6 +339,7 @@
 				56DAA3042BB72E35002CF710 /* InfoAlert.swift */,
 				5609B6CB2C19922400CB6A1F /* LinearProgressView.swift */,
 				C75512932C870AFD000258AD /* StepIndicator.swift */,
+				CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +352,22 @@
 				C75512862C8603D3000258AD /* ScanMrz.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		CE1D92512D1C0DF2008979AF /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D92522D1C0DF9008979AF /* Views */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		CE1D92522D1C0DF9008979AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D92532D1C0EF3008979AF /* IntroView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE3CD3AF2C6CEBD3008313B8 /* Protocols */ = {
@@ -508,6 +531,7 @@
 		CE9E82C72BA8852700AAF885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92512D1C0DF2008979AF /* Intro */,
 				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
 			);
@@ -669,6 +693,7 @@
 				56F48BBE2BC02E82001F3AA4 /* AppButton.swift in Sources */,
 				CEFF68C12CB6AF46008769EA /* Encodable+json.swift in Sources */,
 				5655E4372BD51E8E00B86C5C /* AppKeychain.swift in Sources */,
+				CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */,
 				5655E42A2BD2C7C800B86C5C /* ConfigManager.swift in Sources */,
 				CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */,
 				CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */,
@@ -679,6 +704,7 @@
 				CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */,
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
+				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
 				56474ADA2BB9ED6E0017AA25 /* AnyTransition+Backslide.swift in Sources */,
 				56DAA3052BB72E35002CF710 /* InfoAlert.swift in Sources */,
