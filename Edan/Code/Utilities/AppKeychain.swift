@@ -23,4 +23,8 @@ class AppKeychain {
     static func removeValue(_ key: AppKeychainItemKey) throws {
         try keychain.remove(key.rawValue)
     }
+
+    static func removeAll() throws {
+        try keychain.removeAll()
+    }
 }

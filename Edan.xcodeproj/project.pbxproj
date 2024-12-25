@@ -60,13 +60,15 @@
 		CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */; };
 		CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */; };
 		CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */; };
+		CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926C2D1C502E008979AF /* WalletManager.swift */; };
+		CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926E2D1C5261008979AF /* AccountManager.swift */; };
+		CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D92702D1C5718008979AF /* Identity.xcframework */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
 		CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE397C392D11D372000D254F /* ZKFaceManager.swift */; };
 		CE3CD3B12C6CEBEF008313B8 /* JSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */; };
 		CE3E0D3B2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */; };
-		CE5777AD2D1AE0B9001A6270 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5777AC2D1AE0B9001A6270 /* Identity.xcframework */; };
 		CE5777B12D1AE40B001A6270 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5777B02D1AE406001A6270 /* AppView.swift */; };
 		CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5777B22D1AE9E7001A6270 /* Errors.swift */; };
 		CE66B1462CA4148B002F658E /* ScanPassport.json in Resources */ = {isa = PBXBuildFile; fileRef = CE66B1452CA4148B002F658E /* ScanPassport.json */; };
@@ -173,13 +175,15 @@
 		CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometrySuccessView.swift; sourceTree = "<group>"; };
 		CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRecoveryView.swift; sourceTree = "<group>"; };
 		CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRegisterView.swift; sourceTree = "<group>"; };
+		CE1D926C2D1C502E008979AF /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		CE1D926E2D1C5261008979AF /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		CE1D92702D1C5718008979AF /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
 		CE397C392D11D372000D254F /* ZKFaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceManager.swift; sourceTree = "<group>"; };
 		CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodable.swift; sourceTree = "<group>"; };
 		CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+RetriveOpenApiHttpCode.swift"; sourceTree = "<group>"; };
-		CE5777AC2D1AE0B9001A6270 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE5777B02D1AE406001A6270 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		CE5777B22D1AE9E7001A6270 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CE66B1452CA4148B002F658E /* ScanPassport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ScanPassport.json; sourceTree = "<group>"; };
@@ -226,12 +230,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */,
 				CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */,
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
 				CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */,
 				CEC562072BD923B4002D4954 /* libfq.a in Frameworks */,
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
-				CE5777AD2D1AE0B9001A6270 /* Identity.xcframework in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
 				CEFD13112D13249100164DA6 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
@@ -279,6 +283,8 @@
 		5655E41D2BD2C38E00B86C5C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D926E2D1C5261008979AF /* AccountManager.swift */,
+				CE1D926C2D1C502E008979AF /* WalletManager.swift */,
 				CE397C392D11D372000D254F /* ZKFaceManager.swift */,
 				5655E4292BD2C7C800B86C5C /* ConfigManager.swift */,
 				CE0881A02BF773CC00B31735 /* AlertManager.swift */,
@@ -616,7 +622,7 @@
 		CEC562122BD92804002D4954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE5777AC2D1AE0B9001A6270 /* Identity.xcframework */,
+				CE1D92702D1C5718008979AF /* Identity.xcframework */,
 				CEC561FF2BD923B3002D4954 /* bridge.h */,
 				CEC562002BD923B3002D4954 /* prover.h */,
 				CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */,
@@ -732,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
@@ -762,6 +769,7 @@
 				CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */,
 				561C3C282BADA8A600FBB3B9 /* Icons.swift in Sources */,
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
+				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
 				CE3477622C78892F005E91FE /* View+Align.swift in Sources */,

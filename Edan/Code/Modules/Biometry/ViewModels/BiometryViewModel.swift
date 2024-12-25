@@ -146,6 +146,8 @@ class BiometryViewModel: ObservableObject {
         let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
             
         let _ = try await generateFisherface(inputs.json)
+        
+        try AccountManager.shared.generateNewPrivateKey()
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {
@@ -158,6 +160,8 @@ class BiometryViewModel: ObservableObject {
         let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
             
         let _ = try await generateFisherface(inputs.json)
+        
+        try AccountManager.shared.generateNewPrivateKey()
     }
         
     func generateFisherface(_ inputs: Data) async throws -> ZkProof {
