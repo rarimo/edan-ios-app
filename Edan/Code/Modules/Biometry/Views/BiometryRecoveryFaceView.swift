@@ -196,14 +196,14 @@ struct RecoveryProcessLoader: View {
 
     var body: some View {
         VStack {
-            ProgressView(value: progress)
+            ProgressView(value: progress, total: 1)
                 .progressViewStyle(.linear)
                 .tint(.baseBlack)
         }
         .onChange(of: viewModel.recoveryProgress) { recoveryProgress in
             Task { @MainActor in
                 if biometryRecoveryProgress.rawValue <= recoveryProgress?.rawValue ?? -1 {
-                    while progress < 1 {
+                    while progress < 0.99 {
                         progress += 0.01
 
                         try await Task.sleep(nanoseconds: UInt64(biometryRecoveryProgress.progressTime) * NSEC_PER_SEC / 100)

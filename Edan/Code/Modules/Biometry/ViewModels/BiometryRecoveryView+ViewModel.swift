@@ -109,7 +109,7 @@ extension BiometryRecoveryView {
 
             let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
             
-            let proof = try await generateFisherFase(inputs.json)
+            let _ = try await generateFisherFase(inputs.json)
         }
         
         func generateFisherFase(_ inputs: Data) async throws -> ZkProof {
@@ -117,7 +117,7 @@ extension BiometryRecoveryView {
             
             let thread = Thread {
                 do {
-                    let wtns = try ZKUtils.calcWtnsFisherface(inputs.json)
+                    let wtns = try ZKUtils.calcWtnsFisherface(inputs)
 
                     let (proofJson, pubSignalsJson) = try ZKUtils.groth16Fisherface(wtns)
 
