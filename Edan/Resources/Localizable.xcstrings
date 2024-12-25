@@ -416,7 +416,6 @@
       }
     },
     "Continue" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -931,6 +930,9 @@
           }
         }
       }
+    },
+    "Look straight into the screen with good lighting conditions" : {
+
     },
     "Male" : {
       "extractionState" : "stale",

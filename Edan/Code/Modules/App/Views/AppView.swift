@@ -1,12 +1,20 @@
 import SwiftUI
 
 struct AppView: View {
+    @State private var isIntroFinished = AppUserDefaults.shared.isIntroFinished {
+        didSet {
+            AppUserDefaults.shared.isIntroFinished = isIntroFinished
+        }
+    }
+
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if AppUserDefaults.shared.isIntroFinished {
+            if isIntroFinished {
                 MainView()
             } else {
-                IntroView()
+                IntroView {
+                    isIntroFinished = true
+                }
             }
             AlertManagerView()
         }

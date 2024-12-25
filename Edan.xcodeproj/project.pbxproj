@@ -54,6 +54,11 @@
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92532D1C0EF3008979AF /* IntroView.swift */; };
 		CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */; };
+		CE1D92632D1C2366008979AF /* BiometryRecoveryFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */; };
+		CE1D92642D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */; };
+		CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */; };
+		CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */; };
+		CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -161,6 +166,11 @@
 		CE1D92532D1C0EF3008979AF /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		CE1D92572D1C1B59008979AF /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundContainer.swift; sourceTree = "<group>"; };
+		CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomatryCaptureSession.swift; sourceTree = "<group>"; };
+		CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BiometryRecoveryView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRecoveryFaceView.swift; sourceTree = "<group>"; };
+		CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometrySuccessView.swift; sourceTree = "<group>"; };
+		CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRecoveryView.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -370,6 +380,42 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CE1D925B2D1C2366008979AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE1D925D2D1C2366008979AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE1D92612D1C2366008979AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */,
+				CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */,
+				CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE1D92622D1C2366008979AF /* Biometry */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D925B2D1C2366008979AF /* Models */,
+				CE1D925D2D1C2366008979AF /* ViewModels */,
+				CE1D92612D1C2366008979AF /* Views */,
+			);
+			path = Biometry;
+			sourceTree = "<group>";
+		};
 		CE3CD3AF2C6CEBD3008313B8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +577,7 @@
 		CE9E82C72BA8852700AAF885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92622D1C2366008979AF /* Biometry */,
 				CE1D92512D1C0DF2008979AF /* Intro */,
 				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
@@ -725,6 +772,11 @@
 				CEC9D8E72BFF41A800EACD0F /* HTTPStatusCode.swift in Sources */,
 				568B4FD12BB6D88F001C9C74 /* Divider.swift in Sources */,
 				56E2D9202BCED460006E725D /* AppCheckbox.swift in Sources */,
+				CE1D92632D1C2366008979AF /* BiometryRecoveryFaceView.swift in Sources */,
+				CE1D92642D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift in Sources */,
+				CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */,
+				CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */,
+				CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */,
 				CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */,
 				CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */,
 				CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */,
