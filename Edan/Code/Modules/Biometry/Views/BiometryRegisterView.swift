@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BiometryRecoveryView: View {
+struct BiometryRegisterView: View {
     @StateObject private var viewModel = BiometryViewModel()
 
     var onNext: () -> Void
@@ -9,18 +9,18 @@ struct BiometryRecoveryView: View {
     var body: some View {
         VStack {
             BiometryFaceView(
-                biometryProcess: .recovery,
+                biometryProcess: .register,
                 onRecovered: {
-                    LoggerUtil.common.info("Access restored successfully")
+                    LoggerUtil.common.info("Access created successfully")
 
-                    AlertManager.shared.emitSuccess("Access restored successfully")
+                    AlertManager.shared.emitSuccess("Access created successfully")
 
                     onNext()
                 },
                 onError: { error in
-                    LoggerUtil.common.error("Failed to recover by biometry: \(error)")
+                    LoggerUtil.common.error("Failed to create by biometry: \(error)")
 
-                    AlertManager.shared.emitError("Failed to recover by biometry:")
+                    AlertManager.shared.emitError("Failed to create by biometry:")
                 }
             )
         }

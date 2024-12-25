@@ -1,7 +1,14 @@
 import SwiftUI
 
-struct BiometryRecoveryFaceView: View {
-    @EnvironmentObject private var viewModel: BiometryRecoveryView.ViewModel
+enum BiometryProcess {
+    case register
+    case recovery
+}
+
+struct BiometryFaceView: View {
+    @EnvironmentObject private var viewModel: BiometryViewModel
+
+    var biometryProcess: BiometryProcess
 
     @State private var isScanning = false
 
@@ -13,16 +20,23 @@ struct BiometryRecoveryFaceView: View {
 
     @State private var restoringTextDots: String = ""
 
-    @State private var uiRecoveryTask: Task<Void, Never>? = nil
-    @State private var recoveryTask: Task<Void, Never>? = nil
+    @State private var uiProcessingTask: Task<Void, Never>? = nil
+    @State private var processingTask: Task<Void, Never>? = nil
 
     let onRecovered: () -> Void
     let onError: (Error) -> Void
 
+    var processingDescription: String {
+        switch biometryProcess {
+        case .register: return "Creating account"
+        case .recovery: return "Restoring access"
+        }
+    }
+
     var body: some View {
         VStack {
             Spacer()
-            Text(isScanned ? "Restoring access\n" + restoringTextDots : "Scan your face")
+            Text(isScanned ? processingDescription + "\n" + restoringTextDots : "Scan your face")
                 .h4()
                 .multilineTextAlignment(.center)
                 .padding(.bottom, isScanned ? 10 : 50)
@@ -50,8 +64,8 @@ struct BiometryRecoveryFaceView: View {
             .disabled(isScanning)
         }
         .onDisappear {
-            recoveryTask?.cancel()
-            uiRecoveryTask?.cancel()
+            processingTask?.cancel()
+            uiProcessingTask?.cancel()
 
             viewModel.stopScanning()
         }
@@ -77,7 +91,12 @@ struct BiometryRecoveryFaceView: View {
                             .foregroundStyle(.primaryMain)
                         BiometrySuccessView()
                         if isScanned {
-                            recoveryProcess
+                            switch biometryProcess {
+                            case .register:
+                                registerProcess
+                            case .recovery:
+                                recoveryProcess
+                            }
                         }
                     } else {
                         Circle()
@@ -123,7 +142,12 @@ struct BiometryRecoveryFaceView: View {
                     isScanned = true
                 }
 
-                runRecoveryProcess()
+                switch biometryProcess {
+                case .register:
+                    runRegisterProcess()
+                case .recovery:
+                    runRecoveryProcess()
+                }
 
                 while true {
                     try await Task.sleep(nanoseconds: 100_000_000)
@@ -139,6 +163,22 @@ struct BiometryRecoveryFaceView: View {
         .frame(width: 300, height: 300)
     }
 
+    var registerProcess: some View {
+        VStack(spacing: 35) {
+            ForEach(BiometryRegisterProgress.allCases, id: \.rawValue) { progress in
+                VStack {
+                    Text(progress.description)
+                        .body2()
+                        .align()
+                        .foregroundStyle(.baseBlack)
+                    BiometryProcessLoader(biometryRecoveryProgress: progress)
+                }
+                .padding(.horizontal)
+            }
+        }
+        .transition(.opacity)
+    }
+
     var recoveryProcess: some View {
         VStack(spacing: 35) {
             ForEach(BiometryRecoveryProgress.allCases, id: \.rawValue) { progress in
@@ -147,7 +187,7 @@ struct BiometryRecoveryFaceView: View {
                         .body2()
                         .align()
                         .foregroundStyle(.baseBlack)
-                    RecoveryProcessLoader(biometryRecoveryProgress: progress)
+                    BiometryProcessLoader(biometryRecoveryProgress: progress)
                 }
                 .padding(.horizontal)
             }
@@ -155,14 +195,45 @@ struct BiometryRecoveryFaceView: View {
         .transition(.opacity)
     }
 
-    func runRecoveryProcess() {
-        uiRecoveryTask = Task { @MainActor in
+    func runRegisterProcess() {
+        uiProcessingTask = Task { @MainActor in
             guard let image = viewModel.faceImage else {
                 return
             }
 
             var isRecovered = false
-            recoveryTask = Task {
+            processingTask = Task {
+                do {
+                    try await viewModel.registerByBiometry(image)
+
+                    isRecovered = true
+                } catch {
+                    onError(error)
+                }
+            }
+
+            for progress in BiometryRegisterProgress.allCases {
+                viewModel.markRegisterProgress(progress)
+
+                try? await Task.sleep(nanoseconds: UInt64(progress.progressTime) * NSEC_PER_SEC)
+            }
+
+            while !isRecovered {
+                try? await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+            }
+
+            onRecovered()
+        }
+    }
+
+    func runRecoveryProcess() {
+        uiProcessingTask = Task { @MainActor in
+            guard let image = viewModel.faceImage else {
+                return
+            }
+
+            var isRecovered = false
+            processingTask = Task {
                 do {
                     try await viewModel.recoverByBiometry(image)
 
@@ -187,10 +258,10 @@ struct BiometryRecoveryFaceView: View {
     }
 }
 
-struct RecoveryProcessLoader: View {
-    @EnvironmentObject var viewModel: BiometryRecoveryView.ViewModel
+struct BiometryProcessLoader<Process: BiometryProgress>: View {
+    @EnvironmentObject var viewModel: BiometryViewModel
 
-    var biometryRecoveryProgress: BiometryRecoveryProgress
+    var biometryRecoveryProgress: Process
 
     @State private var progress: Double = 0
 
@@ -211,10 +282,21 @@ struct RecoveryProcessLoader: View {
                 }
             }
         }
+        .onChange(of: viewModel.registerProgress) { registerProgress in
+            Task { @MainActor in
+                if biometryRecoveryProgress.rawValue <= registerProgress?.rawValue ?? -1 {
+                    while progress < 0.99 {
+                        progress += 0.01
+
+                        try await Task.sleep(nanoseconds: UInt64(biometryRecoveryProgress.progressTime) * NSEC_PER_SEC / 100)
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    BiometryRecoveryFaceView(onRecovered: {}, onError: { _ in })
-        .environmentObject(BiometryRecoveryView.ViewModel())
+    BiometryFaceView(biometryProcess: .register, onRecovered: {}, onError: { _ in })
+        .environmentObject(BiometryViewModel())
 }

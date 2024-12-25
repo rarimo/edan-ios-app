@@ -54,11 +54,12 @@
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92532D1C0EF3008979AF /* IntroView.swift */; };
 		CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */; };
-		CE1D92632D1C2366008979AF /* BiometryRecoveryFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */; };
-		CE1D92642D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */; };
+		CE1D92632D1C2366008979AF /* BiometryFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925E2D1C2366008979AF /* BiometryFaceView.swift */; };
+		CE1D92642D1C2366008979AF /* BiometryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925C2D1C2366008979AF /* BiometryViewModel.swift */; };
 		CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */; };
 		CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */; };
 		CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */; };
+		CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -167,10 +168,11 @@
 		CE1D92572D1C1B59008979AF /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundContainer.swift; sourceTree = "<group>"; };
 		CE1D925A2D1C2366008979AF /* BiomatryCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomatryCaptureSession.swift; sourceTree = "<group>"; };
-		CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BiometryRecoveryView+ViewModel.swift"; sourceTree = "<group>"; };
-		CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRecoveryFaceView.swift; sourceTree = "<group>"; };
+		CE1D925C2D1C2366008979AF /* BiometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryViewModel.swift; sourceTree = "<group>"; };
+		CE1D925E2D1C2366008979AF /* BiometryFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryFaceView.swift; sourceTree = "<group>"; };
 		CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometrySuccessView.swift; sourceTree = "<group>"; };
 		CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRecoveryView.swift; sourceTree = "<group>"; };
+		CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRegisterView.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -391,7 +393,7 @@
 		CE1D925D2D1C2366008979AF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CE1D925C2D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift */,
+				CE1D925C2D1C2366008979AF /* BiometryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -399,9 +401,10 @@
 		CE1D92612D1C2366008979AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE1D925E2D1C2366008979AF /* BiometryRecoveryFaceView.swift */,
 				CE1D925F2D1C2366008979AF /* BiometrySuccessView.swift */,
 				CE1D92602D1C2366008979AF /* BiometryRecoveryView.swift */,
+				CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */,
+				CE1D925E2D1C2366008979AF /* BiometryFaceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -772,8 +775,8 @@
 				CEC9D8E72BFF41A800EACD0F /* HTTPStatusCode.swift in Sources */,
 				568B4FD12BB6D88F001C9C74 /* Divider.swift in Sources */,
 				56E2D9202BCED460006E725D /* AppCheckbox.swift in Sources */,
-				CE1D92632D1C2366008979AF /* BiometryRecoveryFaceView.swift in Sources */,
-				CE1D92642D1C2366008979AF /* BiometryRecoveryView+ViewModel.swift in Sources */,
+				CE1D92632D1C2366008979AF /* BiometryFaceView.swift in Sources */,
+				CE1D92642D1C2366008979AF /* BiometryViewModel.swift in Sources */,
 				CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */,
 				CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */,
 				CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */,
@@ -785,6 +788,7 @@
 				56474AD82BB986A40017AA25 /* FeedbackGenerator.swift in Sources */,
 				CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */,
 				CE7D8AAC2BFB52EE009AF212 /* OpenApiError.swift in Sources */,
+				CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */,
 				56933DFB2BBAFBD90068C894 /* AppToggle.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
 				CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */,

@@ -14,7 +14,12 @@ struct IntroView: View {
             content.navigationDestination(for: AccountSetupRoute.self) { route in
                 switch route {
                 case .createNewAccount:
-                    VStack {}
+                    BiometryRegisterView(
+                        onNext: onFinishedIntro,
+                        onBack: {
+                            _ = path.popLast()
+                        }
+                    )
                 case .recoverLostAccount:
                     BiometryRecoveryView(
                         onNext: onFinishedIntro,
