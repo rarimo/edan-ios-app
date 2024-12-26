@@ -65,6 +65,9 @@
 		CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D92702D1C5718008979AF /* Identity.xcframework */; };
 		CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92722D1D66B1008979AF /* SettingsView.swift */; };
 		CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */; };
+		CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92792D1D78F0008979AF /* MainView+ViewModel.swift */; };
+		CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D927B2D1D7A67008979AF /* HistoryView.swift */; };
+		CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D927D2D1D8C77008979AF /* PreviewUtils.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -182,6 +185,9 @@
 		CE1D92702D1C5718008979AF /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE1D92722D1D66B1008979AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE1D92792D1D78F0008979AF /* MainView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE1D927B2D1D7A67008979AF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		CE1D927D2D1D8C77008979AF /* PreviewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D927D2D1D8C77008979AF /* PreviewUtils.swift */,
 				5655E42D2BD2C94F00B86C5C /* AppUserDefaults.swift */,
 				5655E4362BD51E8E00B86C5C /* AppKeychain.swift */,
 				560F0C332BD175EB00067054 /* LoggerUtil.swift */,
@@ -433,6 +440,14 @@
 			isa = PBXGroup;
 			children = (
 				CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE1D92782D1D78E1008979AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D92792D1D78F0008979AF /* MainView+ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -619,6 +634,7 @@
 		CEA7E90A2D1AFE7C00089589 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92782D1D78E1008979AF /* ViewModels */,
 				CEA7E90B2D1AFE8000089589 /* Views */,
 			);
 			path = Main;
@@ -627,6 +643,7 @@
 		CEA7E90B2D1AFE8000089589 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D927B2D1D7A67008979AF /* HistoryView.swift */,
 				CE1D92722D1D66B1008979AF /* SettingsView.swift */,
 				CEA7E90C2D1AFEA500089589 /* MainView.swift */,
 			);
@@ -757,6 +774,7 @@
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
+				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
 				5609B6CC2C19922400CB6A1F /* LinearProgressView.swift in Sources */,
 				CEFD130C2D131E8800164DA6 /* FisherFaceInputs.swift in Sources */,
@@ -776,6 +794,7 @@
 				CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */,
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
+				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
 				CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
@@ -815,6 +834,7 @@
 				CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */,
 				56933DFB2BBAFBD90068C894 /* AppToggle.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
+				CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */,
 				CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */,
 				CE7210292BD7D0D10043DB7F /* String+Hex.swift in Sources */,
 				563529F62BB077AB0027C910 /* CardContainer.swift in Sources */,

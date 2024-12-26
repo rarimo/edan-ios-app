@@ -14,7 +14,7 @@ class WalletManager {
 
     var balanceString: String {
         let balance = Double(self.balance) / pow(10, Double(decimals))
-        return String(format: "%.2f", balance)
+        return String(format: "%.3f", balance)
     }
 
     init() {}

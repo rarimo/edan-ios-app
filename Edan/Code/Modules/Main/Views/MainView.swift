@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainView.ViewModel()
+
     @State private var isSettingsUp: Bool = false
     @State private var isReceiveUp: Bool = false
     @State private var isSendUp: Bool = false
@@ -16,13 +18,17 @@ struct MainView: View {
                     actionBar
                         .padding()
                     Spacer()
+                    HistoryView()
+                        .frame(height: 350)
                 }
             },
             header: header
         )
+        .environmentObject(viewModel)
         .sheet(isPresented: $isSettingsUp, content: SettingsView.init)
         .sheet(isPresented: $isReceiveUp) {}
         .sheet(isPresented: $isSendUp) {}
+        .onAppear(perform: addPreviewData)
     }
 
     func header() -> some View {
@@ -81,6 +87,15 @@ struct MainView: View {
             )
         }
     }
+
+    func addPreviewData() {
+        if !PreviewUtils.isPreview {
+            return
+        }
+
+        viewModel.addNewHistoryEntry(type: .sent, amount: 393136403635686092)
+        viewModel.addNewHistoryEntry(type: .received, amount: 1000000000000000000)
+    }
 }
 
 struct ActionButton: View {
@@ -109,5 +124,5 @@ struct ActionButton: View {
 }
 
 #Preview {
-    MainView()
+    return MainView()
 }
