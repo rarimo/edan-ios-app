@@ -57,6 +57,16 @@ class Ethereum {
             try await Task.sleep(nanoseconds: Ethereum.TX_PULL_INTERVAL)
         }
     }
+    
+    static func isValidAddress(_ address: String) -> Bool {
+        guard address.hasPrefix("0x"), address.count == 42 else {
+            return false
+        }
+        
+        let validHexChars = CharacterSet(charactersIn: "0123456789abcdefABCDEF")
+        let addressWithoutPrefix = address.dropFirst(2)
+        return addressWithoutPrefix.unicodeScalars.allSatisfy { validHexChars.contains($0) }
+    }
 }
 
 struct EvmTxResponse: Codable {

@@ -102,4 +102,5 @@ enum Icons {
     static let wallet = "Wallet"
     static let warning = "Warning"
     static let xCircle = "XCircle"
+    static let qrFrame = "QrFrame"
 }
