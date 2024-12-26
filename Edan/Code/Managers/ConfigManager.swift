@@ -8,13 +8,17 @@ class ConfigManager: ObservableObject {
 
 extension ConfigManager {
     class General {
-        let evmRpcURL: URL
         let version: String
+
+        let evmRpcURL: URL
+        let orgsApi: URL
 
         init() {
             do {
-                self.evmRpcURL = try readURLFromInfoPlist(key: "EVM_RPC_URL")
                 self.version = try readFromInfoPlist(key: "CFBundleShortVersionString")
+
+                self.evmRpcURL = try readURLFromInfoPlist(key: "EVM_RPC_URL")
+                self.orgsApi = try readURLFromInfoPlist(key: "ORGS_API")
             } catch {
                 fatalError("ConfigManager.General init error: \(error.localizedDescription)")
             }

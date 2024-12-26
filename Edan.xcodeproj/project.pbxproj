@@ -76,6 +76,7 @@
 		CE1D928D2D1DB094008979AF /* ScanQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D928C2D1DB090008979AF /* ScanQR.swift */; };
 		CE1D92902D1DB0EC008979AF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = CE1D928F2D1DB0EC008979AF /* CodeScanner */; };
 		CE1D92922D1DB162008979AF /* CameraPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */; };
+		CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -202,6 +203,7 @@
 		CE1D928A2D1DAA36008979AF /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		CE1D928C2D1DB090008979AF /* ScanQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQR.swift; sourceTree = "<group>"; };
 		CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionView.swift; sourceTree = "<group>"; };
+		CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKBiometricsSvc.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 		CE7E95792CE7572800D86A4F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */,
 				CEC9D8E62BFF41A800EACD0F /* HTTPStatusCode.swift */,
 			);
 			path = Services;
@@ -813,6 +816,7 @@
 				5655E42A2BD2C7C800B86C5C /* ConfigManager.swift in Sources */,
 				CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */,
 				CE1D92922D1DB162008979AF /* CameraPermissionView.swift in Sources */,
+				CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */,
 				CE1D92892D1DA6B9008979AF /* QRCode.swift in Sources */,
 				CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */,
 				CE1D928B2D1DAA39008979AF /* SendView.swift in Sources */,

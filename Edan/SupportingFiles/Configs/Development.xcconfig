@@ -1,3 +1,4 @@
 // MARK: General
 SLASH=/
 EVM_RPC_URL = "https:${SLASH}/rpc.infura.com"
+ORGS_API = "https:${SLASH}/api.orgs.app.stage.rarime.com"
