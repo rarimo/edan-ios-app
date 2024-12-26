@@ -53,7 +53,7 @@ struct MainView: View {
             Spacer()
             Button(action: { UIPasteboard.general.string = WalletManager.shared.accountAddress }) {
                 Text("\(WalletManager.shared.accountAddress)")
-                    .body1()
+                    .h6()
                     .frame(width: 150)
                     .lineLimit(1)
             }

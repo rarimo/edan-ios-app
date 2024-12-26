@@ -8,18 +8,21 @@ struct SettingsView: View {
             Text("Settings")
                 .h4()
             Spacer()
-            AppButton(variant: .destructive, text: "Delete the account", action: deleteAccount)
+            AppButton(variant: .destructive, text: "Delete the account", action: logout)
+            AppButton(variant: .secondary, text: "Logout", action: logout)
         }
         .padding()
     }
 
-    func deleteAccount() {
+    func logout() {
         do {
+            AppUserDefaults.shared.reset()
+
             appViewModel.reset()
 
             try AppKeychain.removeAll()
         } catch {
-            LoggerUtil.common.error("Failed to delete the account: \(error.localizedDescription)")
+            LoggerUtil.common.error("Failed to logout: \(error.localizedDescription)")
         }
     }
 }

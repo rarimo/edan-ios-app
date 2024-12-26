@@ -23,6 +23,19 @@
         }
       }
     },
+    "%@" : {
+
+    },
+    "%@ %@ " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ "
+          }
+        }
+      }
+    },
     "%@ ensures your history, reputation and actions are not lost, but remain confidential and under your control." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -538,9 +551,6 @@
         }
       }
     },
-    "Delete the account" : {
-
-    },
     "Document class mode" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -818,6 +828,9 @@
         }
       }
     },
+    "History" : {
+
+    },
     "Hold your iPhone near an NFC enabled passport." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -934,6 +947,9 @@
         }
       }
     },
+    "Logout" : {
+
+    },
     "Look straight into the screen with good lighting conditions" : {
 
     },
@@ -1024,6 +1040,9 @@
           }
         }
       }
+    },
+    "No history yet" : {
+
     },
     "No transactions yet" : {
       "extractionState" : "stale",

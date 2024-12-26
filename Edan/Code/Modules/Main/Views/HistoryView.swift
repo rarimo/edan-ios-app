@@ -41,10 +41,10 @@ struct HistoryView: View {
         return HStack {
             ZStack {
                 Circle()
-                    .foregroundStyle(.primaryLight)
+                    .foregroundStyle(.primaryLighter)
                 Image(iconName)
                     .renderingMode(.template)
-                    .foregroundStyle(.baseWhite)
+                    .foregroundStyle(.baseBlack)
             }
             .frame(width: 50, height: 50)
             Spacer()
