@@ -37,7 +37,7 @@ struct SendView: View {
         }
         .padding()
         .presentationDetents([.medium])
-        .fullScreenCover(isPresented: $isSending) {
+        .fullScreenCover(isPresented: $isScanning) {
             ScanQR(onBack: { isScanning = false }) { scanResult in
                 isScanning = false
 
