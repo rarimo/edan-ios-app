@@ -2,20 +2,27 @@ import SwiftUI
 
 struct MainView: View {
     @State private var isSettingsUp: Bool = false
+    @State private var isReceiveUp: Bool = false
+    @State private var isSendUp: Bool = false
 
     var body: some View {
         AppBackgroundContainer(
             content: {
                 VStack {
                     contentHeader
-                        .align(.trailing)
-                        .padding(25)
+                        .padding(20)
+                    balance
+                        .padding()
+                    actionBar
+                        .padding()
                     Spacer()
                 }
             },
             header: header
         )
         .sheet(isPresented: $isSettingsUp, content: SettingsView.init)
+        .sheet(isPresented: $isReceiveUp) {}
+        .sheet(isPresented: $isSendUp) {}
     }
 
     func header() -> some View {
@@ -35,8 +42,68 @@ struct MainView: View {
     }
 
     var contentHeader: some View {
-        Button(action: { isSettingsUp = true }) {
-            Image(systemName: "gearshape")
+        HStack {
+            Image(systemName: "info.circle")
+            Spacer()
+            Button(action: { UIPasteboard.general.string = WalletManager.shared.accountAddress }) {
+                Text("\(WalletManager.shared.accountAddress)")
+                    .body1()
+                    .frame(width: 150)
+                    .lineLimit(1)
+            }
+            Spacer()
+            Button(action: { isSettingsUp = true }) {
+                Image(systemName: "gearshape")
+            }
+        }
+    }
+
+    var balance: some View {
+        HStack {
+            Text(WalletManager.shared.balanceString)
+                .h3()
+            Text(WalletManager.shared.tokenName)
+                .h6()
+        }
+    }
+
+    var actionBar: some View {
+        HStack(spacing: 20) {
+            ActionButton(
+                action: { isReceiveUp = true },
+                icon: Icons.arrowDown,
+                text: "Receive"
+            )
+            ActionButton(
+                action: { isSendUp = true },
+                icon: Icons.arrowUp,
+                text: "Send"
+            )
+        }
+    }
+}
+
+struct ActionButton: View {
+    var action: () -> Void
+
+    var icon: String
+
+    var text: String
+
+    var body: some View {
+        Button(action: action) {
+            VStack {
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.primaryDarker)
+                    Image(icon)
+                        .renderingMode(.template)
+                        .foregroundStyle(.baseWhite)
+                }
+                .frame(width: 50, height: 50)
+                Text(text)
+                    .body4()
+            }
         }
     }
 }
