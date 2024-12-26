@@ -16,7 +16,7 @@ enum BiometryRecoveryProgress: Int, CaseIterable, BiometryProgress {
         switch self {
         case .downloadingCircuitData: return "Downloading circuit data"
         case .extractionImageFeatures: return "Extracting image features"
-        case .runningZKMK: return "Running ZKMK"
+        case .runningZKMK: return "Running ZKML"
         case .overridingAccess: return "Overriding access"
         }
     }
@@ -41,7 +41,7 @@ enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
         switch self {
         case .downloadingCircuitData: return "Downloading circuit data"
         case .extractionImageFeatures: return "Extracting image features"
-        case .runningZKMK: return "Running ZKMK"
+        case .runningZKMK: return "Running ZKML"
         case .creatingAccount: return "Creating account"
         }
     }

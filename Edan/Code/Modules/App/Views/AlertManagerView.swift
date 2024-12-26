@@ -18,6 +18,7 @@ struct AlertManagerView: View {
             if alertSubject != nil {
                 AppAlert(type: alertSubject!.type, message: alertSubject!.message)
                     .onTapGesture { alertSubject = nil }
+                    .padding(.top, 30)
             }
         }
         .animation(.easeOut, value: alertSubject)

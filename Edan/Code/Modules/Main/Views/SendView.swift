@@ -36,7 +36,7 @@ struct SendView: View {
                 errorMessage: $amountError,
                 label: "Amount",
                 placeholder: "0.00",
-                keyboardType: .numberPad
+                keyboardType: .numbersAndPunctuation
             )
             Spacer()
             if isSending {
@@ -51,7 +51,12 @@ struct SendView: View {
             ScanQR(onBack: { isScanning = false }) { scanResult in
                 isScanning = false
 
-                address = scanResult
+                var newAddress = scanResult
+                if newAddress.starts(with: "ethereum:") {
+                    newAddress = newAddress.replacingOccurrences(of: "ethereum:", with: "")
+                }
+
+                address = newAddress
             }
         }
     }

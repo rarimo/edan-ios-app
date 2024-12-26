@@ -28,7 +28,9 @@ struct MainView: View {
         .sheet(isPresented: $isSettingsUp, content: SettingsView.init)
         .sheet(isPresented: $isReceiveUp, content: ReceiveView.init)
         .sheet(isPresented: $isSendUp) {
-            SendView {}
+            SendView {
+                isSendUp = false
+            }
         }
         .onAppear(perform: addPreviewData)
     }
