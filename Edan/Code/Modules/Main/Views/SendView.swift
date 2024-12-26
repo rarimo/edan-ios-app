@@ -4,6 +4,9 @@ struct SendView: View {
     @State private var address: String = ""
     @State private var addressError: String = ""
 
+    @State private var amount = ""
+    @State private var amountError: String = ""
+
     @State private var isSending: Bool = false
     @State private var isScanning = false
 
@@ -28,11 +31,18 @@ struct SendView: View {
                     }
                 }
             )
+            AppTextField(
+                text: $amount,
+                errorMessage: $amountError,
+                label: "Amount",
+                placeholder: "0.00",
+                keyboardType: .numberPad
+            )
             Spacer()
             if isSending {
                 ProgressView()
             } else {
-                AppButton(text: "Send", rightIcon: Icons.arrowRight, action: {})
+                AppButton(text: "Send", rightIcon: Icons.arrowRight, action: send)
             }
         }
         .padding()
@@ -61,6 +71,11 @@ struct SendView: View {
         if !Ethereum.isValidAddress(address) {
             address = ""
             addressError = "Invalid address"
+        }
+
+        if Int(amount) == nil {
+            amount = ""
+            amountError = "Invalid amount"
         }
     }
 }
