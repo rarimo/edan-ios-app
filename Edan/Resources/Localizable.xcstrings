@@ -551,6 +551,9 @@
         }
       }
     },
+    "Delete the account" : {
+
+    },
     "Document class mode" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -607,6 +610,9 @@
       }
     },
     "Edan" : {
+
+    },
+    "Edan payable account" : {
 
     },
     "Enable" : {
