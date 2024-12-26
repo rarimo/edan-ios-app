@@ -3,22 +3,25 @@ import SwiftUI
 struct ReceiveView: View {
     var body: some View {
         VStack {
-            Spacer()
-            Text("Edan payable account")
+            Text("Receive")
                 .h5()
+                .foregroundStyle(.baseBlack)
+                .padding(.bottom, 10)
             Text(WalletManager.shared.accountAddress)
                 .h6()
                 .multilineTextAlignment(.center)
                 .frame(width: 270)
-                .foregroundStyle(.primaryDark)
+                .foregroundStyle(.baseBlack)
             QRCodeView(code: WalletManager.shared.accountAddress)
                 .padding(.vertical, 30)
             Spacer()
         }
         .padding()
+        .presentationDetents([.medium])
     }
 }
 
 #Preview {
-    ReceiveView()
+    VStack {}
+        .sheet(isPresented: .constant(true), content: ReceiveView.init)
 }
