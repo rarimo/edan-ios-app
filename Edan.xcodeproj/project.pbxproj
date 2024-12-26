@@ -63,6 +63,8 @@
 		CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926C2D1C502E008979AF /* WalletManager.swift */; };
 		CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926E2D1C5261008979AF /* AccountManager.swift */; };
 		CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D92702D1C5718008979AF /* Identity.xcframework */; };
+		CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92722D1D66B1008979AF /* SettingsView.swift */; };
+		CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -178,6 +180,8 @@
 		CE1D926C2D1C502E008979AF /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		CE1D926E2D1C5261008979AF /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		CE1D92702D1C5718008979AF /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
+		CE1D92722D1D66B1008979AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView+ViewModel.swift"; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -425,6 +429,14 @@
 			path = Biometry;
 			sourceTree = "<group>";
 		};
+		CE1D92752D1D6DFC008979AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		CE3CD3AF2C6CEBD3008313B8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +448,7 @@
 		CE5777AE2D1AE3FC001A6270 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92752D1D6DFC008979AF /* ViewModels */,
 				CE5777AF2D1AE401001A6270 /* Views */,
 			);
 			path = App;
@@ -614,6 +627,7 @@
 		CEA7E90B2D1AFE8000089589 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92722D1D66B1008979AF /* SettingsView.swift */,
 				CEA7E90C2D1AFEA500089589 /* MainView.swift */,
 			);
 			path = Views;
@@ -741,6 +755,7 @@
 				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
+				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
 				5609B6CC2C19922400CB6A1F /* LinearProgressView.swift in Sources */,
@@ -762,6 +777,7 @@
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
+				CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
 				56474ADA2BB9ED6E0017AA25 /* AnyTransition+Backslide.swift in Sources */,
 				56DAA3052BB72E35002CF710 /* InfoAlert.swift in Sources */,

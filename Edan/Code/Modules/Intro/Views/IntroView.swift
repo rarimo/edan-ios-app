@@ -51,6 +51,7 @@ struct IntroView: View {
                 AppButton(variant: .secondary, text: "Recover a lost account", rightIcon: Icons.arrowRight) {
                     path.append(.recoverLostAccount)
                 }
+                .padding(.bottom, 20)
             }
             .padding()
         }

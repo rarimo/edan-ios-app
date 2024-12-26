@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum ButtonVariant {
-    case primary, secondary, tertiary
+    case primary, secondary, tertiary, destructive
 }
 
 private struct ButtonColors {
@@ -37,6 +37,14 @@ private let tertiaryColors = ButtonColors(
     foregroundDisabled: .textDisabled
 )
 
+private let destructiveColors = ButtonColors(
+    background: .errorMain,
+    backgroundPressed: .errorDark,
+    backgroundDisabled: .componentDisabled,
+    foreground: .baseWhite,
+    foregroundDisabled: .textDisabled
+)
+
 struct AppButtonStyle: ButtonStyle {
     var variant: ButtonVariant
 
@@ -46,6 +54,7 @@ struct AppButtonStyle: ButtonStyle {
         switch variant {
         case .secondary: secondaryColors
         case .tertiary: tertiaryColors
+        case .destructive: destructiveColors
         default: primaryColors
         }
     }
@@ -152,6 +161,12 @@ struct AppButton: View {
             text: LocalizedStringResource("Tertiary", table: "preview"),
             leftIcon: Icons.arrowLeft,
             rightIcon: Icons.arrowRight,
+            action: {}
+        ).controlSize(.large)
+
+        AppButton(
+            variant: .destructive,
+            text: LocalizedStringResource("Delete", table: "preview"),
             action: {}
         ).controlSize(.large)
     }

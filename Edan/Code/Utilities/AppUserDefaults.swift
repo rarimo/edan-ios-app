@@ -6,4 +6,8 @@ public class AppUserDefaults: ObservableObject {
 
     @AppStorage("is_intro_finished")
     public var isIntroFinished = false
+
+    func reset() {
+        isIntroFinished = false
+    }
 }

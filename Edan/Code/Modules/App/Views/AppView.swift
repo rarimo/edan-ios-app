@@ -1,24 +1,21 @@
 import SwiftUI
 
 struct AppView: View {
-    @State private var isIntroFinished = AppUserDefaults.shared.isIntroFinished {
-        didSet {
-            AppUserDefaults.shared.isIntroFinished = isIntroFinished
-        }
-    }
+    @StateObject var viewModel = ViewModel()
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if isIntroFinished {
+            if viewModel.isIntroFinished {
                 MainView()
             } else {
                 IntroView {
-                    isIntroFinished = true
+                    viewModel.isIntroFinished = true
                 }
             }
             AlertManagerView()
         }
         .background(Color.backgroundPure)
+        .environmentObject(viewModel)
     }
 }
 

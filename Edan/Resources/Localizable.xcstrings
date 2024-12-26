@@ -538,6 +538,9 @@
         }
       }
     },
+    "Delete the account" : {
+
+    },
     "Document class mode" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1441,7 +1444,6 @@
       }
     },
     "Settings" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {

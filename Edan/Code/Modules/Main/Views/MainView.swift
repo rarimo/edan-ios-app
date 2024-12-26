@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var isSettingsUp: Bool = false
+
     var body: some View {
         AppBackgroundContainer(
             content: {
@@ -13,6 +15,7 @@ struct MainView: View {
             },
             header: header
         )
+        .sheet(isPresented: $isSettingsUp, content: SettingsView.init)
     }
 
     func header() -> some View {
@@ -32,7 +35,7 @@ struct MainView: View {
     }
 
     var contentHeader: some View {
-        Button(action: {}) {
+        Button(action: { isSettingsUp = true }) {
             Image(systemName: "gearshape")
         }
     }
