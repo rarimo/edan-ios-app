@@ -7,7 +7,7 @@ class FeaturesUtils {
         let transformedFeatures = features.map { Int($0 * pow(2, 50)) }
 
         for feature in transformedFeatures {
-            var featureBytes = withUnsafeBytes(of: feature) { Data($0) }
+            let featureBytes = withUnsafeBytes(of: feature) { Data($0) }
 
             resultData.append(featureBytes)
         }
@@ -29,5 +29,15 @@ class FeaturesUtils {
         }
 
         return result
+    }
+
+    static func areFeaturesSimilar(_ features1: [Int], _ features2: [Int], _ threshold: Int = 50) -> Bool {
+        let sum = zip(features1, features2).reduce(0) {
+            let difference = ($1.0 - $1.1)
+
+            return $0 + (difference * 2)
+        }
+
+        return sum < threshold
     }
 }

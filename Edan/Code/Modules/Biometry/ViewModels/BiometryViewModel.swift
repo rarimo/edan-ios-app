@@ -143,15 +143,16 @@ class BiometryViewModel: ObservableObject {
 
         let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
         
-        LoggerUtil.common.debug("features: \(features.json.utf8)")
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
         
         let serializedFeatures = FeaturesUtils.serializeFeatures(features)
         
-        LoggerUtil.common.debug("serializedFeatures: \(serializedFeatures.base64EncodedString())")
-        LoggerUtil.common.debug("deserializedFeatures: \(FeaturesUtils.partlyDeserializeFeatures(serializedFeatures).json.utf8)")
-
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
-            
+        let similarFeatures = try await getSimilarFeatures(features)
+        
+        if FeaturesUtils.areFeaturesSimilar(inputs.features, similarFeatures) {
+            throw "Account already registered"
+        }
+        
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
         
@@ -214,5 +215,13 @@ class BiometryViewModel: ObservableObject {
         case .none:
             throw "failed to get proof"
         }
+    }
+    
+    func getSimilarFeatures(_ features: [Double]) async throws -> [Int] {
+        let serializedFeatures = FeaturesUtils.serializeFeatures(features)
+        
+        let response = try await ZKBiometricsSvc.shared.getValue(value: serializedFeatures)
+        
+        return FeaturesUtils.partlyDeserializeFeatures(response.data.attributes.value)
     }
 }

@@ -19,7 +19,7 @@ class ZKBiometricsSvc {
                 id: "",
                 type: "value",
                 attributes: .init(
-                    value: value.base64EncodedString()
+                    value: value
                 )
             )
         )
@@ -36,7 +36,7 @@ class ZKBiometricsSvc {
         .get()
     }
 
-    func getValue(_ key: String? = nil, _ value: Data? = nil) async throws -> ZKBiometricsValueResponse {
+    func getValue(key: String? = nil, value: Data? = nil) async throws -> ZKBiometricsValueResponse? {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
@@ -48,17 +48,27 @@ class ZKBiometricsSvc {
             requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value?.base64EncodedString())])
         }
 
-        return try await AF.request(
-            requestURL,
-            method: .get
-        )
-        .validate(OpenApiError.catchInstance)
-        .serializingDecodable(ZKBiometricsValueResponse.self)
-        .result
-        .get()
+        do {
+            return try await AF.request(
+                requestURL,
+                method: .get
+            )
+            .validate(OpenApiError.catchInstance)
+            .serializingDecodable(ZKBiometricsValueResponse.self)
+            .result
+            .get()
+        } catch {
+            let openApiHttpCode = try error.retriveOpenApiHttpCode()
+
+            if openApiHttpCode == HTTPStatusCode.notFound.rawValue {
+                return nil
+            }
+
+            throw error
+        }
     }
 
-    func deleteValue(_ key: String? = nil, _ value: Data? = nil) async throws -> ZKBiometricsValueResponse {
+    func deleteValue(key: String? = nil, value: Data? = nil) async throws -> ZKBiometricsValueResponse? {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
@@ -70,14 +80,24 @@ class ZKBiometricsSvc {
             requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value?.base64EncodedString())])
         }
 
-        return try await AF.request(
-            requestURL,
-            method: .delete
-        )
-        .validate(OpenApiError.catchInstance)
-        .serializingDecodable(ZKBiometricsValueResponse.self)
-        .result
-        .get()
+        do {
+            return try await AF.request(
+                requestURL,
+                method: .delete
+            )
+            .validate(OpenApiError.catchInstance)
+            .serializingDecodable(ZKBiometricsValueResponse.self)
+            .result
+            .get()
+        } catch {
+            let openApiHttpCode = try error.retriveOpenApiHttpCode()
+
+            if openApiHttpCode == HTTPStatusCode.notFound.rawValue {
+                return nil
+            }
+
+            throw error
+        }
     }
 }
 
@@ -91,7 +111,7 @@ struct ZKBiometricsAddValueRequestData: Codable {
 }
 
 struct ZKBiometricsAddValueRequestAttributes: Codable {
-    let value: String
+    let value: Data
 }
 
 struct ZKBiometricsValueResponse: Codable {
@@ -104,5 +124,6 @@ struct ZKBiometricsValueResponseData: Codable {
 }
 
 struct ZKBiometricsValueResponseAttributes: Codable {
-    let key, value: String
+    let key: String
+    let value: Data
 }
