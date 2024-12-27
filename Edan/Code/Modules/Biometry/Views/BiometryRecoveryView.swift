@@ -20,7 +20,7 @@ struct BiometryRecoveryView: View {
                 onError: { error in
                     LoggerUtil.common.error("Failed to recover by biometry: \(error)")
 
-                    AlertManager.shared.emitError("Failed to recover by biometry:")
+                    AlertManager.shared.emitError("\(error.localizedDescription)")
                 }
             )
         }

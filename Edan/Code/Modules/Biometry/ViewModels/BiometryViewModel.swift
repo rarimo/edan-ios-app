@@ -142,10 +142,22 @@ class BiometryViewModel: ObservableObject {
         let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
 
         let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+        
+        LoggerUtil.common.debug("features: \(features.json.utf8)")
+        
+        let serializedFeatures = FeaturesUtils.serializeFeatures(features)
+        
+        LoggerUtil.common.debug("serializedFeatures: \(serializedFeatures.base64EncodedString())")
+        LoggerUtil.common.debug("deserializedFeatures: \(FeaturesUtils.partlyDeserializeFeatures(serializedFeatures).json.utf8)")
 
         let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
             
-        let _ = try await generateFisherface(inputs.json)
+        let zkProof = try await generateFisherface(inputs.json)
+        let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
+        
+        if fisherfacePubSignals.getSignalRaw(.compirasionsResult) != "1" {
+            throw "Face not recognized"
+        }
         
         try AccountManager.shared.generateNewPrivateKey()
     }

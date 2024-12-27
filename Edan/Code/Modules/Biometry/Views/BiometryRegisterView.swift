@@ -20,7 +20,7 @@ struct BiometryRegisterView: View {
                 onError: { error in
                     LoggerUtil.common.error("Failed to create by biometry: \(error)")
 
-                    AlertManager.shared.emitError("Failed to create by biometry:")
+                    AlertManager.shared.emitError("\(error.localizedDescription)")
                 }
             )
         }

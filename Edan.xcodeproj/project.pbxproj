@@ -77,6 +77,8 @@
 		CE1D92902D1DB0EC008979AF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = CE1D928F2D1DB0EC008979AF /* CodeScanner */; };
 		CE1D92922D1DB162008979AF /* CameraPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */; };
 		CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */; };
+		CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92952D1DC904008979AF /* PubSignals.swift */; };
+		CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
@@ -204,6 +206,8 @@
 		CE1D928C2D1DB090008979AF /* ScanQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQR.swift; sourceTree = "<group>"; };
 		CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionView.swift; sourceTree = "<group>"; };
 		CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKBiometricsSvc.swift; sourceTree = "<group>"; };
+		CE1D92952D1DC904008979AF /* PubSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubSignals.swift; sourceTree = "<group>"; };
+		CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesUtils.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */,
 				CE1D92812D1D97C8008979AF /* QRUtils.swift */,
 				CE1D927D2D1D8C77008979AF /* PreviewUtils.swift */,
 				5655E42D2BD2C94F00B86C5C /* AppUserDefaults.swift */,
@@ -563,6 +568,7 @@
 		CE8FEB602C1B03A70008381A /* Circuits */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D92952D1DC904008979AF /* PubSignals.swift */,
 				CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */,
 			);
 			path = Circuits;
@@ -801,6 +807,7 @@
 				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
+				CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */,
 				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
@@ -839,6 +846,7 @@
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
 				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
+				CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */,
 				CE1D928D2D1DB094008979AF /* ScanQR.swift in Sources */,
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
 				CE3477622C78892F005E91FE /* View+Align.swift in Sources */,
