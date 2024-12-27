@@ -147,10 +147,12 @@ class BiometryViewModel: ObservableObject {
         
         let serializedFeatures = FeaturesUtils.serializeFeatures(features)
         
-        let similarFeatures = try await getSimilarFeatures(features)
+        let similarFeatures = try await getSimilarFeatures(serializedFeatures)
         
-        if FeaturesUtils.areFeaturesSimilar(inputs.features, similarFeatures) {
-            throw "Account already registered"
+        if let similarFeatures {
+            if FeaturesUtils.areFeaturesSimilar(inputs.features, similarFeatures) {
+                throw "Account already registered"
+            }
         }
         
         let zkProof = try await generateFisherface(inputs.json)
@@ -161,6 +163,8 @@ class BiometryViewModel: ObservableObject {
         }
         
         try AccountManager.shared.generateNewPrivateKey()
+        
+        _ = try await ZKBiometricsSvc.shared.addValue(serializedFeatures)
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {
@@ -217,10 +221,10 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func getSimilarFeatures(_ features: [Double]) async throws -> [Int] {
-        let serializedFeatures = FeaturesUtils.serializeFeatures(features)
-        
-        let response = try await ZKBiometricsSvc.shared.getValue(value: serializedFeatures)
+    func getSimilarFeatures(_ serializedFeatures: Data) async throws -> [Int]? {
+        guard let response = try await ZKBiometricsSvc.shared.getValue(value: serializedFeatures) else {
+            return nil
+        }
         
         return FeaturesUtils.partlyDeserializeFeatures(response.data.attributes.value)
     }
