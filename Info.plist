@@ -22,5 +22,7 @@
 		<string>Inter-Regular.ttf</string>
 		<string>Inter-SemiBold.ttf</string>
 	</array>
+	<key>ORGS_API</key>
+	<string>${ORGS_API}</string>
 </dict>
 </plist>

@@ -19,7 +19,7 @@ class ZKBiometricsSvc {
                 id: "",
                 type: "value",
                 attributes: .init(
-                    value: value
+                    value: value.hex
                 )
             )
         )
@@ -40,12 +40,12 @@ class ZKBiometricsSvc {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
-        if key != nil {
+        if let key {
             requestURL.append(queryItems: [URLQueryItem(name: "filter[key]", value: key)])
         }
 
-        if value != nil {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value?.base64EncodedString())])
+        if let value {
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value.hex)])
         }
 
         do {
@@ -72,12 +72,12 @@ class ZKBiometricsSvc {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
-        if key != nil {
+        if let key {
             requestURL.append(queryItems: [URLQueryItem(name: "filter[key]", value: key)])
         }
 
-        if value != nil {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value?.base64EncodedString())])
+        if let value {
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value.hex)])
         }
 
         do {
@@ -111,7 +111,7 @@ struct ZKBiometricsAddValueRequestData: Codable {
 }
 
 struct ZKBiometricsAddValueRequestAttributes: Codable {
-    let value: Data
+    let value: String
 }
 
 struct ZKBiometricsValueResponse: Codable {
@@ -125,5 +125,5 @@ struct ZKBiometricsValueResponseData: Codable {
 
 struct ZKBiometricsValueResponseAttributes: Codable {
     let key: String
-    let value: Data
+    let value: String
 }

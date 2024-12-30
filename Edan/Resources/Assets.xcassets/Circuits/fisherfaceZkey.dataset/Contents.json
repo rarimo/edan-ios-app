@@ -2,7 +2,8 @@
   "data" : [
     {
       "filename" : "circuit_final.zkey",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "universal-type-identifier" : "dyn.ah62d4rv4ge81y45fte"
     }
   ],
   "info" : {

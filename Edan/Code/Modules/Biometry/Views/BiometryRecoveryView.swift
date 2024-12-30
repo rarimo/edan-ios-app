@@ -21,6 +21,8 @@ struct BiometryRecoveryView: View {
                     LoggerUtil.common.error("Failed to recover by biometry: \(error)")
 
                     AlertManager.shared.emitError("\(error.localizedDescription)")
+
+                    onBack()
                 }
             )
         }

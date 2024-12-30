@@ -59,6 +59,7 @@ enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
 class BiometryViewModel: ObservableObject {
     @Published var currentFrame: CGImage?
     @Published var faceImage: UIImage?
+    var faceImages: [UIImage] = []
         
     private let cameraManager = BiomatryCaptureSession()
         
@@ -115,7 +116,7 @@ class BiometryViewModel: ObservableObject {
                 }
                     
                 let faceImage = try ZKFaceManager.shared.extractFaceFromImage(UIImage(cgImage: image))
-                guard let faceImage = faceImage else {
+                guard let faceImage else {
                     if loadingProgress > 0 {
                         loadingProgress -= 0.01
                     }
@@ -128,6 +129,8 @@ class BiometryViewModel: ObservableObject {
                         
                     return
                 }
+                
+                faceImages.append(faceImage)
                     
                 loadingProgress += 0.01
             } catch {
@@ -143,17 +146,21 @@ class BiometryViewModel: ObservableObject {
 
         let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
         
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
-        
         let serializedFeatures = FeaturesUtils.serializeFeatures(features)
         
         let similarFeatures = try await getSimilarFeatures(serializedFeatures)
         
         if let similarFeatures {
-            if FeaturesUtils.areFeaturesSimilar(inputs.features, similarFeatures) {
+            let featureToCompare = features.map { Int($0 * pow(2, 50)) }
+            
+            if FeaturesUtils.areFeaturesSimilar(featureToCompare, similarFeatures) {
                 throw "Account already registered"
             }
+        } else {
+            LoggerUtil.common.info("No similar features found")
         }
+        
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features, 0)
         
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
@@ -174,7 +181,7 @@ class BiometryViewModel: ObservableObject {
 
         let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
 
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features)
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features, 0)
             
         let _ = try await generateFisherface(inputs.json)
         
@@ -226,6 +233,10 @@ class BiometryViewModel: ObservableObject {
             return nil
         }
         
-        return FeaturesUtils.partlyDeserializeFeatures(response.data.attributes.value)
+        guard let serializedFeatures = Data(hex: response.data.attributes.value) else {
+            throw "Failed to decode serialized features"
+        }
+        
+        return FeaturesUtils.partlyDeserializeFeatures(serializedFeatures)
     }
 }

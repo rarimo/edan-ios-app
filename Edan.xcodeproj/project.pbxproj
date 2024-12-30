@@ -109,6 +109,7 @@
 		CEC562112BD926AA002D4954 /* ZKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC562102BD926AA002D4954 /* ZKUtils.swift */; };
 		CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562132BD9281A002D4954 /* libresolv.9.tbd */; };
 		CEC9D8E72BFF41A800EACD0F /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D8E62BFF41A800EACD0F /* HTTPStatusCode.swift */; };
+		CED039062D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED039052D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a */; };
 		CED314692C04889D00DF31D5 /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */; };
 		CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC4D822BE949F300459D4E /* Ethereum.swift */; };
 		CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */; };
@@ -116,7 +117,6 @@
 		CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4FEA82CFDB851007C31F3 /* libfr.a */; };
 		CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */; };
 		CEFD130C2D131E8800164DA6 /* FisherFaceInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */; };
-		CEFD13112D13249100164DA6 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFD13102D13249100164DA6 /* libwitnesscalc_fisherface.a */; };
 		CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF68B62CB685C5008769EA /* Data+FindSubarrayIndex.swift */; };
 		CEFF68B92CB692A7008769EA /* BN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF68B82CB692A7008769EA /* BN.swift */; };
 		CEFF68BF2CB6A3E7008769EA /* CircuitBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF68BE2CB6A3E7008769EA /* CircuitBuilderManager.swift */; };
@@ -240,6 +240,7 @@
 		CEC562132BD9281A002D4954 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		CEC562142BD9281A002D4954 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CEC9D8E62BFF41A800EACD0F /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		CED039052D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
 		CEDC4D822BE949F300459D4E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
@@ -248,7 +249,6 @@
 		CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgmp.a; sourceTree = "<group>"; };
 		CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisherFaceInputs.swift; sourceTree = "<group>"; };
 		CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_fisherface.h; sourceTree = "<group>"; };
-		CEFD13102D13249100164DA6 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CEFF68B62CB685C5008769EA /* Data+FindSubarrayIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+FindSubarrayIndex.swift"; sourceTree = "<group>"; };
 		CEFF68B82CB692A7008769EA /* BN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BN.swift; sourceTree = "<group>"; };
 		CEFF68BE2CB6A3E7008769EA /* CircuitBuilderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBuilderManager.swift; sourceTree = "<group>"; };
@@ -261,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D92872D1DA689008979AF /* QRCode in Frameworks */,
+				CED039062D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */,
 				CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */,
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
@@ -268,7 +269,6 @@
 				CEC562072BD923B4002D4954 /* libfq.a in Frameworks */,
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
-				CEFD13112D13249100164DA6 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
@@ -692,7 +692,7 @@
 				CEC562022BD923B4002D4954 /* libfq.a */,
 				CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */,
 				CEC561FC2BD923B3002D4954 /* librapidsnark.a */,
-				CEFD13102D13249100164DA6 /* libwitnesscalc_fisherface.a */,
+				CED039052D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a */,
 				CEC562132BD9281A002D4954 /* libresolv.9.tbd */,
 				CEC562142BD9281A002D4954 /* libresolv.tbd */,
 			);
