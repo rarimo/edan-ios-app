@@ -1,5 +1,6 @@
 import Alamofire
 import Foundation
+import UIKit
 
 class ZKBiometricsSvc {
     static let shared = ZKBiometricsSvc()
@@ -10,7 +11,7 @@ class ZKBiometricsSvc {
         url = ConfigManager.shared.general.orgsApi
     }
 
-    func addValue(_ value: Data) async throws -> ZKBiometricsValueResponse {
+    func addValue(_ feature: [Double]) async throws -> ZKBiometricsValueResponse {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
@@ -19,7 +20,7 @@ class ZKBiometricsSvc {
                 id: "",
                 type: "value",
                 attributes: .init(
-                    value: value.hex
+                    feature: feature
                 )
             )
         )
@@ -36,22 +37,28 @@ class ZKBiometricsSvc {
         .get()
     }
 
-    func getValue(key: String? = nil, value: Data? = nil) async throws -> ZKBiometricsValueResponse? {
+    func getValue(_ features: [[Double]]) async throws -> ZKBiometricsValueResponse? {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
-        if let key {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[key]", value: key)])
-        }
+        let request = ZKBiometricsGetValueRequest(
+            data: .init(
+                id: "",
+                type: "value",
+                attributes: .init(
+                    features: features
+                )
+            )
+        )
 
-        if let value {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value.hex)])
-        }
+        UIPasteboard.general.string = request.json.utf8
 
         do {
             return try await AF.request(
                 requestURL,
-                method: .get
+                method: .patch,
+                parameters: request,
+                encoder: JSONParameterEncoder.default
             )
             .validate(OpenApiError.catchInstance)
             .serializingDecodable(ZKBiometricsValueResponse.self)
@@ -111,7 +118,20 @@ struct ZKBiometricsAddValueRequestData: Codable {
 }
 
 struct ZKBiometricsAddValueRequestAttributes: Codable {
-    let value: String
+    let feature: [Double]
+}
+
+struct ZKBiometricsGetValueRequest: Codable {
+    let data: ZKBiometricsGetValueRequestData
+}
+
+struct ZKBiometricsGetValueRequestData: Codable {
+    let id, type: String
+    let attributes: ZKBiometricsGetValueRequestAttributes
+}
+
+struct ZKBiometricsGetValueRequestAttributes: Codable {
+    let features: [[Double]]
 }
 
 struct ZKBiometricsValueResponse: Codable {
@@ -125,5 +145,5 @@ struct ZKBiometricsValueResponseData: Codable {
 
 struct ZKBiometricsValueResponseAttributes: Codable {
     let key: String
-    let value: String
+    let feature: [Double]
 }

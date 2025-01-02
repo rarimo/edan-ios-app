@@ -84,6 +84,10 @@ class ZKFaceManager {
         var features = [Double](repeating: 0, count: ZKFaceModel.matrix.count)
         for featureIndex in 0 ..< features.count {
             for weightIndex in 0 ..< ZKFaceModel.matrix[featureIndex].count {
+                if weightIndex >= subImage.count {
+                    continue
+                }
+
                 features[featureIndex] += ZKFaceModel.matrix[featureIndex][weightIndex] * subImage[weightIndex]
             }
         }

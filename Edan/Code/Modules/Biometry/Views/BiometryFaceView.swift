@@ -197,14 +197,10 @@ struct BiometryFaceView: View {
 
     func runRegisterProcess() {
         uiProcessingTask = Task { @MainActor in
-            guard let image = viewModel.faceImage else {
-                return
-            }
-
             var isRecovered = false
             processingTask = Task {
                 do {
-                    try await viewModel.registerByBiometry(image)
+                    try await viewModel.registerByBiometry()
 
                     isRecovered = true
                 } catch {

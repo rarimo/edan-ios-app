@@ -139,28 +139,39 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func registerByBiometry(_ image: UIImage) async throws {
-        let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
-
-        let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
-
-        let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+    func registerByBiometry() async throws {
+        guard let mainFaceImage = faceImage else {
+            throw "No face image found"
+        }
         
-        let serializedFeatures = FeaturesUtils.serializeFeatures(features)
+        var imagesFeatures: [[Double]] = []
+        for image in faceImages {
+            let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
+            
+            let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
+            
+            let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            
+            imagesFeatures.append(features)
+        }
         
-        let similarFeatures = try await getSimilarFeatures(serializedFeatures)
+        let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
+        
+        let similarFeatures = try await getSimilarFeatures(imagesFeatures)
         
         if let similarFeatures {
-            let featureToCompare = features.map { Int($0 * pow(2, 50)) }
-            
-            if FeaturesUtils.areFeaturesSimilar(featureToCompare, similarFeatures) {
+            if FeaturesUtils.areFeaturesSimilar(features, similarFeatures) {
                 throw "Account already registered"
             }
         } else {
             LoggerUtil.common.info("No similar features found")
         }
         
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features, 0)
+        let (_, mainGrayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(mainFaceImage)
+        
+        let mainComputableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(mainGrayscalePixelsData)
+        
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, features, 0)
         
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
@@ -171,7 +182,7 @@ class BiometryViewModel: ObservableObject {
         
         try AccountManager.shared.generateNewPrivateKey()
         
-        _ = try await ZKBiometricsSvc.shared.addValue(serializedFeatures)
+        _ = try await ZKBiometricsSvc.shared.addValue(features)
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {
@@ -228,15 +239,11 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func getSimilarFeatures(_ serializedFeatures: Data) async throws -> [Int]? {
-        guard let response = try await ZKBiometricsSvc.shared.getValue(value: serializedFeatures) else {
+    func getSimilarFeatures(_ features: [[Double]]) async throws -> [Double]? {
+        guard let response = try await ZKBiometricsSvc.shared.getValue(features) else {
             return nil
         }
         
-        guard let serializedFeatures = Data(hex: response.data.attributes.value) else {
-            throw "Failed to decode serialized features"
-        }
-        
-        return FeaturesUtils.partlyDeserializeFeatures(serializedFeatures)
+        return response.data.attributes.feature
     }
 }

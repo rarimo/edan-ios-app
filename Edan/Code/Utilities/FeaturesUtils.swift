@@ -31,7 +31,7 @@ class FeaturesUtils {
         return result
     }
 
-    static func areFeaturesSimilar(_ features1: [Int], _ features2: [Int], _ threshold: Int = 50) -> Bool {
+    static func areFeaturesSimilar(_ features1: [Double], _ features2: [Double], _ threshold: Double = 50) -> Bool {
         let sum = zip(features1, features2).reduce(0) {
             let difference = ($1.0 - $1.1)
 
@@ -39,5 +39,18 @@ class FeaturesUtils {
         }
 
         return sum < threshold
+    }
+
+    static func calculateAverageFeatures(_ features: [[Double]]) -> [Double] {
+        if features.isEmpty { return [] }
+
+        var averageFeatures = [Double](repeating: 0, count: features[0].count)
+        for feature in features {
+            for index in 0 ..< feature.count {
+                averageFeatures[index] += feature[index]
+            }
+        }
+
+        return averageFeatures.map { $0 / Double(features.count) }
     }
 }
