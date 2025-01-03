@@ -12,6 +12,7 @@ extension ConfigManager {
 
         let evmRpcURL: URL
         let orgsApi: URL
+        let accountFactoryAddress: String
 
         init() {
             do {
@@ -19,6 +20,7 @@ extension ConfigManager {
 
                 self.evmRpcURL = try readURLFromInfoPlist(key: "EVM_RPC_URL")
                 self.orgsApi = try readURLFromInfoPlist(key: "ORGS_API")
+                self.accountFactoryAddress = try readFromInfoPlist(key: "ACCOUNT_FACTORY_ADDRESS")
             } catch {
                 fatalError("ConfigManager.General init error: \(error.localizedDescription)")
             }

@@ -112,6 +112,8 @@
 		CED314692C04889D00DF31D5 /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */; };
 		CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */; };
 		CEDA6FC62D281B5300CF5780 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA6FC52D281B5300CF5780 /* Identity.xcframework */; };
+		CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FC72D28235D00CF5780 /* Contracts.swift */; };
+		CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */; };
 		CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC4D822BE949F300459D4E /* Ethereum.swift */; };
 		CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */; };
 		CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */; };
@@ -244,6 +246,8 @@
 		CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
 		CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalldataBuilderManager.swift; sourceTree = "<group>"; };
 		CEDA6FC52D281B5300CF5780 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
+		CEDA6FC72D28235D00CF5780 /* Contracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
+		CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFactory.swift; sourceTree = "<group>"; };
 		CEDC4D822BE949F300459D4E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 		5655E4262BD2C3F500B86C5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA6FC92D28254E00CF5780 /* Contracts */,
 				CE7E957B2CE7577800D86A4F /* Errors */,
 				CE7E957A2CE7574200D86A4F /* Blockchain */,
 				CE7E95792CE7572800D86A4F /* Services */,
@@ -361,6 +366,7 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA6FC72D28235D00CF5780 /* Contracts.swift */,
 				CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */,
 				561C3C382BADE64B00FBB3B9 /* Fonts.swift */,
 				561C3C272BADA8A600FBB3B9 /* Icons.swift */,
@@ -702,6 +708,14 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEDA6FC92D28254E00CF5780 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -823,6 +837,7 @@
 				CEFF68C12CB6AF46008769EA /* Encodable+json.swift in Sources */,
 				5655E4372BD51E8E00B86C5C /* AppKeychain.swift in Sources */,
 				CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */,
+				CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */,
 				5655E42A2BD2C7C800B86C5C /* ConfigManager.swift in Sources */,
 				CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */,
 				CE1D92922D1DB162008979AF /* CameraPermissionView.swift in Sources */,
@@ -854,6 +869,7 @@
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
 				CE3477622C78892F005E91FE /* View+Align.swift in Sources */,
 				5641CC452C874E2B007B7A0D /* AppAlert.swift in Sources */,
+				CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */,
 				C71161B32CAAE3DB00ED41EA /* String+BigUInt.swift in Sources */,
 				CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */,
 				CE1D92822D1D97D4008979AF /* QRUtils.swift in Sources */,

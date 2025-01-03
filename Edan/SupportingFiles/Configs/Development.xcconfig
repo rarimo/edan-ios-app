@@ -1,4 +1,5 @@
 // MARK: General
 SLASH=/
-EVM_RPC_URL = "https:${SLASH}/rpc.infura.com"
+EVM_RPC_URL = "https:${SLASH}/sepolia.infura.io/v3/2UZ3rtMnen5HQQGlIwzYR5zcnQZ"
 ORGS_API = "https:${SLASH}/api.orgs.app.stage.rarime.com"
+ACCOUNT_FACTORY_ADDRESS = "0xA59354eb5Ce883A49634017dfea1bAca598E32f1"
