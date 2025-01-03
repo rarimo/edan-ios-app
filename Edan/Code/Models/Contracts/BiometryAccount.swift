@@ -18,7 +18,7 @@ class BiometryAccount {
         )
     }
     
-    func recoveryNonce() throws -> BigUInt {
+    func recoveryNonce() async throws -> BigUInt {
         let response = try contract["recoveryNonce"]!().call().wait()
         
         guard let nonce = response[""] as? BigUInt else {

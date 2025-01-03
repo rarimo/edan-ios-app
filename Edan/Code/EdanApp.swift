@@ -6,6 +6,7 @@ struct EdanApp: App {
         WindowGroup {
             AppView()
                 .environmentObject(AlertManager.shared)
+                .environmentObject(WalletManager.shared)
         }
     }
 }

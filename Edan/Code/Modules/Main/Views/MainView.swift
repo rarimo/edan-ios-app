@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject private var walletManager: WalletManager
+
     @StateObject var viewModel = MainView.ViewModel()
 
     @State private var isSettingsUp: Bool = false
@@ -69,11 +71,23 @@ struct MainView: View {
     }
 
     var balance: some View {
-        HStack {
-            Text(WalletManager.shared.balanceString)
-                .h3()
-            Text(WalletManager.shared.tokenName)
-                .h6()
+        Button(action: {
+            walletManager.updateBalance()
+        }) {
+            HStack {
+                VStack {
+                    if walletManager.isBalanceLoading {
+                        ProgressView()
+                            .controlSize(.regular)
+                    } else {
+                        Text(WalletManager.shared.balanceString)
+                            .h3()
+                    }
+                }
+                .frame(height: 30)
+                Text(WalletManager.shared.tokenName)
+                    .h6()
+            }
         }
     }
 
@@ -129,4 +143,5 @@ struct ActionButton: View {
 
 #Preview {
     return MainView()
+        .environmentObject(WalletManager.shared)
 }
