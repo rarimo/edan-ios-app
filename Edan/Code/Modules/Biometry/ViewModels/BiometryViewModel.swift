@@ -182,6 +182,13 @@ class BiometryViewModel: ObservableObject {
         
         try AccountManager.shared.generateNewPrivateKey()
         
+        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount(zkProof)
+        
+        let response = try await ZKBiometricsSvc.shared.relay(
+            registerCalldata,
+            ConfigManager.shared.general.accountFactoryAddress
+        )
+        
         _ = try await ZKBiometricsSvc.shared.addValue(features)
     }
         
