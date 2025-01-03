@@ -62,7 +62,6 @@
 		CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */; };
 		CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926C2D1C502E008979AF /* WalletManager.swift */; };
 		CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D926E2D1C5261008979AF /* AccountManager.swift */; };
-		CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D92702D1C5718008979AF /* Identity.xcframework */; };
 		CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92722D1D66B1008979AF /* SettingsView.swift */; };
 		CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */; };
 		CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92792D1D78F0008979AF /* MainView+ViewModel.swift */; };
@@ -111,6 +110,8 @@
 		CEC9D8E72BFF41A800EACD0F /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D8E62BFF41A800EACD0F /* HTTPStatusCode.swift */; };
 		CED039062D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED039052D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a */; };
 		CED314692C04889D00DF31D5 /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */; };
+		CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */; };
+		CEDA6FC62D281B5300CF5780 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA6FC52D281B5300CF5780 /* Identity.xcframework */; };
 		CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC4D822BE949F300459D4E /* Ethereum.swift */; };
 		CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */; };
 		CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */; };
@@ -193,7 +194,6 @@
 		CE1D92682D1C3E67008979AF /* BiometryRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryRegisterView.swift; sourceTree = "<group>"; };
 		CE1D926C2D1C502E008979AF /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		CE1D926E2D1C5261008979AF /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		CE1D92702D1C5718008979AF /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE1D92722D1D66B1008979AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CE1D92762D1D6E06008979AF /* AppView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView+ViewModel.swift"; sourceTree = "<group>"; };
 		CE1D92792D1D78F0008979AF /* MainView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -242,6 +242,8 @@
 		CEC9D8E62BFF41A800EACD0F /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		CED039052D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CED314682C04889D00DF31D5 /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
+		CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalldataBuilderManager.swift; sourceTree = "<group>"; };
+		CEDA6FC52D281B5300CF5780 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEDC4D822BE949F300459D4E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -262,7 +264,6 @@
 			files = (
 				CE1D92872D1DA689008979AF /* QRCode in Frameworks */,
 				CED039062D1EB5F9009E9FC4 /* libwitnesscalc_fisherface.a in Frameworks */,
-				CE1D92712D1C5718008979AF /* Identity.xcframework in Frameworks */,
 				CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */,
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
 				CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */,
@@ -270,6 +271,7 @@
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
+				CEDA6FC62D281B5300CF5780 /* Identity.xcframework in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
@@ -318,6 +320,7 @@
 		5655E41D2BD2C38E00B86C5C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */,
 				CE1D926E2D1C5261008979AF /* AccountManager.swift */,
 				CE1D926C2D1C502E008979AF /* WalletManager.swift */,
 				CE397C392D11D372000D254F /* ZKFaceManager.swift */,
@@ -684,7 +687,7 @@
 		CEC562122BD92804002D4954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE1D92702D1C5718008979AF /* Identity.xcframework */,
+				CEDA6FC52D281B5300CF5780 /* Identity.xcframework */,
 				CEC561FF2BD923B3002D4954 /* bridge.h */,
 				CEC562002BD923B3002D4954 /* prover.h */,
 				CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */,
@@ -855,6 +858,7 @@
 				CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */,
 				CE1D92822D1D97D4008979AF /* QRUtils.swift in Sources */,
 				CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */,
+				CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */,
 				CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */,
 				563529EB2BB072FD0027C910 /* UINavigationController+HiddenNavBar.swift in Sources */,
 				C75512942C870AFD000258AD /* StepIndicator.swift in Sources */,

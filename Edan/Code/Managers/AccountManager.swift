@@ -1,5 +1,6 @@
 import Foundation
 import Identity
+import Web3
 
 class AccountManager {
     static let shared = AccountManager()
@@ -18,5 +19,9 @@ class AccountManager {
         try? AppKeychain.setValue(.privateKey, privateKey)
 
         self.privateKey = privateKey
+    }
+
+    var ethreumAddress: String {
+        return (try? EthereumPrivateKey(privateKey).address.hex(eip55: false)) ?? ""
     }
 }
