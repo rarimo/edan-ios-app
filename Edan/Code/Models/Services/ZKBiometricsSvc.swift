@@ -51,8 +51,6 @@ class ZKBiometricsSvc {
             )
         )
 
-        UIPasteboard.general.string = request.json.utf8
-
         do {
             return try await AF.request(
                 requestURL,
