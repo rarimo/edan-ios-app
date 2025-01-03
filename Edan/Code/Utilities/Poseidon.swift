@@ -1,7 +1,7 @@
 import Foundation
 import Identity
 
-class PoseidonHash {
+class Poseidon {
     static func hash(_ data: [Data]) throws -> Data {
         let poseidonHash = IdentityNewPoseidonHash()
         guard let poseidonHash else { throw "failed to create PoseidonHash" }

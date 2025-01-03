@@ -114,7 +114,7 @@
 		CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FC72D28235D00CF5780 /* Contracts.swift */; };
 		CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */; };
 		CEDA6FCD2D282AC700CF5780 /* BiometryAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCC2D282AC100CF5780 /* BiometryAccount.swift */; };
-		CEDA6FCF2D283F2400CF5780 /* PoseidonHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCE2D283F2100CF5780 /* PoseidonHash.swift */; };
+		CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */; };
 		CEDA6FD12D283F7B00CF5780 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA6FD02D283F7B00CF5780 /* Identity.xcframework */; };
 		CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC4D822BE949F300459D4E /* Ethereum.swift */; };
 		CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */; };
@@ -250,7 +250,7 @@
 		CEDA6FC72D28235D00CF5780 /* Contracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
 		CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFactory.swift; sourceTree = "<group>"; };
 		CEDA6FCC2D282AC100CF5780 /* BiometryAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryAccount.swift; sourceTree = "<group>"; };
-		CEDA6FCE2D283F2100CF5780 /* PoseidonHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseidonHash.swift; sourceTree = "<group>"; };
+		CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poseidon.swift; sourceTree = "<group>"; };
 		CEDA6FD02D283F7B00CF5780 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEDC4D822BE949F300459D4E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CEDA6FCE2D283F2100CF5780 /* PoseidonHash.swift */,
+				CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */,
 				CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */,
 				CE1D92812D1D97C8008979AF /* QRUtils.swift */,
 				CE1D927D2D1D8C77008979AF /* PreviewUtils.swift */,
@@ -860,7 +860,7 @@
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
 				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
-				CEDA6FCF2D283F2400CF5780 /* PoseidonHash.swift in Sources */,
+				CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
 				CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
