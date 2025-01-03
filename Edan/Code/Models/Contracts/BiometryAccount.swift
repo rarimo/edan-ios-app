@@ -4,16 +4,12 @@ import Web3PromiseKit
 
 import Foundation
 
-class AccountFactory {
-    static let shared = AccountFactory()
-    
+class BiometryAccount {
     let web3: Web3
     let contract: DynamicContract
     
-    init() {
+    init(_ contractAccount: EthereumAddress) {
         self.web3 = Web3(rpcURL: ConfigManager.shared.general.evmRpcURL.absoluteString)
-        
-        let contractAccount = try! EthereumAddress(hex: ConfigManager.shared.general.accountFactoryAddress, eip55: false)
         
         self.contract = try! web3.eth.Contract(
             json: Contracts.accountFactoryABI,
@@ -22,13 +18,13 @@ class AccountFactory {
         )
     }
     
-    func getAccount(_ biometricHash: Data) async throws -> EthereumAddress {
-        let response = try contract["getAccount"]!(biometricHash).call().wait()
+    func recoveryNonce() throws -> BigUInt {
+        let response = try contract["recoveryNonce"]!().call().wait()
         
-        guard let account = response[""] as? EthereumAddress else {
+        guard let nonce = response[""] as? BigUInt else {
             throw "Response does not contain root"
         }
         
-        return account
+        return nonce
     }
 }

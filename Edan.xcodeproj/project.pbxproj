@@ -114,6 +114,7 @@
 		CEDA6FC62D281B5300CF5780 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA6FC52D281B5300CF5780 /* Identity.xcframework */; };
 		CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FC72D28235D00CF5780 /* Contracts.swift */; };
 		CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */; };
+		CEDA6FCD2D282AC700CF5780 /* BiometryAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6FCC2D282AC100CF5780 /* BiometryAccount.swift */; };
 		CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC4D822BE949F300459D4E /* Ethereum.swift */; };
 		CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */; };
 		CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */; };
@@ -248,6 +249,7 @@
 		CEDA6FC52D281B5300CF5780 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEDA6FC72D28235D00CF5780 /* Contracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
 		CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFactory.swift; sourceTree = "<group>"; };
+		CEDA6FCC2D282AC100CF5780 /* BiometryAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryAccount.swift; sourceTree = "<group>"; };
 		CEDC4D822BE949F300459D4E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		CEDC57932CA2CA4100F02132 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 		CEDA6FC92D28254E00CF5780 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA6FCC2D282AC100CF5780 /* BiometryAccount.swift */,
 				CEDA6FCA2D28255400CF5780 /* AccountFactory.swift */,
 			);
 			path = Contracts;
@@ -837,6 +840,7 @@
 				CEFF68C12CB6AF46008769EA /* Encodable+json.swift in Sources */,
 				5655E4372BD51E8E00B86C5C /* AppKeychain.swift in Sources */,
 				CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */,
+				CEDA6FCD2D282AC700CF5780 /* BiometryAccount.swift in Sources */,
 				CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */,
 				5655E42A2BD2C7C800B86C5C /* ConfigManager.swift in Sources */,
 				CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */,
