@@ -268,8 +268,6 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        _ = try await ZKBiometricsSvc.shared.addValue(features)
-        
         AppUserDefaults.shared.faceFeatures = features.json
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
