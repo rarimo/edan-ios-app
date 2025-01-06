@@ -119,6 +119,10 @@ class BiometryViewModel: ObservableObject {
                 guard let faceImage else {
                     if loadingProgress > 0 {
                         loadingProgress -= 0.01
+                        
+                        if faceImages.count > 0 {
+                            faceImages.removeLast()
+                        }
                     }
                         
                     return
@@ -180,6 +184,15 @@ class BiometryViewModel: ObservableObject {
             throw "Face not recognized"
         }
         
+//        let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
+//
+//        let localFeatureHash = try FeaturesUtils.hashFeatures(features)
+//
+//        LoggerUtil.common.debug("zkFeatureHash: \(zkFeatureHash.fullHex())")
+//        LoggerUtil.common.debug("localFeatureHash: \(localFeatureHash.fullHex)")
+//
+//        throw "a"
+        
         try AccountManager.shared.generateNewPrivateKey()
         
         let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount(zkProof)
@@ -188,6 +201,8 @@ class BiometryViewModel: ObservableObject {
             registerCalldata,
             ConfigManager.shared.general.accountFactoryAddress
         )
+        
+        try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
         _ = try await ZKBiometricsSvc.shared.addValue(features)
     }
