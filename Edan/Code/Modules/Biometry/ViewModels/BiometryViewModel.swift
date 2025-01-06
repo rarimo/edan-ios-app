@@ -144,6 +144,8 @@ class BiometryViewModel: ObservableObject {
     }
     
     func registerByBiometry() async throws {
+        LoggerUtil.common.info("Start register by biometry")
+        
         guard let mainFaceImage = faceImage else {
             throw "No face image found"
         }
@@ -201,6 +203,8 @@ class BiometryViewModel: ObservableObject {
             registerCalldata,
             ConfigManager.shared.general.accountFactoryAddress
         )
+        
+        LoggerUtil.common.info("Register by biometry TX hash: \(response.data.attributes.txHash)")
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
