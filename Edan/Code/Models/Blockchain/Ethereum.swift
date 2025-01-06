@@ -67,6 +67,12 @@ class Ethereum {
         let addressWithoutPrefix = address.dropFirst(2)
         return addressWithoutPrefix.unicodeScalars.allSatisfy { validHexChars.contains($0) }
     }
+    
+    static func toEthSignedMessage(_ message: Data) -> Data {
+        let prefix = "\u{19}Ethereum Signed Message:\n\(message.count)".data(using: .utf8) ?? Data()
+        
+        return prefix + message
+    }
 }
 
 struct EvmTxResponse: Codable {

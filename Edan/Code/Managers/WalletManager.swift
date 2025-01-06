@@ -91,4 +91,25 @@ class WalletManager: ObservableObject {
     func retriveAccountAddress() async throws -> EthereumAddress {
         return try await AccountFactory.shared.getAccount(AccountManager.shared.featuresHash)
     }
+
+    func transferERC20(
+        _ to: EthereumAddress,
+        _ amount: BigUInt
+    ) async throws {
+        let token = try EthereumAddress(hex: ConfigManager.shared.general.erc20Address, eip55: false)
+
+        let addressAccount = try EthereumAddress(hex: accountAddress, eip55: false)
+
+        let biometryAccount = BiometryAccount(addressAccount)
+
+        let signHash = try await biometryAccount.getTransferERC20SignHash(token, to, amount)
+
+        let signedMessage = Ethereum.toEthSignedMessage(signHash)
+
+        let signer = try EthereumPrivateKey(privateKey: [UInt8](AccountManager.shared.privateKey))
+
+        let (v, r, s) = try signer.sign(message: [UInt8](signedMessage))
+
+        let signature = r + s + [v]
+    }
 }

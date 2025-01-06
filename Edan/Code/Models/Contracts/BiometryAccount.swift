@@ -22,9 +22,23 @@ class BiometryAccount {
         let response = try contract["recoveryNonce"]!().call().wait()
         
         guard let nonce = response[""] as? BigUInt else {
-            throw "Response does not contain root"
+            throw "Response does not contain nonce"
         }
         
         return nonce
+    }
+    
+    func getTransferERC20SignHash(
+        _ token: EthereumAddress,
+        _ to: EthereumAddress,
+        _ value: BigUInt
+    ) async throws -> Data {
+        let response = try contract["getTransferERC20SignHash"]!(token, to, value).call().wait()
+
+        guard let signHash = response[""] as? EthereumData else {
+            throw "Response does not contain signHash"
+        }
+
+        return Data(signHash.makeBytes())
     }
 }
