@@ -234,7 +234,7 @@ class BiometryViewModel: ObservableObject {
             throw "Account not found"
         }
         
-        LoggerUtil.common.info("Account found")
+        LoggerUtil.common.info("Account was found")
         
         let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
         
