@@ -45,8 +45,10 @@ struct MainView: View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 25, height: 25)
+                    .foregroundStyle(.baseBlack)
                 Text("Edan")
                     .h5()
+                    .foregroundStyle(.baseBlack)
             }
             .foregroundStyle(.baseWhite)
             .padding(.bottom)
@@ -138,10 +140,10 @@ struct ActionButton: View {
             VStack {
                 ZStack {
                     Circle()
-                        .foregroundStyle(.primaryDarker)
+                        .foregroundStyle(.primaryMain)
                     Image(icon)
                         .renderingMode(.template)
-                        .foregroundStyle(.baseWhite)
+                        .foregroundStyle(.baseBlack)
                 }
                 .frame(width: 50, height: 50)
                 Text(text)

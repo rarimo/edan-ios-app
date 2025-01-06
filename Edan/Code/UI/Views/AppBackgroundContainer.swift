@@ -11,7 +11,7 @@ struct AppBackgroundContainer<Content: View, Header: View>: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.primaryDarker
+            Color.primaryMain
                 .ignoresSafeArea()
             RoundedRectangle(cornerRadius: 45)
                 .ignoresSafeArea()
