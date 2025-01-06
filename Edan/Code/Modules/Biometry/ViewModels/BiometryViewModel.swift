@@ -203,6 +203,8 @@ class BiometryViewModel: ObservableObject {
         
         _ = try await ZKBiometricsSvc.shared.addValue(features)
         
+        AppUserDefaults.shared.faceFeatures = features.json
+        
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
         
         WalletManager.shared.updateAccount()

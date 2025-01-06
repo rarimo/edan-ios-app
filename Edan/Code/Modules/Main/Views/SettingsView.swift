@@ -8,8 +8,7 @@ struct SettingsView: View {
             Text("Settings")
                 .h4()
             Spacer()
-            AppButton(variant: .destructive, text: "Delete the account", action: logout)
-                .disabled(true)
+            AppButton(variant: .destructive, text: "Delete the account", action: delete)
             AppButton(variant: .secondary, text: "Logout", action: logout)
         }
         .padding()
@@ -24,6 +23,20 @@ struct SettingsView: View {
             try AppKeychain.removeAll()
         } catch {
             LoggerUtil.common.error("Failed to logout: \(error.localizedDescription)")
+        }
+    }
+
+    func delete() {
+        Task { @MainActor in
+            do {
+                let features = try JSONDecoder().decode([Double].self, from: AppUserDefaults.shared.faceFeatures)
+
+                _ = try await ZKBiometricsSvc.shared.deleteValue(value: features)
+            } catch {
+                LoggerUtil.common.error("failed to delete account: \(error.localizedDescription)")
+            }
+
+            logout()
         }
     }
 }

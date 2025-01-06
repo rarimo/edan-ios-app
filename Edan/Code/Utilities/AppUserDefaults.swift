@@ -13,8 +13,12 @@ public class AppUserDefaults: ObservableObject {
     @AppStorage("is_first_run")
     public var isFirstRun = true
 
+    @AppStorage("face_features")
+    public var faceFeatures = Data()
+
     func reset() {
         isIntroFinished = false
         historyEntries = Data()
+        faceFeatures = Data()
     }
 }

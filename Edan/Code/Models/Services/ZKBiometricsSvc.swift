@@ -73,7 +73,7 @@ class ZKBiometricsSvc {
         }
     }
 
-    func deleteValue(key: String? = nil, value: Data? = nil) async throws -> ZKBiometricsValueResponse? {
+    func deleteValue(key: String? = nil, value: [Double]? = nil) async throws -> ZKBiometricsValueResponse? {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
@@ -82,7 +82,7 @@ class ZKBiometricsSvc {
         }
 
         if let value {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value.hex)])
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[value]", value: value.json.utf8)])
         }
 
         do {
