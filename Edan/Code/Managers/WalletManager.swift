@@ -110,6 +110,19 @@ class WalletManager: ObservableObject {
 
         let (v, r, s) = try signer.sign(message: [UInt8](signedMessage))
 
-        let signature = r + s + [v]
+        let vRecoverable = v + 27
+        let vBytes = withUnsafeBytes(of: vRecoverable.bigEndian) { Data($0) }
+
+        var signature = Data()
+        signature.append(contentsOf: r)
+        signature.append(contentsOf: s)
+        signature.append(vBytes.last ?? 27)
+
+        let calldata = try CalldataBuilderManager.shared.biometryAccount.transferERC20(
+            token.hex(eip55: false),
+            to.hex(eip55: false),
+            amount.description,
+            signature
+        )
     }
 }
