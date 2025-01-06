@@ -34,11 +34,11 @@ class BiometryAccount {
         _ value: BigUInt
     ) async throws -> Data {
         let response = try contract["getTransferERC20SignHash"]!(token, to, value).call().wait()
-
-        guard let signHash = response[""] as? EthereumData else {
+        
+        guard let signHash = response[""] as? Data else {
             throw "Response does not contain signHash"
         }
 
-        return Data(signHash.makeBytes())
+        return signHash
     }
 }

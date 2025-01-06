@@ -2,7 +2,7 @@ import SwiftUI
 import Web3
 
 struct SendView: View {
-    @EnvironmentObject private var viewModel: MainView.ViewModel
+    @EnvironmentObject private var mainViewModel: MainView.ViewModel
 
     @State private var address: String = ""
     @State private var addressError: String = ""
@@ -77,7 +77,7 @@ struct SendView: View {
 
                 try await WalletManager.shared.transferERC20(to, amountToSend)
 
-                viewModel.addNewHistoryEntry(
+                mainViewModel.addNewHistoryEntry(
                     type: .sent,
                     amount: Double(amount) ?? 0
                 )
@@ -86,7 +86,7 @@ struct SendView: View {
 
                 onSent()
             } catch {
-                LoggerUtil.common.error("error: \(error.localizedDescription)")
+                LoggerUtil.common.error("failed to send transaction: \(error.localizedDescription)")
 
                 AlertManager.shared.emitError("Unknown error")
             }

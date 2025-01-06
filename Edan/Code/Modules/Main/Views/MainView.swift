@@ -26,7 +26,6 @@ struct MainView: View {
             },
             header: header
         )
-        .environmentObject(viewModel)
         .sheet(isPresented: $isSettingsUp, content: SettingsView.init)
         .sheet(isPresented: $isReceiveUp, content: ReceiveView.init)
         .sheet(isPresented: $isSendUp) {
@@ -35,6 +34,7 @@ struct MainView: View {
             }
         }
         .onAppear(perform: addPreviewData)
+        .environmentObject(viewModel)
     }
 
     func header() -> some View {
@@ -112,6 +112,8 @@ struct MainView: View {
                 text: "Send"
             )
         }
+        .disabled(walletManager.isBalanceLoading)
+        .disabled(walletManager.isAccountAddressLoading)
     }
 
     func addPreviewData() {
