@@ -262,10 +262,7 @@ class BiometryViewModel: ObservableObject {
         
         let recoveryCalldata = try CalldataBuilderManager.shared.biometryAccount.recover(zkProof)
         
-        let response = try await ZKBiometricsSvc.shared.relay(
-            recoveryCalldata,
-            ConfigManager.shared.general.accountFactoryAddress
-        )
+        let response = try await ZKBiometricsSvc.shared.relay(recoveryCalldata, accountAddress.hex(eip55: false))
         
         LoggerUtil.common.info("Recovery by biometry TX hash: \(response.data.attributes.txHash)")
         
