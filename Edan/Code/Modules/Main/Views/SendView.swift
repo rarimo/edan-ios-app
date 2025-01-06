@@ -81,7 +81,7 @@ struct SendView: View {
         }
     }
 
-    func validateInput() throws -> (EthereumAddress, BN)? {
+    func validateInput() throws -> (EthereumAddress, BigUInt)? {
         var wereErrors = false
 
         if !Ethereum.isValidAddress(address) {
@@ -102,11 +102,9 @@ struct SendView: View {
             return nil
         }
 
-        let amountRaw = BN(UInt((Double(amount) ?? 0) * pow(10, Double(WalletManager.shared.decimals))))
+        let amountRaw = BigUInt(UInt((Double(amount) ?? 0) * pow(10, Double(WalletManager.shared.decimals))))
 
-        let balance = try BN(dec: WalletManager.shared.balance.description)
-
-        if balance.cmp(amountRaw) == -1 {
+        if amountRaw > WalletManager.shared.balance {
             amount = ""
             amountError = "Insufficient balance"
 
