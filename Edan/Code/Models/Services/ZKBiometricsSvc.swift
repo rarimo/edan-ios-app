@@ -120,7 +120,7 @@ class ZKBiometricsSvc {
                 attributes: .init(
                     destination: destination,
                     noSend: noSend,
-                    txData: calldata.fullHex
+                    txData: calldata.hex
                 )
             )
         )
