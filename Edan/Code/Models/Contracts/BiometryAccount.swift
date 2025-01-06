@@ -12,7 +12,7 @@ class BiometryAccount {
         self.web3 = Web3(rpcURL: ConfigManager.shared.general.evmRpcURL.absoluteString)
         
         self.contract = try! web3.eth.Contract(
-            json: Contracts.accountFactoryABI,
+            json: Contracts.biometricAccountABI,
             abiKey: nil,
             address: contractAccount
         )
