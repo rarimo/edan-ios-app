@@ -187,13 +187,6 @@ class BiometryViewModel: ObservableObject {
         }
         
         let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
-//
-//        let localFeatureHash = try FeaturesUtils.hashFeatures(features)
-//
-//        LoggerUtil.common.debug("zkFeatureHash: \(zkFeatureHash.fullHex())")
-//        LoggerUtil.common.debug("localFeatureHash: \(localFeatureHash.fullHex)")
-//
-//        throw "a"
         
         try AccountManager.shared.generateNewPrivateKey()
         
@@ -213,6 +206,7 @@ class BiometryViewModel: ObservableObject {
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
         
         WalletManager.shared.updateAccountAddress()
+        WalletManager.shared.updateBalance()
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {

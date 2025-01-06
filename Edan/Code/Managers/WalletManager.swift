@@ -26,7 +26,12 @@ class WalletManager: ObservableObject {
     @Published var isAccountAddressLoading: Bool = true
 
     init() {
+        if !AppUserDefaults.shared.isIntroFinished {
+            return
+        }
+
         updateBalance()
+        updateAccountAddress()
     }
 
     func updateBalance() {

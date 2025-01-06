@@ -16,6 +16,9 @@ struct AppView: View {
         }
         .background(Color.backgroundPure)
         .environmentObject(viewModel)
+        .onAppear {
+            LoggerUtil.common.info("App started")
+        }
     }
 }
 
