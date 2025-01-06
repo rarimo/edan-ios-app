@@ -57,7 +57,9 @@ struct MainView: View {
 
     var contentHeader: some View {
         HStack {
-            Image(systemName: "info.circle")
+            Button(action: mintERC20) {
+                Image(systemName: "info.circle")
+            }
             Spacer()
             VStack {
                 if walletManager.isAccountAddressLoading {
@@ -125,6 +127,18 @@ struct MainView: View {
 
         viewModel.addNewHistoryEntry(type: .sent, amount: 393136403635686092)
         viewModel.addNewHistoryEntry(type: .received, amount: 1000000000000000000)
+    }
+
+    func mintERC20() {
+        Task { @MainActor in
+            do {
+                try await walletManager.mintERC20()
+
+                walletManager.updateBalance()
+            } catch {
+                LoggerUtil.common.error("failed to mint ERC20: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

@@ -6,6 +6,7 @@ class CalldataBuilderManager {
 
     let accountFactory = AccountFactory()
     let biometryAccount = BiometryAccount()
+    let mockErc20Account = MockErc20Account()
 }
 
 extension CalldataBuilderManager {
@@ -37,6 +38,14 @@ extension CalldataBuilderManager {
             _ signature: Data?
         ) throws -> Data {
             return try IdentityCalldataBuilder().buildTransferERC20Calldata(tokenAddress, toRaw: to, valueRaw: value, signature: signature)
+        }
+    }
+}
+
+extension CalldataBuilderManager {
+    class MockErc20Account {
+        func mint(_ to: String, _ amount: String) throws -> Data {
+            return try IdentityCalldataBuilder().buildMockERC20Mint(to, amountRaw: amount)
         }
     }
 }

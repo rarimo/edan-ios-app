@@ -134,4 +134,20 @@ class WalletManager: ObservableObject {
 
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
     }
+
+    func mintERC20() async throws {
+        let mintCalldata = try CalldataBuilderManager.shared.mockErc20Account.mint(
+            accountAddress,
+            "1000000000000000000"
+        )
+
+        let response = try await ZKBiometricsSvc.shared.relay(
+            mintCalldata,
+            ConfigManager.shared.general.erc20Address
+        )
+
+        LoggerUtil.common.info("Mint TX hash: \(response.data.attributes.txHash)")
+
+        try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
+    }
 }
