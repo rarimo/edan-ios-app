@@ -25,6 +25,8 @@ class BiometryAccount {
             throw "Response does not contain nonce"
         }
         
+        
+        
         return nonce
     }
     

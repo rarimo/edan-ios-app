@@ -11,6 +11,8 @@ class Ethereum {
     
     static let TX_SUCCESS_CODE: EthereumQuantity = 1
     
+//    static let
+    
     let web3: Web3
     
     init() {

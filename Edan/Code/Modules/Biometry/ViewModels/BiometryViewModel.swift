@@ -211,17 +211,73 @@ class BiometryViewModel: ObservableObject {
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {
-        let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
-
-        let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
-
-        let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
-
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(computableModel, features, 0)
+        LoggerUtil.common.info("Start recover by biometry")
+        
+        guard let mainFaceImage = faceImage else {
+            throw "No face image found"
+        }
+        
+        var imagesFeatures: [[Double]] = []
+        for image in faceImages {
+            let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
             
-        let _ = try await generateFisherface(inputs.json)
+            let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
+            
+            let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            
+            imagesFeatures.append(features)
+        }
+        
+        let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
+        
+        guard let similarFeatures = try await getSimilarFeatures(imagesFeatures) else {
+            throw "Account not found"
+        }
+        
+        LoggerUtil.common.info("Account found")
+        
+        let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
+        
+        let accountAddress = try await AccountFactory.shared.getAccount(similarFeaturesHash)
+        
+        let biometryAccount = BiometryAccount(accountAddress)
+        let nonce = try Int(await biometryAccount.recoveryNonce().description) ?? 0
+        
+        let (_, mainGrayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(mainFaceImage)
+        
+        let mainComputableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(mainGrayscalePixelsData)
+        
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, nonce)
+        
+        let zkProof = try await generateFisherface(inputs.json)
+        let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
+        
+        if fisherfacePubSignals.getSignalRaw(.compirasionsResult) != "1" {
+            throw "Face not recognized"
+        }
+        
+        let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
         
         try AccountManager.shared.generateNewPrivateKey()
+        
+        let recoveryCalldata = try CalldataBuilderManager.shared.biometryAccount.recover(zkProof)
+        
+        let response = try await ZKBiometricsSvc.shared.relay(
+            recoveryCalldata,
+            ConfigManager.shared.general.accountFactoryAddress
+        )
+        
+        LoggerUtil.common.info("Recovery by biometry TX hash: \(response.data.attributes.txHash)")
+        
+        try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
+        
+        _ = try await ZKBiometricsSvc.shared.addValue(features)
+        
+        AppUserDefaults.shared.faceFeatures = features.json
+        
+        AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
+        
+        WalletManager.shared.updateAccount()
     }
         
     func generateFisherface(_ inputs: Data) async throws -> ZkProof {
