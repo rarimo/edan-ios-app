@@ -58,7 +58,7 @@ struct MainView: View {
             Image(systemName: "info.circle")
             Spacer()
             VStack {
-                if !walletManager.isAccountAddressLoading {
+                if walletManager.isAccountAddressLoading {
                     ProgressView()
                         .controlSize(.regular)
                 } else {

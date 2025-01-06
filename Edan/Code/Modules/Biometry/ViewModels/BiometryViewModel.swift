@@ -205,8 +205,7 @@ class BiometryViewModel: ObservableObject {
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
         
-        WalletManager.shared.updateAccountAddress()
-        WalletManager.shared.updateBalance()
+        WalletManager.shared.updateAccount()
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {

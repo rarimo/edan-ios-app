@@ -53,10 +53,12 @@ class WalletManager: ObservableObject {
 
     func updateAccount() {
         isAccountAddressLoading = true
+        isBalanceLoading = true
 
         Task { @MainActor in
             defer {
                 isAccountAddressLoading = false
+                isBalanceLoading = false
             }
 
             do {

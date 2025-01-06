@@ -9,6 +9,7 @@ struct SettingsView: View {
                 .h4()
             Spacer()
             AppButton(variant: .destructive, text: "Delete the account", action: logout)
+                .disabled(true)
             AppButton(variant: .secondary, text: "Logout", action: logout)
         }
         .padding()
