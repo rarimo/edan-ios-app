@@ -1,4 +1,5 @@
 import SwiftUI
+import Web3
 
 struct SendView: View {
     @State private var address: String = ""
@@ -65,23 +66,57 @@ struct SendView: View {
         isSending = true
         defer { isSending = false }
 
-        validateInput()
+        do {
+            guard let (toAddress, amount) = try validateInput() else {
+                return
+            }
 
-        AlertManager.shared.emitSuccess("Transaction sent!")
+            AlertManager.shared.emitSuccess("Transaction sent!")
 
-        onSent()
+            onSent()
+        } catch {
+            LoggerUtil.common.error("error: \(error.localizedDescription)")
+
+            AlertManager.shared.emitError("Unknown error")
+        }
     }
 
-    func validateInput() {
+    func validateInput() throws -> (EthereumAddress, BN)? {
+        var wereErrors = false
+
         if !Ethereum.isValidAddress(address) {
             address = ""
             addressError = "Invalid address"
+
+            wereErrors = true
         }
 
-        if Int(amount) == nil {
+        if Double(amount) == nil {
             amount = ""
             amountError = "Invalid amount"
+
+            wereErrors = true
         }
+
+        if wereErrors {
+            return nil
+        }
+
+        let amountRaw = BN(UInt((Double(amount) ?? 0) * pow(10, Double(WalletManager.shared.decimals))))
+
+        let balance = try BN(dec: WalletManager.shared.balance.description)
+
+        if balance.cmp(amountRaw) == -1 {
+            amount = ""
+            amountError = "Insufficient balance"
+
+            return nil
+        }
+
+        return try (
+            EthereumAddress(hex: address, eip55: false),
+            amountRaw
+        )
     }
 }
 
