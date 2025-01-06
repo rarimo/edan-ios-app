@@ -130,6 +130,8 @@ class WalletManager: ObservableObject {
             addressAccount.hex(eip55: false)
         )
 
+        LoggerUtil.common.info("Transfer ERC20 TX hash: \(response.data.attributes.txHash)")
+
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
     }
 }
