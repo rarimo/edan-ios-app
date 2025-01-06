@@ -7,8 +7,6 @@ import Foundation
 class WalletManager: ObservableObject {
     static let shared = WalletManager()
 
-    let accountAddress = "0x832eceB65fC4c4549cb12CF3dd6bA447915a6244"
-
     let decimals: Int = 18
 
     let tokenName: String = "ETH"
@@ -22,6 +20,10 @@ class WalletManager: ObservableObject {
     @Published var balance: BigUInt = 0
 
     @Published var isBalanceLoading: Bool = true
+
+    @Published var accountAddress = ""
+
+    @Published var isAccountAddressLoading: Bool = true
 
     init() {
         updateBalance()
@@ -43,6 +45,22 @@ class WalletManager: ObservableObject {
         }
     }
 
+    func updateAccountAddress() {
+        isAccountAddressLoading = true
+
+        Task { @MainActor in
+            defer {
+                isAccountAddressLoading = false
+            }
+
+            do {
+                self.accountAddress = try await retriveAccountAddress().hex(eip55: false)
+            } catch {
+                LoggerUtil.common.error("failed to fetch account address: \(error.localizedDescription)")
+            }
+        }
+    }
+
     func retriveBalance() async throws -> BigUInt {
         let web3 = Web3(rpcURL: ConfigManager.shared.general.evmRpcURL.absoluteString)
 
@@ -59,5 +77,9 @@ class WalletManager: ObservableObject {
         }
 
         return balanceValue
+    }
+
+    func retriveAccountAddress() async throws -> EthereumAddress {
+        return try await AccountFactory.shared.getAccount(AccountManager.shared.featuresHash)
     }
 }

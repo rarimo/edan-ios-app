@@ -2,7 +2,7 @@ import KeychainAccess
 import SwiftUI
 
 enum AppKeychainItemKey: String {
-    case privateKey
+    case privateKey, featuresHash
 }
 
 class AppKeychain {

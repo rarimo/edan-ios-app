@@ -57,12 +57,20 @@ struct MainView: View {
         HStack {
             Image(systemName: "info.circle")
             Spacer()
-            Button(action: { UIPasteboard.general.string = WalletManager.shared.accountAddress }) {
-                Text("\(WalletManager.shared.accountAddress)")
-                    .h6()
-                    .frame(width: 150)
-                    .lineLimit(1)
+            VStack {
+                if !walletManager.isAccountAddressLoading {
+                    ProgressView()
+                        .controlSize(.regular)
+                } else {
+                    Button(action: { UIPasteboard.general.string = walletManager.accountAddress }) {
+                        Text("\(walletManager.accountAddress)")
+                            .h6()
+                            .frame(width: 150)
+                            .lineLimit(1)
+                    }
+                }
             }
+            .frame(height: 25)
             Spacer()
             Button(action: { isSettingsUp = true }) {
                 Image(systemName: "gearshape")

@@ -10,6 +10,9 @@ public class AppUserDefaults: ObservableObject {
     @AppStorage("history_entries")
     public var historyEntries = Data()
 
+    @AppStorage("is_first_run")
+    public var isFirstRun = true
+
     func reset() {
         isIntroFinished = false
         historyEntries = Data()

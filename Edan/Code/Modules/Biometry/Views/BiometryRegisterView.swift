@@ -11,9 +11,9 @@ struct BiometryRegisterView: View {
             BiometryFaceView(
                 biometryProcess: .register,
                 onRecovered: {
-                    LoggerUtil.common.info("Access created successfully")
+                    LoggerUtil.common.info("Account created successfully")
 
-                    AlertManager.shared.emitSuccess("Access created successfully")
+                    AlertManager.shared.emitSuccess("Account created successfully")
 
                     onNext()
                 },

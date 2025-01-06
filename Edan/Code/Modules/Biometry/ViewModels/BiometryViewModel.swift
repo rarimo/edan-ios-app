@@ -186,7 +186,7 @@ class BiometryViewModel: ObservableObject {
             throw "Face not recognized"
         }
         
-//        let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
+        let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
 //
 //        let localFeatureHash = try FeaturesUtils.hashFeatures(features)
 //
@@ -209,6 +209,10 @@ class BiometryViewModel: ObservableObject {
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
         _ = try await ZKBiometricsSvc.shared.addValue(features)
+        
+        AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
+        
+        WalletManager.shared.updateAccountAddress()
     }
         
     func recoverByBiometry(_ image: UIImage) async throws {
