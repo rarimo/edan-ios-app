@@ -2,6 +2,8 @@ import SwiftUI
 import Web3
 
 struct SendView: View {
+    @EnvironmentObject private var viewModel: MainView.ViewModel
+
     @State private var address: String = ""
     @State private var addressError: String = ""
 
@@ -64,20 +66,30 @@ struct SendView: View {
 
     func send() {
         isSending = true
-        defer { isSending = false }
 
-        do {
-            guard let (toAddress, amount) = try validateInput() else {
-                return
+        Task { @MainActor in
+            defer { isSending = false }
+
+            do {
+                guard let (to, amountToSend) = try validateInput() else {
+                    return
+                }
+
+                try await WalletManager.shared.transferERC20(to, amountToSend)
+
+                viewModel.addNewHistoryEntry(
+                    type: .sent,
+                    amount: Double(amount) ?? 0
+                )
+
+                AlertManager.shared.emitSuccess("Transaction sent!")
+
+                onSent()
+            } catch {
+                LoggerUtil.common.error("error: \(error.localizedDescription)")
+
+                AlertManager.shared.emitError("Unknown error")
             }
-
-            AlertManager.shared.emitSuccess("Transaction sent!")
-
-            onSent()
-        } catch {
-            LoggerUtil.common.error("error: \(error.localizedDescription)")
-
-            AlertManager.shared.emitError("Unknown error")
         }
     }
 
@@ -122,5 +134,6 @@ struct SendView: View {
     VStack {}
         .sheet(isPresented: .constant(true)) {
             SendView {}
+                .environmentObject(MainView.ViewModel())
         }
 }

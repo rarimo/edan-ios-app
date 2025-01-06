@@ -47,5 +47,13 @@ extension MainView {
 
             historyEntries.append(newEntry)
         }
+
+        func addNewHistoryEntry(type: HistoryEntryType, amount: Double) {
+            let balanceString = String(format: "%.3f", amount)
+
+            let newEntry = HistoryEntry(id: UUID(), type: type, amount: balanceString)
+
+            historyEntries.append(newEntry)
+        }
     }
 }

@@ -124,5 +124,12 @@ class WalletManager: ObservableObject {
             amount.description,
             signature
         )
+
+        let response = try await ZKBiometricsSvc.shared.relay(
+            calldata,
+            addressAccount.hex(eip55: false)
+        )
+
+        try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
     }
 }
