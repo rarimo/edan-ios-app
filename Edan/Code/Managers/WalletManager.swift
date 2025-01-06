@@ -30,8 +30,7 @@ class WalletManager: ObservableObject {
             return
         }
 
-        updateBalance()
-        updateAccountAddress()
+        updateAccount()
     }
 
     func updateBalance() {
@@ -43,14 +42,16 @@ class WalletManager: ObservableObject {
             }
 
             do {
-                self.balance = try await retriveBalance()
+                let ethereumAccountAddress = try EthereumAddress(hex: accountAddress, eip55: false)
+
+                self.balance = try await retriveBalance(ethereumAccountAddress)
             } catch {
                 LoggerUtil.common.error("failed to fetch balance: \(error.localizedDescription)")
             }
         }
     }
 
-    func updateAccountAddress() {
+    func updateAccount() {
         isAccountAddressLoading = true
 
         Task { @MainActor in
@@ -59,23 +60,24 @@ class WalletManager: ObservableObject {
             }
 
             do {
-                self.accountAddress = try await retriveAccountAddress().hex(eip55: false)
+                let ethereumAccountAddress = try await retriveAccountAddress()
+
+                self.accountAddress = ethereumAccountAddress.hex(eip55: false)
+                self.balance = try await self.retriveBalance(ethereumAccountAddress)
             } catch {
                 LoggerUtil.common.error("failed to fetch account address: \(error.localizedDescription)")
             }
         }
     }
 
-    func retriveBalance() async throws -> BigUInt {
+    func retriveBalance(_ address: EthereumAddress) async throws -> BigUInt {
         let web3 = Web3(rpcURL: ConfigManager.shared.general.evmRpcURL.absoluteString)
 
         let erc20Address = try EthereumAddress(hex: ConfigManager.shared.general.erc20Address, eip55: false)
 
         let erc20Contract = GenericERC20Contract(address: erc20Address, eth: web3.eth)
 
-        let accountAddress = try EthereumAddress(hex: AccountManager.shared.ethreumAddress, eip55: false)
-
-        let balanceOfResponse = try erc20Contract.balanceOf(address: accountAddress).call().wait()
+        let balanceOfResponse = try erc20Contract.balanceOf(address: address).call().wait()
 
         guard let balanceValue = balanceOfResponse["_balance"] as? BigUInt else {
             throw "Response does not contain balance"
