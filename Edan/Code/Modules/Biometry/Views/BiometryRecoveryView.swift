@@ -10,7 +10,7 @@ struct BiometryRecoveryView: View {
         VStack {
             BiometryFaceView(
                 biometryProcess: .recovery,
-                onRecovered: {
+                onComplete: {
                     LoggerUtil.common.info("Access restored successfully")
 
                     AlertManager.shared.emitSuccess("Access restored successfully")
@@ -21,6 +21,8 @@ struct BiometryRecoveryView: View {
                     LoggerUtil.common.error("Failed to recover by biometry: \(error.localizedDescription)")
 
                     AlertManager.shared.emitError("\(error.localizedDescription)")
+                    
+                    viewModel.clearImages()
 
                     onBack()
                 }

@@ -322,4 +322,9 @@ class BiometryViewModel: ObservableObject {
         
         return response.data.attributes.feature
     }
+    
+    func clearImages() {
+        faceImage = nil
+        faceImages = []
+    }
 }

@@ -10,7 +10,7 @@ struct BiometryRegisterView: View {
         VStack {
             BiometryFaceView(
                 biometryProcess: .register,
-                onRecovered: {
+                onComplete: {
                     LoggerUtil.common.info("Account created successfully")
 
                     AlertManager.shared.emitSuccess("Account created successfully")
@@ -19,6 +19,8 @@ struct BiometryRegisterView: View {
                 },
                 onError: { error in
                     LoggerUtil.common.error("Failed to create by biometry: \(error.localizedDescription)")
+
+                    viewModel.clearImages()
 
                     AlertManager.shared.emitError("\(error.localizedDescription)")
                     onBack()

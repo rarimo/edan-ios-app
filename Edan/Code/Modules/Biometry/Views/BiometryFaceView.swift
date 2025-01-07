@@ -23,7 +23,7 @@ struct BiometryFaceView: View {
     @State private var uiProcessingTask: Task<Void, Never>? = nil
     @State private var processingTask: Task<Void, Never>? = nil
 
-    let onRecovered: () -> Void
+    let onComplete: () -> Void
     let onError: (Error) -> Void
 
     var processingDescription: String {
@@ -218,7 +218,7 @@ struct BiometryFaceView: View {
                 try? await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
             }
 
-            onRecovered()
+            onComplete()
         }
     }
 
@@ -249,7 +249,7 @@ struct BiometryFaceView: View {
                 try? await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
             }
 
-            onRecovered()
+            onComplete()
         }
     }
 }
@@ -293,6 +293,6 @@ struct BiometryProcessLoader<Process: BiometryProgress>: View {
 }
 
 #Preview {
-    BiometryFaceView(biometryProcess: .register, onRecovered: {}, onError: { _ in })
+    BiometryFaceView(biometryProcess: .register, onComplete: {}, onError: { _ in })
         .environmentObject(BiometryViewModel())
 }
