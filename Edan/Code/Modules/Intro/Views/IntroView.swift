@@ -1,11 +1,13 @@
 import SwiftUI
 
 enum AccountSetupRoute: Hashable {
-    case createNewAccount, recoverLostAccount
+    case passport, createNewAccount, recoverLostAccount
 }
 
 struct IntroView: View {
     @State private var path: [AccountSetupRoute] = []
+
+    @State private var nextRoute: AccountSetupRoute = .createNewAccount
 
     var onFinishedIntro: () -> Void = {}
 
@@ -13,20 +15,35 @@ struct IntroView: View {
         NavigationStack(path: $path) {
             content.navigationDestination(for: AccountSetupRoute.self) { route in
                 switch route {
+                case .passport:
+                    ScanPassportView(
+                        onComplete: { passport in
+                            try? AppKeychain.setValue(.passportJson, passport.json)
+
+                            path.append(nextRoute)
+                            path.remove(at: 0)
+                        },
+                        onClose: {
+                            _ = path.popLast()
+                        }
+                    )
+                    .navigationBarHidden(true)
                 case .createNewAccount:
                     BiometryRegisterView(
                         onNext: onFinishedIntro,
                         onBack: {
-                            _ = path.popLast()
+                            path.removeAll()
                         }
                     )
+                    .navigationBarHidden(true)
                 case .recoverLostAccount:
                     BiometryRecoveryView(
                         onNext: onFinishedIntro,
                         onBack: {
-                            _ = path.popLast()
+                            path.removeAll()
                         }
                     )
+                    .navigationBarHidden(true)
                 }
             }
         }
@@ -46,10 +63,14 @@ struct IntroView: View {
                 Text("Account setup")
                     .subtitle3()
                 AppButton(text: "Create a new account", rightIcon: Icons.arrowRight) {
-                    path.append(.createNewAccount)
+                    self.nextRoute = .createNewAccount
+
+                    path.append(.passport)
                 }
                 AppButton(variant: .secondary, text: "Recover a lost account", rightIcon: Icons.arrowRight) {
-                    path.append(.recoverLostAccount)
+                    self.nextRoute = .recoverLostAccount
+
+                    path.append(.passport)
                 }
                 .padding(.bottom, 20)
             }

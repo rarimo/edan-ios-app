@@ -21,7 +21,6 @@ struct BiometryRegisterView: View {
                     LoggerUtil.common.error("Failed to create by biometry: \(error.localizedDescription)")
 
                     AlertManager.shared.emitError("\(error.localizedDescription)")
-                    
                     onBack()
                 }
             )

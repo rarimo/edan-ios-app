@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
+	<key>ACCOUNT_FACTORY_ADDRESS</key>
+	<string>${ACCOUNT_FACTORY_ADDRESS}</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -13,8 +17,12 @@
 			<array/>
 		</dict>
 	</array>
+	<key>ERC20_ADDRESS</key>
+	<string>${ERC20_ADDRESS}</string>
 	<key>EVM_RPC_URL</key>
 	<string>${EVM_RPC_URL}</string>
+	<key>ORGS_API</key>
+	<string>${ORGS_API}</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Bold.ttf</string>
@@ -22,12 +30,6 @@
 		<string>Inter-Regular.ttf</string>
 		<string>Inter-SemiBold.ttf</string>
 	</array>
-	<key>ORGS_API</key>
-	<string>${ORGS_API}</string>
-	<key>ACCOUNT_FACTORY_ADDRESS</key>
-	<string>${ACCOUNT_FACTORY_ADDRESS}</string>
-	<key>ERC20_ADDRESS</key>
-	<string>${ERC20_ADDRESS}</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 	<array>
 		<string>A0000002471001</string>
