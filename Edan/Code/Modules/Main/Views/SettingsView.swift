@@ -32,11 +32,11 @@ struct SettingsView: View {
                 let features = try JSONDecoder().decode([Double].self, from: AppUserDefaults.shared.faceFeatures)
 
                 _ = try await ZKBiometricsSvc.shared.deleteValue(feature: features)
+
+                logout()
             } catch {
                 LoggerUtil.common.error("failed to delete account: \(error.localizedDescription)")
             }
-
-            logout()
         }
     }
 }

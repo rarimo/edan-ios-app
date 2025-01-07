@@ -82,7 +82,7 @@ class ZKBiometricsSvc {
         }
 
         if let feature {
-            requestURL.append(queryItems: [URLQueryItem(name: "filter[feature]", value: feature.json.utf8)])
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[feature]", value: String(feature.json.utf8.dropFirst().dropLast()))])
         }
 
         do {
