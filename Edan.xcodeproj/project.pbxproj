@@ -29,12 +29,6 @@
 		5655E42E2BD2C94F00B86C5C /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5655E42D2BD2C94F00B86C5C /* AppUserDefaults.swift */; };
 		5655E4372BD51E8E00B86C5C /* AppKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5655E4362BD51E8E00B86C5C /* AppKeychain.swift */; };
 		5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5655E4392BD51F5100B86C5C /* KeychainAccess */; };
-		568820FE2C18797E001B729F /* IncognitoDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 568820FD2C18797E001B729F /* IncognitoDark.json */; };
-		5689C8332BE9008900A4B767 /* IntroWelcome.json in Resources */ = {isa = PBXBuildFile; fileRef = 5689C8322BE9008900A4B767 /* IntroWelcome.json */; };
-		5689C8352BE900B300A4B767 /* IntroProofs.json in Resources */ = {isa = PBXBuildFile; fileRef = 5689C8342BE900B300A4B767 /* IntroProofs.json */; };
-		5689C8372BE900D400A4B767 /* IntroIncognito.json in Resources */ = {isa = PBXBuildFile; fileRef = 5689C8362BE900D400A4B767 /* IntroIncognito.json */; };
-		5689C8392BE900FA00A4B767 /* IntroRewards.json in Resources */ = {isa = PBXBuildFile; fileRef = 5689C8382BE900FA00A4B767 /* IntroRewards.json */; };
-		5689C83B2BE90AD200A4B767 /* IncognitoLight.json in Resources */ = {isa = PBXBuildFile; fileRef = 5689C83A2BE90AD200A4B767 /* IncognitoLight.json */; };
 		568B4FD12BB6D88F001C9C74 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B4FD02BB6D88F001C9C74 /* Divider.swift */; };
 		568B4FE02BB70852001C9C74 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568B4FDF2BB70852001C9C74 /* Localizable.xcstrings */; };
 		56933DFB2BBAFBD90068C894 /* AppToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56933DFA2BBAFBD90068C894 /* AppToggle.swift */; };
@@ -54,6 +48,13 @@
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */; };
 		CE10E3792D2C24C4002A99E1 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3782D2C24C4002A99E1 /* Identity.xcframework */; };
+		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
+		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
+		CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */; };
+		CE10E3982D2C37C1002A99E1 /* ScanPassportLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E38A2D2C37C1002A99E1 /* ScanPassportLayoutView.swift */; };
+		CE10E39D2D2C37C1002A99E1 /* PassportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */; };
+		CE10E39F2D2C37C1002A99E1 /* ScanPassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E38C2D2C37C1002A99E1 /* ScanPassportView.swift */; };
+		CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E38B2D2C37C1002A99E1 /* ScanPassportMRZView.swift */; };
 		CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92532D1C0EF3008979AF /* IntroView.swift */; };
 		CE1D92592D1C1D5F008979AF /* AppBackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */; };
 		CE1D92632D1C2366008979AF /* BiometryFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D925E2D1C2366008979AF /* BiometryFaceView.swift */; };
@@ -100,6 +101,15 @@
 		CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E82B52BA881F400AAF885 /* EdanApp.swift */; };
 		CE9E82BA2BA881F500AAF885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9E82B92BA881F500AAF885 /* Assets.xcassets */; };
 		CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA03F092C7C7A17002F218A /* View+IsLoading.swift */; };
+		CEA6F4B02D2D27E500DAA79D /* MRZScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4AD2D2D27E500DAA79D /* MRZScanView.swift */; };
+		CEA6F4B12D2D27E500DAA79D /* MRZCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4A92D2D27E500DAA79D /* MRZCameraManager.swift */; };
+		CEA6F4B22D2D27E500DAA79D /* MRZScanView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4AB2D2D27E500DAA79D /* MRZScanView+ViewModel.swift */; };
+		CEA6F4B52D2D288B00DAA79D /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = CEA6F4B42D2D288B00DAA79D /* Semaphore */; };
+		CEA6F4B72D2D2B9A00DAA79D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4B62D2D2B9900DAA79D /* Images.swift */; };
+		CEA6F4B92D2D2C4800DAA79D /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */; };
+		CEA6F4BC2D2D2C9B00DAA79D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CEA6F4BB2D2D2C9B00DAA79D /* Lottie */; };
+		CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */; };
+		CEA6F4C02D2D2DE900DAA79D /* PassportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */; };
 		CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9032D1AF35B00089589 /* Alamofire */; };
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
@@ -163,12 +173,6 @@
 		5655E4292BD2C7C800B86C5C /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		5655E42D2BD2C94F00B86C5C /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		5655E4362BD51E8E00B86C5C /* AppKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeychain.swift; sourceTree = "<group>"; };
-		568820FD2C18797E001B729F /* IncognitoDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IncognitoDark.json; sourceTree = "<group>"; };
-		5689C8322BE9008900A4B767 /* IntroWelcome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroWelcome.json; sourceTree = "<group>"; };
-		5689C8342BE900B300A4B767 /* IntroProofs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroProofs.json; sourceTree = "<group>"; };
-		5689C8362BE900D400A4B767 /* IntroIncognito.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroIncognito.json; sourceTree = "<group>"; };
-		5689C8382BE900FA00A4B767 /* IntroRewards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroRewards.json; sourceTree = "<group>"; };
-		5689C83A2BE90AD200A4B767 /* IncognitoLight.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IncognitoLight.json; sourceTree = "<group>"; };
 		568B4FD02BB6D88F001C9C74 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		568B4FDF2BB70852001C9C74 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		56933DFA2BBAFBD90068C894 /* AppToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToggle.swift; sourceTree = "<group>"; };
@@ -189,6 +193,13 @@
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CE10E3782D2C24C4002A99E1 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
+		CE10E37A2D2C36F4002A99E1 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
+		CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScanner.swift; sourceTree = "<group>"; };
+		CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewModel.swift; sourceTree = "<group>"; };
+		CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPassportNFCView.swift; sourceTree = "<group>"; };
+		CE10E38A2D2C37C1002A99E1 /* ScanPassportLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPassportLayoutView.swift; sourceTree = "<group>"; };
+		CE10E38B2D2C37C1002A99E1 /* ScanPassportMRZView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPassportMRZView.swift; sourceTree = "<group>"; };
+		CE10E38C2D2C37C1002A99E1 /* ScanPassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPassportView.swift; sourceTree = "<group>"; };
 		CE1D92532D1C0EF3008979AF /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		CE1D92572D1C1B59008979AF /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		CE1D92582D1C1B59008979AF /* AppBackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundContainer.swift; sourceTree = "<group>"; };
@@ -235,6 +246,13 @@
 		CE9E82E22BA8975F00AAF885 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		CE9E82E62BA89CE300AAF885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		CEA03F092C7C7A17002F218A /* View+IsLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IsLoading.swift"; sourceTree = "<group>"; };
+		CEA6F4A92D2D27E500DAA79D /* MRZCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZCameraManager.swift; sourceTree = "<group>"; };
+		CEA6F4AB2D2D27E500DAA79D /* MRZScanView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MRZScanView+ViewModel.swift"; sourceTree = "<group>"; };
+		CEA6F4AD2D2D27E500DAA79D /* MRZScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZScanView.swift; sourceTree = "<group>"; };
+		CEA6F4B62D2D2B9900DAA79D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedAnimation.swift; sourceTree = "<group>"; };
+		CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportUtils.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
@@ -276,6 +294,7 @@
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
 				CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */,
 				CEC562072BD923B4002D4954 /* libfq.a in Frameworks */,
+				CEA6F4BC2D2D2C9B00DAA79D /* Lottie in Frameworks */,
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
@@ -283,6 +302,7 @@
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
+				CEA6F4B52D2D288B00DAA79D /* Semaphore in Frameworks */,
 				CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */,
 				CE1D92902D1DB0EC008979AF /* CodeScanner in Frameworks */,
 			);
@@ -313,6 +333,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */,
 				CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */,
 				CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */,
 				CE1D92812D1D97C8008979AF /* QRUtils.swift */,
@@ -358,12 +379,6 @@
 			children = (
 				CE66B1452CA4148B002F658E /* ScanPassport.json */,
 				56A6C7532BBC192800992562 /* Passport.json */,
-				5689C8322BE9008900A4B767 /* IntroWelcome.json */,
-				5689C8362BE900D400A4B767 /* IntroIncognito.json */,
-				5689C8382BE900FA00A4B767 /* IntroRewards.json */,
-				5689C8342BE900B300A4B767 /* IntroProofs.json */,
-				5689C83A2BE90AD200A4B767 /* IncognitoLight.json */,
-				568820FD2C18797E001B729F /* IncognitoDark.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -371,6 +386,8 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */,
+				CEA6F4B62D2D2B9900DAA79D /* Images.swift */,
 				CEDA6FC72D28235D00CF5780 /* Contracts.swift */,
 				CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */,
 				561C3C382BADE64B00FBB3B9 /* Fonts.swift */,
@@ -391,6 +408,7 @@
 		56F48BBC2BC02E02001F3AA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */,
 				CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */,
 				CE1D928C2D1DB090008979AF /* ScanQR.swift */,
 				CE1D92882D1DA6B5008979AF /* QRCode.swift */,
@@ -422,6 +440,43 @@
 				C75512862C8603D3000258AD /* ScanMrz.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		CE10E37F2D2C37C1002A99E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE10E3812D2C37C1002A99E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE10E3902D2C37C1002A99E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */,
+				CE10E38A2D2C37C1002A99E1 /* ScanPassportLayoutView.swift */,
+				CE10E38B2D2C37C1002A99E1 /* ScanPassportMRZView.swift */,
+				CE10E38C2D2C37C1002A99E1 /* ScanPassportView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE10E3912D2C37C1002A99E1 /* ScanPassport */ = {
+			isa = PBXGroup;
+			children = (
+				CE10E37F2D2C37C1002A99E1 /* Models */,
+				CE10E3812D2C37C1002A99E1 /* ViewModels */,
+				CE10E3902D2C37C1002A99E1 /* Views */,
+			);
+			path = ScanPassport;
 			sourceTree = "<group>";
 		};
 		CE1D92512D1C0DF2008979AF /* Intro */ = {
@@ -582,6 +637,7 @@
 		CE8FEB602C1B03A70008381A /* Circuits */ = {
 			isa = PBXGroup;
 			children = (
+				CE10E37A2D2C36F4002A99E1 /* Passport.swift */,
 				CE1D92952D1DC904008979AF /* PubSignals.swift */,
 				CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */,
 			);
@@ -657,10 +713,12 @@
 		CE9E82C72BA8852700AAF885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE10E3912D2C37C1002A99E1 /* ScanPassport */,
 				CE1D92622D1C2366008979AF /* Biometry */,
 				CE1D92512D1C0DF2008979AF /* Intro */,
 				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
+				CEA6F4AF2D2D27E500DAA79D /* MRZScan */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -672,6 +730,40 @@
 				CE9E82E22BA8975F00AAF885 /* Production.xcconfig */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		CEA6F4AA2D2D27E500DAA79D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6F4A92D2D27E500DAA79D /* MRZCameraManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CEA6F4AC2D2D27E500DAA79D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6F4AB2D2D27E500DAA79D /* MRZScanView+ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CEA6F4AE2D2D27E500DAA79D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6F4AD2D2D27E500DAA79D /* MRZScanView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEA6F4AF2D2D27E500DAA79D /* MRZScan */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6F4AA2D2D27E500DAA79D /* Models */,
+				CEA6F4AC2D2D27E500DAA79D /* ViewModels */,
+				CEA6F4AE2D2D27E500DAA79D /* Views */,
+			);
+			path = MRZScan;
 			sourceTree = "<group>";
 		};
 		CEA7E90A2D1AFE7C00089589 /* Main */ = {
@@ -748,6 +840,8 @@
 				CEA7E9062D1AF3AA00089589 /* NFCPassportReader */,
 				CE1D92862D1DA689008979AF /* QRCode */,
 				CE1D928F2D1DB0EC008979AF /* CodeScanner */,
+				CEA6F4B42D2D288B00DAA79D /* Semaphore */,
+				CEA6F4BB2D2D2C9B00DAA79D /* Lottie */,
 			);
 			productName = Edan;
 			productReference = CE9E82B22BA881F400AAF885 /* Edan.app */;
@@ -785,6 +879,8 @@
 				CEA7E9052D1AF3AA00089589 /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
 				CE1D92852D1DA689008979AF /* XCRemoteSwiftPackageReference "QRCode" */,
 				CE1D928E2D1DB0EC008979AF /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */,
+				CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = CE9E82B32BA881F400AAF885 /* Products */;
 			projectDirPath = "";
@@ -802,18 +898,12 @@
 			files = (
 				CE66B1462CA4148B002F658E /* ScanPassport.json in Resources */,
 				C75512872C8603D3000258AD /* ReadNfc.mp4 in Resources */,
-				5689C83B2BE90AD200A4B767 /* IncognitoLight.json in Resources */,
 				CE9E82BA2BA881F500AAF885 /* Assets.xcassets in Resources */,
-				5689C8392BE900FA00A4B767 /* IntroRewards.json in Resources */,
-				5689C8372BE900D400A4B767 /* IntroIncognito.json in Resources */,
 				561C3C3E2BADF0AA00FBB3B9 /* Inter-Regular.ttf in Resources */,
 				568B4FE02BB70852001C9C74 /* Localizable.xcstrings in Resources */,
 				561C3C412BADF0AA00FBB3B9 /* Inter-Medium.ttf in Resources */,
-				568820FE2C18797E001B729F /* IncognitoDark.json in Resources */,
-				5689C8332BE9008900A4B767 /* IntroWelcome.json in Resources */,
 				561C3C3F2BADF0AA00FBB3B9 /* Inter-Bold.ttf in Resources */,
 				561C3C402BADF0AA00FBB3B9 /* Inter-SemiBold.ttf in Resources */,
-				5689C8352BE900B300A4B767 /* IntroProofs.json in Resources */,
 				C75512882C8603D3000258AD /* ScanMrz.mp4 in Resources */,
 				C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */,
 				56A6C7542BBC192800992562 /* Passport.json in Resources */,
@@ -847,11 +937,15 @@
 				CEDA6FCB2D28255B00CF5780 /* AccountFactory.swift in Sources */,
 				5655E42A2BD2C7C800B86C5C /* ConfigManager.swift in Sources */,
 				CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */,
+				CEA6F4B92D2D2C4800DAA79D /* LottieView.swift in Sources */,
 				CE1D92922D1DB162008979AF /* CameraPermissionView.swift in Sources */,
 				CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */,
 				CE1D92892D1DA6B9008979AF /* QRCode.swift in Sources */,
 				CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */,
 				CE1D928B2D1DAA39008979AF /* SendView.swift in Sources */,
+				CEA6F4B02D2D27E500DAA79D /* MRZScanView.swift in Sources */,
+				CEA6F4B12D2D27E500DAA79D /* MRZCameraManager.swift in Sources */,
+				CEA6F4B22D2D27E500DAA79D /* MRZScanView+ViewModel.swift in Sources */,
 				561C3C392BADE64B00FBB3B9 /* Fonts.swift in Sources */,
 				CEFF68BF2CB6A3E7008769EA /* CircuitBuilderManager.swift in Sources */,
 				CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */,
@@ -870,8 +964,10 @@
 				CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */,
 				561C3C282BADA8A600FBB3B9 /* Icons.swift in Sources */,
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
+				CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */,
 				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
+				CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */,
 				CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */,
 				CE1D928D2D1DB094008979AF /* ScanQR.swift in Sources */,
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
@@ -881,6 +977,7 @@
 				C71161B32CAAE3DB00ED41EA /* String+BigUInt.swift in Sources */,
 				CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */,
 				CE1D92822D1D97D4008979AF /* QRUtils.swift in Sources */,
+				CEA6F4B72D2D2B9A00DAA79D /* Images.swift in Sources */,
 				CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */,
 				CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */,
 				CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */,
@@ -898,12 +995,19 @@
 				CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */,
 				CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */,
 				5655E42E2BD2C94F00B86C5C /* AppUserDefaults.swift in Sources */,
+				CEA6F4C02D2D2DE900DAA79D /* PassportUtils.swift in Sources */,
 				CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */,
 				56474AD82BB986A40017AA25 /* FeedbackGenerator.swift in Sources */,
 				CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */,
 				CE7D8AAC2BFB52EE009AF212 /* OpenApiError.swift in Sources */,
 				CE1D92692D1C3E80008979AF /* BiometryRegisterView.swift in Sources */,
 				56933DFB2BBAFBD90068C894 /* AppToggle.swift in Sources */,
+				CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */,
+				CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */,
+				CE10E3982D2C37C1002A99E1 /* ScanPassportLayoutView.swift in Sources */,
+				CE10E39D2D2C37C1002A99E1 /* PassportViewModel.swift in Sources */,
+				CE10E39F2D2C37C1002A99E1 /* ScanPassportView.swift in Sources */,
+				CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
 				CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */,
 				CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */,
@@ -1444,6 +1548,22 @@
 				version = 5.9.1;
 			};
 		};
+		CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:groue/Semaphore.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.8;
+			};
+		};
+		CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.4.1;
+			};
+		};
 		CEA7E9052D1AF3AA00089589 /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:rarimo/NFCPassportReader.git";
@@ -1484,6 +1604,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE68BE432BD9B6EA00D92EBB /* XCRemoteSwiftPackageReference "Web3.swift" */;
 			productName = Web3PromiseKit;
+		};
+		CEA6F4B42D2D288B00DAA79D /* Semaphore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */;
+			productName = Semaphore;
+		};
+		CEA6F4BB2D2D2C9B00DAA79D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 		CEA7E9032D1AF35B00089589 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

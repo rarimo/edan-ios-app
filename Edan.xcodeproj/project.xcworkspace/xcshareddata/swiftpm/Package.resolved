@@ -1,5 +1,5 @@
 {
-  "originHash" : "f1fc16e3b0d0f750eccbff6bf60580c7bafafe74305d5a649a6610a1a83f9f30",
+  "originHash" : "31b3fdf815467a9d73fbaab74059d803241c201f2878231f403d524ef2c7fbc3",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -47,6 +47,15 @@
       }
     },
     {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "3bd43e12d6fb54654366a61f7cfaca787318b8ce",
+        "version" : "4.4.1"
+      }
+    },
+    {
       "identity" : "nfcpassportreader",
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:rarimo/NFCPassportReader.git",
@@ -88,6 +97,15 @@
       "state" : {
         "revision" : "cd187c632fb812fd93711a9f7e644adb7e5f97f0",
         "version" : "0.1.7"
+      }
+    },
+    {
+      "identity" : "semaphore",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:groue/Semaphore.git",
+      "state" : {
+        "revision" : "f1c4a0acabeb591068dea6cffdd39660b86dec28",
+        "version" : "0.0.8"
       }
     },
     {

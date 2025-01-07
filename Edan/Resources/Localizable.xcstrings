@@ -220,7 +220,6 @@
       }
     },
     "Authenticating with passport..." : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -229,6 +228,9 @@
           }
         }
       }
+    },
+    "Authenticating with passport...\n\n%@" : {
+
     },
     "Authentication Failed" : {
       "extractionState" : "stale",
@@ -426,6 +428,9 @@
         }
       }
     },
+    "Connection error. Please try again." : {
+
+    },
     "Continue" : {
       "localizations" : {
         "uk" : {
@@ -539,7 +544,6 @@
       }
     },
     "Data never leaves this device" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -843,6 +847,9 @@
         }
       }
     },
+    "Hold your iPhone near an NFC enabled passport.\n" : {
+
+    },
     "Incognito mode" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -987,8 +994,10 @@
         }
       }
     },
+    "More than 1 tag was found. Please present only 1 tag." : {
+
+    },
     "Move your passport page inside the border" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -997,6 +1006,9 @@
           }
         }
       }
+    },
+    "MRZ Key not valid for this document." : {
+
     },
     "Must data" : {
       "extractionState" : "stale",
@@ -1032,7 +1044,6 @@
       }
     },
     "NFC Reader" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1117,7 +1128,6 @@
       }
     },
     "Passport read successfully" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1138,7 +1148,6 @@
       }
     },
     "Place your passport cover to the back of your phone" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1337,12 +1346,21 @@
       }
     },
     "Reading Passport data" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зчитування даних паспорта"
+          }
+        }
+      }
+    },
+    "Reading passport data (%@)...\n\n%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reading passport data (%1$@)...\n\n%2$@"
           }
         }
       }
@@ -1405,7 +1423,6 @@
       }
     },
     "Scan" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1426,7 +1443,6 @@
       }
     },
     "Scan your Passport" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1489,8 +1505,17 @@
         }
       }
     },
+    "Sorry, there was a problem reading the passport. %@. Error codes: [0x%u, 0x%u]" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sorry, there was a problem reading the passport. %1$@. Error codes: [0x%2$u, 0x%3$u]"
+          }
+        }
+      }
+    },
     "Sorry, there was a problem reading the passport. Please try again" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1523,7 +1548,6 @@
       }
     },
     "Step %lld/%lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1552,6 +1576,9 @@
           }
         }
       }
+    },
+    "Tag not valid." : {
+
     },
     "Terms of Use" : {
       "extractionState" : "stale",
