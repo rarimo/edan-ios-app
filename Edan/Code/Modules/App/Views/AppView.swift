@@ -1,11 +1,15 @@
 import SwiftUI
 
 struct AppView: View {
+    @EnvironmentObject private var internetConnectionManager: InternetConnectionManager
+
     @StateObject var viewModel = ViewModel()
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if viewModel.isIntroFinished {
+            if !internetConnectionManager.isInternetPresent {
+                InternetConnectionRequiredView()
+            } else if viewModel.isIntroFinished {
                 MainView()
             } else {
                 IntroView {
@@ -25,4 +29,5 @@ struct AppView: View {
 #Preview {
     AppView()
         .environmentObject(AlertManager.shared)
+        .environmentObject(InternetConnectionManager.shared)
 }

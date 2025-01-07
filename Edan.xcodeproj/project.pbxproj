@@ -110,6 +110,8 @@
 		CEA6F4BC2D2D2C9B00DAA79D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CEA6F4BB2D2D2C9B00DAA79D /* Lottie */; };
 		CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */; };
 		CEA6F4C02D2D2DE900DAA79D /* PassportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */; };
+		CEA6F4C22D2D3AFE00DAA79D /* InternetConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4C12D2D3AF600DAA79D /* InternetConnectionManager.swift */; };
+		CEA6F4C42D2D3B3A00DAA79D /* InternetConnectionRequiredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */; };
 		CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9032D1AF35B00089589 /* Alamofire */; };
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
@@ -253,6 +255,8 @@
 		CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedAnimation.swift; sourceTree = "<group>"; };
 		CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportUtils.swift; sourceTree = "<group>"; };
+		CEA6F4C12D2D3AF600DAA79D /* InternetConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionManager.swift; sourceTree = "<group>"; };
+		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 		5655E41D2BD2C38E00B86C5C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6F4C12D2D3AF600DAA79D /* InternetConnectionManager.swift */,
 				CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */,
 				CE1D926E2D1C5261008979AF /* AccountManager.swift */,
 				CE1D926C2D1C502E008979AF /* WalletManager.swift */,
@@ -408,6 +413,7 @@
 		56F48BBC2BC02E02001F3AA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */,
 				CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */,
 				CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */,
 				CE1D928C2D1DB090008979AF /* ScanQR.swift */,
@@ -966,6 +972,7 @@
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
 				CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */,
 				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
+				CEA6F4C42D2D3B3A00DAA79D /* InternetConnectionRequiredView.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
 				CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */,
 				CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */,
@@ -1007,6 +1014,7 @@
 				CE10E3982D2C37C1002A99E1 /* ScanPassportLayoutView.swift in Sources */,
 				CE10E39D2D2C37C1002A99E1 /* PassportViewModel.swift in Sources */,
 				CE10E39F2D2C37C1002A99E1 /* ScanPassportView.swift in Sources */,
+				CEA6F4C22D2D3AFE00DAA79D /* InternetConnectionManager.swift in Sources */,
 				CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
 				CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */,

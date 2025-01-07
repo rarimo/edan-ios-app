@@ -7,6 +7,7 @@ struct EdanApp: App {
             AppView()
                 .environmentObject(AlertManager.shared)
                 .environmentObject(WalletManager.shared)
+                .environmentObject(InternetConnectionManager.shared)
         }
     }
 }
