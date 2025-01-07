@@ -28,12 +28,12 @@ public extension UIImage {
         var x = 0
         var y = 0
         if width < height {
-            var cropDifferential = Int(resized.size.width) - width
+            let cropDifferential = Int(resized.size.width) - width
             if cropDifferential > 0 {
                 x = cropDifferential / 2
             }
         } else {
-            var cropDifferential = Int(resized.size.height) - height
+            let cropDifferential = Int(resized.size.height) - height
             if cropDifferential > 0 {
                 y = cropDifferential / 2
             }

@@ -156,7 +156,7 @@ class BiometryViewModel: ObservableObject {
             
             let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
             
-            let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
             
             imagesFeatures.append(features)
         }
@@ -223,7 +223,7 @@ class BiometryViewModel: ObservableObject {
             
             let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
             
-            let features = ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
             
             imagesFeatures.append(features)
         }

@@ -75,13 +75,21 @@ class ZKFaceManager {
         return grayscaleData.map { Double($0) / 255.0 }
     }
 
-    func extractFeaturesFromComputableModel(_ model: [Double]) -> [Double] {
+    func extractFeaturesFromComputableModel(_ model: [Double]) throws -> [Double] {
+        if model.count > ZKFaceModel.mean.count {
+            throw "Corrupted face data, try again"
+        }
+
         var subImage = [Double](repeating: 0, count: model.count)
         for pixelIndex in 0 ..< subImage.count {
             subImage[pixelIndex] = model[pixelIndex] - ZKFaceModel.mean[pixelIndex]
         }
 
         var features = [Double](repeating: 0, count: ZKFaceModel.matrix.count)
+        if features.count > ZKFaceModel.matrix.first?.count ?? 0 {
+            throw "Corrupted face data, try again"
+        }
+
         for featureIndex in 0 ..< features.count {
             for weightIndex in 0 ..< ZKFaceModel.matrix[featureIndex].count {
                 if weightIndex >= subImage.count {
