@@ -36,6 +36,8 @@ struct SettingsView: View {
                 logout()
             } catch {
                 LoggerUtil.common.error("failed to delete account: \(error.localizedDescription)")
+
+                AlertManager.shared.emitError("Failed to delete account")
             }
         }
     }

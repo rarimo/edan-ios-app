@@ -1,13 +1,11 @@
 import SwiftUI
 
 enum AccountSetupRoute: Hashable {
-    case passport, createNewAccount, recoverLostAccount
+    case createNewAccount, recoverLostAccount
 }
 
 struct IntroView: View {
     @State private var path: [AccountSetupRoute] = []
-
-    @State private var nextRoute: AccountSetupRoute = .createNewAccount
 
     var onFinishedIntro: () -> Void = {}
 
@@ -15,19 +13,6 @@ struct IntroView: View {
         NavigationStack(path: $path) {
             content.navigationDestination(for: AccountSetupRoute.self) { route in
                 switch route {
-                case .passport:
-                    ScanPassportView(
-                        onComplete: { passport in
-                            try? AppKeychain.setValue(.passportJson, passport.json)
-
-                            path.append(nextRoute)
-                            path.remove(at: 0)
-                        },
-                        onClose: {
-                            _ = path.popLast()
-                        }
-                    )
-                    .navigationBarHidden(true)
                 case .createNewAccount:
                     BiometryRegisterView(
                         onNext: onFinishedIntro,
@@ -63,14 +48,10 @@ struct IntroView: View {
                 Text("Account setup")
                     .subtitle3()
                 AppButton(text: "Create a new account", rightIcon: Icons.arrowRight) {
-                    self.nextRoute = .createNewAccount
-
                     path.append(.createNewAccount)
                 }
                 AppButton(variant: .secondary, text: "Recover a lost account", rightIcon: Icons.arrowRight) {
-                    self.nextRoute = .recoverLostAccount
-
-                    path.append(.passport)
+                    path.append(.recoverLostAccount)
                 }
                 .padding(.bottom, 20)
             }

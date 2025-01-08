@@ -9,6 +9,17 @@ struct AppView: View {
         ZStack(alignment: .topLeading) {
             if !internetConnectionManager.isInternetPresent {
                 InternetConnectionRequiredView()
+            } else if !viewModel.isPassportPresent && viewModel.isIntroFinished {
+                ScanPassportView(
+                    onComplete: { passport in
+                        try? AppKeychain.setValue(.passportJson, passport.json)
+
+                        viewModel.isPassportPresent = true
+                    },
+                    onClose: {
+                        viewModel.isPassportPresent = true
+                    }
+                )
             } else if viewModel.isIntroFinished {
                 MainView()
             } else {

@@ -8,8 +8,11 @@ extension AppView {
             }
         }
 
+        @Published var isPassportPresent = (try? AppKeychain.containsValue(.passportJson)) ?? false
+
         func reset() {
             isIntroFinished = false
+            isPassportPresent = false
         }
     }
 }
