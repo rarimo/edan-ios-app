@@ -65,7 +65,7 @@ struct IntroView: View {
                 AppButton(text: "Create a new account", rightIcon: Icons.arrowRight) {
                     self.nextRoute = .createNewAccount
 
-                    path.append(.passport)
+                    path.append(.createNewAccount)
                 }
                 AppButton(variant: .secondary, text: "Recover a lost account", rightIcon: Icons.arrowRight) {
                     self.nextRoute = .recoverLostAccount

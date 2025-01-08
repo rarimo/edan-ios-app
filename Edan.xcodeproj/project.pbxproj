@@ -82,6 +82,7 @@
 		CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92952D1DC904008979AF /* PubSignals.swift */; };
 		CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
+		CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35296A2D2E839600549481 /* MemoryUtils.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
 		CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE397C392D11D372000D254F /* ZKFaceManager.swift */; };
@@ -228,6 +229,7 @@
 		CE1D92952D1DC904008979AF /* PubSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubSignals.swift; sourceTree = "<group>"; };
 		CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesUtils.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
+		CE35296A2D2E839600549481 /* MemoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryUtils.swift; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
 		CE397C392D11D372000D254F /* ZKFaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceManager.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE35296A2D2E839600549481 /* MemoryUtils.swift */,
 				CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */,
 				CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */,
 				CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */,
@@ -924,6 +927,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
+				CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */,

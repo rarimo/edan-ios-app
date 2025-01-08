@@ -22,8 +22,6 @@ struct BiometryRecoveryView: View {
 
                     AlertManager.shared.emitError("\(error.localizedDescription)")
 
-                    viewModel.clearImages()
-
                     onBack()
                 }
             )
@@ -31,6 +29,8 @@ struct BiometryRecoveryView: View {
         .background(.backgroundPure)
         .environmentObject(viewModel)
         .onDisappear {
+            viewModel.clearImages()
+            
             viewModel.processingTask?.cancel()
         }
     }

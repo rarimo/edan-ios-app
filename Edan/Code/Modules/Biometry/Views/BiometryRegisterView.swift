@@ -30,6 +30,8 @@ struct BiometryRegisterView: View {
         .background(.backgroundPure)
         .environmentObject(viewModel)
         .onDisappear {
+            viewModel.clearImages()
+
             viewModel.processingTask?.cancel()
         }
     }
