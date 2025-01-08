@@ -11,7 +11,8 @@ class Ethereum {
     
     static let TX_SUCCESS_CODE: EthereumQuantity = 1
     
-//    static let
+    // Default time interval is 5 minutes
+    static let TX_CHECK_TIMEOUT: TimeInterval = 5 * 60
     
     let web3: Web3
     
@@ -44,8 +45,14 @@ class Ethereum {
         return status == Ethereum.TX_SUCCESS_CODE
     }
     
-    func waitForTxSuccess(_ txHash: String) async throws {
+    func waitForTxSuccess(_ txHash: String, _ timeout: TimeInterval = TX_CHECK_TIMEOUT) async throws {
+        let timeoutTime = Date().addingTimeInterval(timeout)
+        
         while true {
+            if Date() > timeoutTime {
+                throw "Transaction check timeout"
+            }
+            
             let isTxSuccessfulResult = try await isTxSuccessful(txHash)
             
             if let isTxSuccessfulResult {
