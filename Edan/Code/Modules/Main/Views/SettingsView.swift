@@ -31,7 +31,7 @@ struct SettingsView: View {
             do {
                 let features = try JSONDecoder().decode([Double].self, from: AppUserDefaults.shared.faceFeatures)
 
-                try await ZKBiometricsSvc.shared.deleteValue(feature: features)
+                try? await ZKBiometricsSvc.shared.deleteValue(feature: features)
 
                 logout()
             } catch {
