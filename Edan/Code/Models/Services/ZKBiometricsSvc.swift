@@ -73,7 +73,7 @@ class ZKBiometricsSvc {
         }
     }
 
-    func deleteValue(key: String? = nil, feature: [Double]? = nil) async throws -> ZKBiometricsValueResponse? {
+    func deleteValue(key: String? = nil, feature: [Double]? = nil) async throws {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
 
@@ -85,24 +85,15 @@ class ZKBiometricsSvc {
             requestURL.append(queryItems: [URLQueryItem(name: "filter[feature]", value: String(feature.json.utf8.dropFirst().dropLast()))])
         }
 
-        do {
-            return try await AF.request(
-                requestURL,
-                method: .delete
-            )
-            .validate(OpenApiError.catchInstance)
-            .serializingDecodable(ZKBiometricsValueResponse.self)
-            .result
-            .get()
-        } catch {
-            let openApiHttpCode = try error.retriveOpenApiHttpCode()
-
-            if openApiHttpCode == HTTPStatusCode.notFound.rawValue {
-                return nil
-            }
-
-            throw error
-        }
+        // returns empty body
+        _ = try await AF.request(
+            requestURL,
+            method: .delete
+        )
+        .validate(OpenApiError.catchInstance)
+        .serializingData()
+        .result
+        .get()
     }
 
     func relay(
