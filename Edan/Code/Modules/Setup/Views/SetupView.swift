@@ -1,7 +1,21 @@
 import SwiftUI
 
+enum SetupAction {
+    case create
+    case restore
+}
+
 struct SetupView: View {
+    @State private var chosenAction: SetupAction?
+
     var body: some View {
+        content
+            .sheet(isPresented: .init(get: { chosenAction != nil }, set: { _ in chosenAction = nil })) {
+                VStack {}
+            }
+    }
+
+    var content: some View {
         wrapInGradient {
             VStack(spacing: 35) {
                 Spacer()
@@ -21,8 +35,8 @@ struct SetupView: View {
                     .frame(width: 278)
                 Spacer()
                 VStack {
-                    AppButton(text: "Create a new one") {}
-                    AppButton(variant: .secondary, text: "Regain access") {}
+                    AppButton(text: "Create a new one") { chosenAction = .create }
+                    AppButton(variant: .secondary, text: "Regain access") { chosenAction = .restore }
                 }
                 .frame(width: 342)
             }
@@ -38,6 +52,10 @@ struct SetupView: View {
                 body()
             }
         }
+    }
+
+    func registerProcess(_ action: SetupAction) {
+        chosenAction = action
     }
 }
 
