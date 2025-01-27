@@ -117,6 +117,8 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
+		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -261,6 +263,8 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEBD6A4C2D47C501002AAAFC /* Gradients.swift */,
 				CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */,
 				CEA6F4B62D2D2B9900DAA79D /* Images.swift */,
 				CEDA6FC72D28235D00CF5780 /* Contracts.swift */,
@@ -728,6 +733,7 @@
 				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
 				CEA6F4AF2D2D27E500DAA79D /* MRZScan */,
+				CEBD6A482D47C1B1002AAAFC /* Setup */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -792,6 +798,22 @@
 				CE1D927B2D1D7A67008979AF /* HistoryView.swift */,
 				CE1D92722D1D66B1008979AF /* SettingsView.swift */,
 				CEA7E90C2D1AFEA500089589 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEBD6A482D47C1B1002AAAFC /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				CEBD6A492D47C1EB002AAAFC /* Views */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		CEBD6A492D47C1EB002AAAFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -965,6 +987,7 @@
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
 				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
 				CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */,
+				CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
 				CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
@@ -999,6 +1022,7 @@
 				56E2D9202BCED460006E725D /* AppCheckbox.swift in Sources */,
 				CE1D92632D1C2366008979AF /* BiometryFaceView.swift in Sources */,
 				CE1D92642D1C2366008979AF /* BiometryViewModel.swift in Sources */,
+				CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */,
 				CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */,
 				CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */,
 				CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */,
