@@ -34,7 +34,6 @@ struct SetupFaceOverlay: View {
             .frame(maxWidth: 325, maxHeight: 325)
         }
         .animation(.smooth, value: progress)
-        .frame(width: 350, height: 350)
     }
 
     var isFinished: Bool {
@@ -44,4 +43,5 @@ struct SetupFaceOverlay: View {
 
 #Preview {
     SetupFaceOverlay(progress: 0.5, faceImage: Image(Images.man))
+        .frame(width: 350, height: 350)
 }
