@@ -13,6 +13,7 @@ struct SetupFaceView: View {
                 .padding()
                 .opacity(isFaceScanned ? 0 : 1)
             Spacer()
+            VStack {}
         }
     }
 }

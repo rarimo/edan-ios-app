@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SetupFaceOverlay: View {
     let progress: Double
+    let faceImage: Image
 
     var body: some View {
         ZStack {
@@ -13,14 +14,24 @@ struct SetupFaceOverlay: View {
                     .stroke(Color.primaryDark, style: StrokeStyle(lineWidth: 10, dash: [1, 15]))
             }
             .rotationEffect(.degrees(-90))
-            if isFinished {
-                ZStack {
-                    Circle()
-                        .foregroundStyle(.primaryMain)
-                        .frame(width: 325, height: 325)
-                    Image(Images.checkmark)
+            Group {
+                if isFinished {
+                    ZStack {
+                        Circle()
+                            .foregroundStyle(.primaryMain)
+
+                        Image(Images.checkmark)
+                    }
+                } else {
+                    faceImage
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .clipped()
+                        .scaleEffect(x: -1, y: 1)
                 }
             }
+            .frame(maxWidth: 325, maxHeight: 325)
         }
         .animation(.smooth, value: progress)
         .frame(width: 350, height: 350)
@@ -32,5 +43,5 @@ struct SetupFaceOverlay: View {
 }
 
 #Preview {
-    SetupFaceOverlay(progress: 0.5)
+    SetupFaceOverlay(progress: 0.5, faceImage: Image(Images.man))
 }
