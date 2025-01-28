@@ -8,6 +8,7 @@ struct SetupActionView: View {
     let onClose: () -> Void
 
     @State private var shouldShowCreateNewIntro = true
+    @State private var isFaceScanned = false
 
     var body: some View {
         withCloseButton {
@@ -19,14 +20,26 @@ struct SetupActionView: View {
                             shouldShowCreateNewIntro = false
                         }
                     } else {
-                        VStack {}
+                        actionView
                     }
                 case .restore:
-                    VStack {}
+                    actionView
                 }
             }
         }
         .environmentObject(BiometryViewModel())
+    }
+
+    var actionView: some View {
+        Group {
+            if isFaceScanned {
+                VStack {}
+            } else {
+                SetupFaceView {
+                    isFaceScanned = true
+                }
+            }
+        }
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {
@@ -45,10 +58,6 @@ struct SetupActionView: View {
             }
             .padding()
         }
-    }
-
-    var isFaceScanned: Bool {
-        viewModel.loadingProgress >= 1
     }
 }
 
