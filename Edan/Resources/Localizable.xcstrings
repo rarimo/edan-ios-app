@@ -103,6 +103,9 @@
         }
       }
     },
+    "+ ZK Face  for managing all" : {
+
+    },
     "Account" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -477,6 +480,9 @@
     "Create a new account" : {
 
     },
+    "Create a new one" : {
+
+    },
     "Create Account" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -487,6 +493,9 @@
           }
         }
       }
+    },
+    "Create an unforgettable wallet" : {
+
     },
     "Creating a confidential profile" : {
       "extractionState" : "stale",
@@ -889,6 +898,9 @@
         }
       }
     },
+    "It’s just You" : {
+
+    },
     "Join a waitlist" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1057,6 +1069,9 @@
 
     },
     "No internet connection" : {
+
+    },
+    "No more seed\nphrases" : {
 
     },
     "No transactions yet" : {
@@ -1414,6 +1429,9 @@
     "Recover a lost account" : {
 
     },
+    "Regain access" : {
+
+    },
     "Repeat Passcode" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1616,6 +1634,9 @@
         }
       }
     },
+    "The first self-recovery crypto wallet based on ZK biometrics" : {
+
+    },
     "The rewards program will allow you to receive weekly airdrops.\n\nYou can earn additional rewards by using RariMe’s incognito proofs with other ecosystem apps." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1693,6 +1714,9 @@
         }
       }
     },
+    "Unforgettable" : {
+
+    },
     "Unknown" : {
 
     },
@@ -1711,7 +1735,6 @@
       }
     },
     "Wallet" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
