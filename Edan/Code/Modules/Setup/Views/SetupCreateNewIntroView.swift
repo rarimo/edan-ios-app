@@ -43,6 +43,7 @@ struct SetupCreateNewIntroView: View {
 
     var secontIntroBody: some View {
         VStack(spacing: 70) {
+            Image(Images.setupSecondIntro)
             VStack {
                 Text("It’s just You")
                     .h4()

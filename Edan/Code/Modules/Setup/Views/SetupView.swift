@@ -11,7 +11,7 @@ struct SetupView: View {
     var body: some View {
         content
             .sheet(isPresented: .init(get: { chosenAction != nil }, set: { _ in chosenAction = nil })) {
-                VStack {}
+                SetupActionView(action: chosenAction!)
             }
     }
 
