@@ -130,6 +130,8 @@ class BiometryViewModel: ObservableObject {
                     
                 if loadingProgress >= 1 {
                     self.faceImage = faceImage
+                    
+                    stopScanning()
                         
                     return
                 }

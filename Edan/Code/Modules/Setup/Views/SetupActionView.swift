@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SetupActionView: View {
+    @StateObject var viewModel = BiometryViewModel()
+
     let action: SetupAction
 
     let onClose: () -> Void
@@ -24,6 +26,7 @@ struct SetupActionView: View {
                 }
             }
         }
+        .environmentObject(BiometryViewModel())
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {
@@ -42,6 +45,10 @@ struct SetupActionView: View {
             }
             .padding()
         }
+    }
+
+    var isFaceScanned: Bool {
+        viewModel.loadingProgress >= 1
     }
 }
 

@@ -1,9 +1,11 @@
 import SwiftUI
 
 struct SetupFaceView: View {
-    @State private var progress: Double = 0
+    @EnvironmentObject private var viewModel: BiometryViewModel
 
     @State private var currentFace: Image? = PreviewUtils.isPreview ? Image(Images.man) : nil
+
+    let onComplete: () -> Void
 
     var body: some View {
         VStack {
@@ -15,13 +17,23 @@ struct SetupFaceView: View {
             Spacer()
             Group {
                 if let face = currentFace {
-                    SetupFaceOverlay(progress: progress, faceImage: face)
+                    SetupFaceOverlay(progress: viewModel.loadingProgress, faceImage: face)
                 }
             }
             .frame(width: 350, height: 350)
             additionalInfo
                 .frame(height: 100)
             Spacer()
+        }
+        .onAppear {
+            viewModel.startScanning()
+        }
+        .onChange(of: viewModel.loadingProgress) { progress in
+            if progress >= 0 {
+                Task {
+                    try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+                }
+            }
         }
     }
 
@@ -45,10 +57,11 @@ struct SetupFaceView: View {
     }
 
     var isFaceScanned: Bool {
-        progress >= 1
+        viewModel.loadingProgress >= 1
     }
 }
 
 #Preview {
-    SetupFaceView()
+    SetupFaceView {}
+        .environmentObject(BiometryViewModel())
 }
