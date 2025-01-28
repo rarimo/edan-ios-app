@@ -16,8 +16,11 @@ struct SetupFaceView: View {
                 .opacity(isFaceScanned ? 0 : 1)
             Spacer()
             Group {
-                if let face = currentFace {
-                    SetupFaceOverlay(progress: viewModel.loadingProgress, faceImage: face)
+                if let face = viewModel.currentFrame {
+                    SetupFaceOverlay(
+                        progress: viewModel.loadingProgress,
+                        faceImage: Image(decorative: face, scale: 1)
+                    )
                 }
             }
             .frame(width: 350, height: 350)
