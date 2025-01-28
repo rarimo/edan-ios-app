@@ -40,6 +40,7 @@ struct SetupActionView: View {
                 }
             }
         }
+        .padding(.top, 50)
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {

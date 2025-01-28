@@ -21,6 +21,9 @@ struct SetupFaceView: View {
                         progress: viewModel.loadingProgress,
                         faceImage: Image(decorative: face, scale: 1)
                     )
+                } else {
+                    Circle()
+                        .foregroundStyle(.componentPrimary)
                 }
             }
             .frame(width: 350, height: 350)
