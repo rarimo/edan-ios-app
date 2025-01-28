@@ -8,10 +8,10 @@ struct SetupFaceOverlay: View {
         ZStack {
             ZStack {
                 Circle()
-                    .stroke(Color.componentPrimary, style: StrokeStyle(lineWidth: 10, dash: [1, 15]))
+                    .stroke(Color.componentPrimary, style: StrokeStyle(lineWidth: 10, dash: [2, 15]))
                 Circle()
                     .trim(from: 0.0, to: progress)
-                    .stroke(Color.primaryDark, style: StrokeStyle(lineWidth: 10, dash: [1, 15]))
+                    .stroke(Color.primaryDark, style: StrokeStyle(lineWidth: 10, dash: [2, 15]))
             }
             .rotationEffect(.degrees(-90))
             Group {
