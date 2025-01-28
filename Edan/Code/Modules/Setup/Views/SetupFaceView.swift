@@ -35,9 +35,11 @@ struct SetupFaceView: View {
             viewModel.startScanning()
         }
         .onChange(of: viewModel.loadingProgress) { progress in
-            if progress >= 0 {
+            if progress >= 1 {
                 Task {
                     try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+
+                    onComplete()
                 }
             }
         }
