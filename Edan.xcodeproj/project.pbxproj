@@ -96,6 +96,8 @@
 		CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = CE68BE462BD9B6EA00D92EBB /* Web3ContractABI */; };
 		CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE68BE482BD9B6EA00D92EBB /* Web3PromiseKit */; };
 		CE697FE82D48FDB20099D8B2 /* SetupActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FE72D48FD760099D8B2 /* SetupActionView.swift */; };
+		CE697FEA2D4901BD0099D8B2 /* SetupFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */; };
+		CE697FEC2D4905840099D8B2 /* SetupFaceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */; };
 		CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */; };
 		CE7210292BD7D0D10043DB7F /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210282BD7D0D10043DB7F /* String+Hex.swift */; };
 		CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210322BD818020043DB7F /* Double+Rounded.swift */; };
@@ -244,6 +246,8 @@
 		CE66B1452CA4148B002F658E /* ScanPassport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ScanPassport.json; sourceTree = "<group>"; };
 		CE68BE3C2BD9B23D00D92EBB /* ZkProof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZkProof.swift; sourceTree = "<group>"; };
 		CE697FE72D48FD760099D8B2 /* SetupActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupActionView.swift; sourceTree = "<group>"; };
+		CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFaceView.swift; sourceTree = "<group>"; };
+		CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFaceOverlay.swift; sourceTree = "<group>"; };
 		CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utf8.swift"; sourceTree = "<group>"; };
 		CE7210282BD7D0D10043DB7F /* String+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		CE7210322BD818020043DB7F /* Double+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounded.swift"; sourceTree = "<group>"; };
@@ -817,6 +821,8 @@
 		CEBD6A492D47C1EB002AAAFC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */,
+				CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */,
 				CE697FE72D48FD760099D8B2 /* SetupActionView.swift */,
 				CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */,
 				CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */,
@@ -955,6 +961,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
+				CE697FEC2D4905840099D8B2 /* SetupFaceOverlay.swift in Sources */,
 				CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
@@ -1047,6 +1054,7 @@
 				CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */,
 				CE10E3982D2C37C1002A99E1 /* ScanPassportLayoutView.swift in Sources */,
 				CE10E39D2D2C37C1002A99E1 /* PassportViewModel.swift in Sources */,
+				CE697FEA2D4901BD0099D8B2 /* SetupFaceView.swift in Sources */,
 				CE10E39F2D2C37C1002A99E1 /* ScanPassportView.swift in Sources */,
 				CEA6F4C22D2D3AFE00DAA79D /* InternetConnectionManager.swift in Sources */,
 				CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */,
