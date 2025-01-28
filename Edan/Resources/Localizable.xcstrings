@@ -609,6 +609,9 @@
         }
       }
     },
+    "Done!" : {
+
+    },
     "Downloading data" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -923,6 +926,9 @@
         }
       }
     },
+    "Just like that" : {
+
+    },
     "Language" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1184,6 +1190,9 @@
           }
         }
       }
+    },
+    "Please look directly at the screen under good lighting conditions" : {
+
     },
     "Please store the private key safely and do not share it with anyone. If you lose this key, you will not be able to recover the account and will lose access forever." : {
       "extractionState" : "stale",
@@ -1462,6 +1471,9 @@
           }
         }
       }
+    },
+    "Scan your face" : {
+
     },
     "Scan your Passport" : {
       "localizations" : {
