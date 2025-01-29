@@ -14,10 +14,10 @@ struct UserProfileIconView: View {
                     Circle()
                         .trim(from: 0.0, to: progress)
                         .stroke(Color.warningMain, style: .init(lineWidth: progressCircleWidthSize, lineCap: .round))
+                        .rotationEffect(.degrees(-90))
                 }
                 .foregroundStyle(.baseWhite)
                 .frame(width: progressCircleSize, height: progressCircleSize)
-                .rotationEffect(.degrees(-90))
                 if let userFace = userManager.userFace {
                     Image(uiImage: userFace)
                         .resizable()
