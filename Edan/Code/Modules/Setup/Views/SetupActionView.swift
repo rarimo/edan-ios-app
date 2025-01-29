@@ -29,6 +29,9 @@ struct SetupActionView: View {
             }
         }
         .environmentObject(BiometryViewModel())
+        .onDisappear {
+            viewModel.clearImages()
+        }
     }
 
     var actionView: some View {
@@ -37,6 +40,25 @@ struct SetupActionView: View {
                 VStack {}
             } else {
                 SetupFaceView {
+                    do {
+                        guard
+                            let faceImage = viewModel.faceImage,
+                            let faceImagePngData = faceImage.pngData()
+                        else {
+                            throw "Failed to serialize face image"
+                        }
+
+                        try FileStorage.saveData(faceImagePngData, key: .userFace)
+                    } catch {
+                        LoggerUtil.common.error("failed to save face image: \(error.localizedDescription)")
+
+                        AlertManager.shared.emitError("Failed to save face image")
+
+                        onClose()
+
+                        return
+                    }
+
                     onComplete()
 
                     // isFaceScanned = true
