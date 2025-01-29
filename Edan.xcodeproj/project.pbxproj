@@ -129,6 +129,7 @@
 		CEC55AF32D4A555800A366CC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF22D4A555500A366CC /* UserManager.swift */; };
 		CEC55AF72D4A5CBA00A366CC /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF62D4A5CB400A366CC /* WalletView.swift */; };
 		CEC55AF92D4A5D3B00A366CC /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF82D4A5D3700A366CC /* WarningView.swift */; };
+		CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -285,6 +286,7 @@
 		CEC55AF22D4A555500A366CC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CEC55AF62D4A5CB400A366CC /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		CEC55AF82D4A5D3700A366CC /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileIconView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 		CEC55AED2D4A4EAA00A366CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */,
 				CEC55AEE2D4A4EB500A366CC /* HomeView.swift */,
 			);
 			path = Views;
@@ -1051,6 +1054,7 @@
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
 				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
+				CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */,
 				CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */,
 				CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,

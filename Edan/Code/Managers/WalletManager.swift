@@ -2,19 +2,19 @@ import Web3
 import Web3ContractABI
 import Web3PromiseKit
 
-import Foundation
+import SwiftUI
 
 class WalletManager: ObservableObject {
     static let shared = WalletManager()
 
-    let decimals: Int = 18
+    let decimals: Int = 6
 
-    let tokenName: String = "ETH"
+    let tokenName: String = "USDC"
 
     var balanceString: String {
         let balance = Double(balance) / pow(10, Double(decimals))
 
-        return String(format: "%.3f", balance)
+        return String(format: "%.2f", balance)
     }
 
     @Published var balance: BigUInt = 0

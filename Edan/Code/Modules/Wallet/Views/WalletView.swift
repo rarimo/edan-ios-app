@@ -1,12 +1,20 @@
 import SwiftUI
 
 struct WalletView: View {
+    @EnvironmentObject private var walletManager: WalletManager
+
     var body: some View {
         wrapInGradient {
             VStack {
                 WarningView(text: "ZK Face technology is currently in beta, with balance limits in place")
                 Spacer()
+                Text("$\(walletManager.balanceString)")
+                    .h3()
+                    .foregroundStyle(.textPrimary)
+                Spacer()
                 actions
+                assets
+                history
             }
         }
     }
@@ -42,8 +50,54 @@ struct WalletView: View {
         }
         .frame(width: 177, height: 120)
     }
+
+    var assets: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 32)
+                .foregroundStyle(.componentPrimary)
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Assets")
+                    .subtitle3()
+                    .foregroundStyle(.textPrimary)
+                HStack {
+                    Image(walletManager.tokenName)
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                    Text(walletManager.tokenName)
+                        .subtitle4()
+                        .foregroundStyle(.textPrimary)
+                        .padding(.leading, 10)
+                    Spacer()
+                    Text("$\(walletManager.balanceString)")
+                        .subtitle4()
+                        .foregroundStyle(.textPrimary)
+                }
+            }
+            .padding(.horizontal, 25)
+        }
+        .frame(width: 358, height: 120)
+    }
+
+    var history: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 32)
+                .foregroundStyle(.componentPrimary)
+            VStack(spacing: 20) {
+                Text("History")
+                    .subtitle3()
+                    .foregroundStyle(.textPrimary)
+                    .align()
+                Text("No transactions yet")
+                    .subtitle4()
+                    .foregroundStyle(.textPrimary)
+            }
+            .padding(.horizontal, 25)
+        }
+        .frame(width: 358, height: 120)
+    }
 }
 
 #Preview {
     WalletView()
+        .environmentObject(WalletManager.shared)
 }
