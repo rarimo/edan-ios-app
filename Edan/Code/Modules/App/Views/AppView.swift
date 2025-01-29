@@ -10,7 +10,7 @@ struct AppView: View {
             if !internetConnectionManager.isInternetPresent {
                 InternetConnectionRequiredView()
             } else if viewModel.isIntroFinished {
-                VStack {}
+                HomeView()
             } else {
                 SetupView {
                     viewModel.isIntroFinished = true

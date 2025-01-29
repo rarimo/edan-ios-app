@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SetupActionView: View {
+    @EnvironmentObject private var userManager: UserManager
+
     @StateObject var viewModel = BiometryViewModel()
 
     let action: SetupAction
@@ -40,24 +42,7 @@ struct SetupActionView: View {
                 VStack {}
             } else {
                 SetupFaceView {
-                    do {
-                        guard
-                            let faceImage = viewModel.faceImage,
-                            let faceImagePngData = faceImage.pngData()
-                        else {
-                            throw "Failed to serialize face image"
-                        }
-
-                        try FileStorage.saveData(faceImagePngData, key: .userFace)
-                    } catch {
-                        LoggerUtil.common.error("failed to save face image: \(error.localizedDescription)")
-
-                        AlertManager.shared.emitError("Failed to save face image")
-
-                        onClose()
-
-                        return
-                    }
+                    userManager.userFace = viewModel.faceImage
 
                     onComplete()
 
@@ -89,4 +74,5 @@ struct SetupActionView: View {
 
 #Preview {
     SetupActionView(action: .create, onComplete: {}, onClose: {})
+        .environmentObject(UserManager.shared)
 }
