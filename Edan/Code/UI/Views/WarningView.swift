@@ -32,5 +32,8 @@ struct WarningView: View {
 }
 
 #Preview {
-    WarningView(text: "ZK Face technology is currently in beta, with balance limits in place")
+    VStack(spacing: 100) {
+        WarningView(text: "ZK Face technology is currently in beta, with balance limits in place")
+        WarningView(text: "A $500 limit applies to the account. To increase it, add additional recovery methods in your profile")
+    }
 }

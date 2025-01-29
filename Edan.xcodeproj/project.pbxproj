@@ -130,6 +130,7 @@
 		CEC55AF72D4A5CBA00A366CC /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF62D4A5CB400A366CC /* WalletView.swift */; };
 		CEC55AF92D4A5D3B00A366CC /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF82D4A5D3700A366CC /* WarningView.swift */; };
 		CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */; };
+		CEC55AFD2D4A89BE00A366CC /* WalletReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -287,6 +288,7 @@
 		CEC55AF62D4A5CB400A366CC /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		CEC55AF82D4A5D3700A366CC /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileIconView.swift; sourceTree = "<group>"; };
+		CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletReceiveView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 		CEC55AF52D4A5CAE00A366CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */,
 				CEC55AF62D4A5CB400A366CC /* WalletView.swift */,
 			);
 			path = Views;
@@ -1126,6 +1129,7 @@
 				CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */,
 				563529F62BB077AB0027C910 /* CardContainer.swift in Sources */,
 				560F0C252BD036F900067054 /* AppTextField.swift in Sources */,
+				CEC55AFD2D4A89BE00A366CC /* WalletReceiveView.swift in Sources */,
 				CE3CD3B12C6CEBEF008313B8 /* JSONCodable.swift in Sources */,
 				CE5777B12D1AE40B001A6270 /* AppView.swift in Sources */,
 				CE1D92802D1D9659008979AF /* ReceiveView.swift in Sources */,
