@@ -1,12 +1,12 @@
 import SwiftUI
 
-protocol BiometryProgress {
+protocol SetupActionProgress {
     var rawValue: Int { get }
     var description: String { get }
     var progressTime: Int { get }
 }
 
-enum BiometryRecoveryProgress: Int, CaseIterable, BiometryProgress {
+enum SetupRecoveryProgress: Int, CaseIterable, SetupActionProgress {
     case downloadingCircuitData = 0
     case extractionImageFeatures = 1
     case runningZKMK = 2
@@ -31,7 +31,7 @@ enum BiometryRecoveryProgress: Int, CaseIterable, BiometryProgress {
     }
 }
 
-enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
+enum SetupRegisterProgress: Int, CaseIterable, SetupActionProgress {
     case downloadingCircuitData = 0
     case extractionImageFeatures = 1
     case runningZKMK = 2
@@ -67,20 +67,20 @@ class BiometryViewModel: ObservableObject {
         
     @Published var loadingProgress = 0.0
         
-    @Published var recoveryProgress: BiometryRecoveryProgress? = nil
-    @Published var registerProgress: BiometryRegisterProgress? = nil
+    @Published var recoveryProgress: SetupRecoveryProgress? = nil
+    @Published var registerProgress: SetupRegisterProgress? = nil
         
     @Published var processingTask: Task<Void, Never>? = nil
         
     private var recentZKProofResult: Result<ZkProof, Error>?
         
     @MainActor
-    func markRecoveryProgress(_ progress: BiometryRecoveryProgress) {
+    func markRecoveryProgress(_ progress: SetupRecoveryProgress) {
         recoveryProgress = progress
     }
     
     @MainActor
-    func markRegisterProgress(_ progress: BiometryRegisterProgress) {
+    func markRegisterProgress(_ progress: SetupRegisterProgress) {
         registerProgress = progress
     }
         

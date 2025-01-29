@@ -5,6 +5,7 @@ struct SetupActionView: View {
 
     let action: SetupAction
 
+    let onComplete: () -> Void
     let onClose: () -> Void
 
     @State private var shouldShowCreateNewIntro = true
@@ -36,7 +37,9 @@ struct SetupActionView: View {
                 VStack {}
             } else {
                 SetupFaceView {
-                    isFaceScanned = true
+                    onComplete()
+
+                    // isFaceScanned = true
                 }
             }
         }
@@ -63,5 +66,5 @@ struct SetupActionView: View {
 }
 
 #Preview {
-    SetupActionView(action: .create) {}
+    SetupActionView(action: .create, onComplete: {}, onClose: {})
 }

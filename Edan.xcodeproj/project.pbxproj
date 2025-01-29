@@ -123,6 +123,7 @@
 		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
 		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
+		CEC55AEA2D4A3EFA00A366CC /* SetupActionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -273,6 +274,7 @@
 		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
+		CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupActionLoader.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 		CEBD6A492D47C1EB002AAAFC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */,
 				CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */,
 				CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */,
 				CE697FE72D48FD760099D8B2 /* SetupActionView.swift */,
@@ -1012,6 +1015,7 @@
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
 				CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */,
 				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
+				CEC55AEA2D4A3EFA00A366CC /* SetupActionLoader.swift in Sources */,
 				CEA6F4C42D2D3B3A00DAA79D /* InternetConnectionRequiredView.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
 				CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */,

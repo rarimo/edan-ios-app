@@ -165,7 +165,7 @@ struct BiometryFaceView: View {
 
     var registerProcess: some View {
         VStack(spacing: 35) {
-            ForEach(BiometryRegisterProgress.allCases, id: \.rawValue) { progress in
+            ForEach(SetupRegisterProgress.allCases, id: \.rawValue) { progress in
                 VStack {
                     Text(progress.description)
                         .body2()
@@ -181,7 +181,7 @@ struct BiometryFaceView: View {
 
     var recoveryProcess: some View {
         VStack(spacing: 35) {
-            ForEach(BiometryRecoveryProgress.allCases, id: \.rawValue) { progress in
+            ForEach(SetupRecoveryProgress.allCases, id: \.rawValue) { progress in
                 VStack {
                     Text(progress.description)
                         .body2()
@@ -208,7 +208,7 @@ struct BiometryFaceView: View {
                 }
             }
 
-            for progress in BiometryRegisterProgress.allCases {
+            for progress in SetupRegisterProgress.allCases {
                 viewModel.markRegisterProgress(progress)
 
                 try? await Task.sleep(nanoseconds: UInt64(progress.progressTime) * NSEC_PER_SEC)
@@ -239,7 +239,7 @@ struct BiometryFaceView: View {
                 }
             }
 
-            for progress in BiometryRecoveryProgress.allCases {
+            for progress in SetupRecoveryProgress.allCases {
                 viewModel.markRecoveryProgress(progress)
 
                 try? await Task.sleep(nanoseconds: UInt64(progress.progressTime) * NSEC_PER_SEC)
@@ -254,7 +254,7 @@ struct BiometryFaceView: View {
     }
 }
 
-struct BiometryProcessLoader<Process: BiometryProgress>: View {
+struct BiometryProcessLoader<Process: SetupActionProgress>: View {
     @EnvironmentObject var viewModel: BiometryViewModel
 
     var biometryRecoveryProgress: Process

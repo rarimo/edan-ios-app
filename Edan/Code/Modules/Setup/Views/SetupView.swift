@@ -8,12 +8,18 @@ enum SetupAction {
 struct SetupView: View {
     @State private var chosenAction: SetupAction?
 
+    let onComplete: () -> Void
+
     var body: some View {
         content
             .sheet(isPresented: .init(get: { chosenAction != nil }, set: { _ in chosenAction = nil })) {
-                SetupActionView(action: chosenAction!) {
-                    chosenAction = nil
-                }
+                SetupActionView(
+                    action: chosenAction!,
+                    onComplete: onComplete,
+                    onClose: {
+                        chosenAction = nil
+                    }
+                )
             }
     }
 
@@ -62,5 +68,5 @@ struct SetupView: View {
 }
 
 #Preview {
-    SetupView()
+    SetupView {}
 }

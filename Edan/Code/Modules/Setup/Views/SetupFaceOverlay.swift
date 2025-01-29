@@ -19,7 +19,6 @@ struct SetupFaceOverlay: View {
                     ZStack {
                         Circle()
                             .foregroundStyle(.primaryMain)
-
                         Image(Images.checkmark)
                     }
                 } else {
