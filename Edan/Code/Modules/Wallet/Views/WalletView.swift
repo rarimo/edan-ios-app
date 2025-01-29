@@ -6,6 +6,7 @@ struct WalletView: View {
     var body: some View {
         wrapInGradient {
             VStack {
+                header
                 WarningView(text: "ZK Face technology is currently in beta, with balance limits in place")
                 Spacer()
                 Text("$\(walletManager.balanceString)")
@@ -30,14 +31,32 @@ struct WalletView: View {
         }
     }
 
+    var header: some View {
+        HStack {
+            UserProfileIconView()
+                .controlSize(.mini)
+            Text("Unforgettable")
+                .subtitle4()
+                .foregroundStyle(.textPrimary)
+                .padding(.leading)
+        }
+        .padding(.bottom)
+        .padding(.leading, 30)
+        .align()
+    }
+
     var actions: some View {
         HStack {
-            action(name: "Receive", iconName: Icons.arrowDown) {}
-            action(name: "Send", iconName: Icons.arrowUp) {}
+            Button(action: {}) {
+                action(name: "Receive", iconName: Icons.arrowDown)
+            }
+            Button(action: {}) {
+                action(name: "Send", iconName: Icons.arrowUp)
+            }
         }
     }
 
-    func action(name: String, iconName: String, action: () -> Void) -> some View {
+    func action(name: String, iconName: String) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 32)
                 .foregroundStyle(.componentPrimary)
@@ -98,6 +117,11 @@ struct WalletView: View {
 }
 
 #Preview {
-    WalletView()
+    let userManager = UserManager.shared
+
+    userManager.userFace = UIImage(named: Images.man)
+
+    return WalletView()
         .environmentObject(WalletManager.shared)
+        .environmentObject(userManager)
 }
