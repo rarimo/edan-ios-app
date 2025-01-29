@@ -13,7 +13,7 @@ struct UserProfileIconView: View {
                         .stroke(Color.warningLight, style: .init(lineWidth: progressCircleWidthSize))
                     Circle()
                         .trim(from: 0.0, to: progress)
-                        .stroke(Color.warningMain, style: .init(lineWidth: progressCircleWidthSize))
+                        .stroke(Color.warningMain, style: .init(lineWidth: progressCircleWidthSize, lineCap: .round))
                 }
                 .foregroundStyle(.baseWhite)
                 .frame(width: progressCircleSize, height: progressCircleSize)
@@ -54,7 +54,7 @@ struct UserProfileIconView: View {
     }
 
     var progress: CGFloat {
-        CGFloat(userManager.userCompletionLevel / UserManager.MAX_COMPLETION_LEVEL)
+        CGFloat(0.33)
     }
 }
 
