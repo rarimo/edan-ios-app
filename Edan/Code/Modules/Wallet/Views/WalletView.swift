@@ -3,6 +3,9 @@ import SwiftUI
 struct WalletView: View {
     @EnvironmentObject private var walletManager: WalletManager
 
+    @State private var isReceiveSheetShown = false
+    @State private var isSendSheetShown = false
+
     var body: some View {
         wrapInGradient {
             VStack {
@@ -18,6 +21,8 @@ struct WalletView: View {
                 history
             }
         }
+        .sheet(isPresented: $isReceiveSheetShown, content: WalletReceiveView.init)
+        .sheet(isPresented: $isSendSheetShown, content: EmptyView.init)
     }
 
     func wrapInGradient(_ body: () -> some View) -> some View {
@@ -47,10 +52,10 @@ struct WalletView: View {
 
     var actions: some View {
         HStack {
-            Button(action: {}) {
+            Button(action: { isReceiveSheetShown = true }) {
                 action(name: "Receive", iconName: Icons.arrowDown)
             }
-            Button(action: {}) {
+            Button(action: { isSendSheetShown = true }) {
                 action(name: "Send", iconName: Icons.arrowUp)
             }
         }
@@ -117,11 +122,13 @@ struct WalletView: View {
 }
 
 #Preview {
-    let userManager = UserManager.shared
+    let walletManager = WalletManager.shared
+    walletManager.accountAddress = "0x00000000000000000000000"
 
+    let userManager = UserManager.shared
     userManager.userFace = UIImage(named: Images.man)
 
     return WalletView()
-        .environmentObject(WalletManager.shared)
+        .environmentObject(walletManager)
         .environmentObject(userManager)
 }
