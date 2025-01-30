@@ -12,6 +12,8 @@ struct ProfileRecoveryFeatureView: View {
     let iconName: String
     let text: String
 
+    let action: () -> Void
+
     var body: some View {
         ZStack {
             if state == .unavailable {
@@ -58,8 +60,8 @@ struct ProfileRecoveryFeatureView: View {
 
 #Preview {
     VStack {
-        ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face")
-        ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID")
-        ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation")
+        ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face") {}
+        ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID") {}
+        ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation") {}
     }
 }
