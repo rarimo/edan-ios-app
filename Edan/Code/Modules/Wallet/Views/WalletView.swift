@@ -106,7 +106,7 @@ struct WalletView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 32)
                 .foregroundStyle(.componentPrimary)
-            VStack(spacing: 20) {
+            VStack(spacing: 25) {
                 Text("History")
                     .subtitle3()
                     .foregroundStyle(.textPrimary)
