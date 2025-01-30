@@ -55,6 +55,10 @@ struct ProfileView: View {
         .frame(width: 358, height: 100)
     }
 
+    var recoveryFeatures: some View {
+        VStack {}
+    }
+
     var deleteAccountButton: some View {
         Button(action: logout) {
             Text("Delete the account")

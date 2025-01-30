@@ -103,6 +103,7 @@
 		CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210322BD818020043DB7F /* Double+Rounded.swift */; };
 		CE72E61B2D4B922C00E8066F /* WalletSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E61A2D4B922800E8066F /* WalletSendView.swift */; };
 		CE72E6802D4BBBE100E8066F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E67F2D4BBBE100E8066F /* ProfileView.swift */; };
+		CE72E6822D4BC69600E8066F /* ProfileRecoveryFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */; };
 		CE7D8AAC2BFB52EE009AF212 /* OpenApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */; };
 		CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E82B52BA881F400AAF885 /* EdanApp.swift */; };
 		CE9E82BA2BA881F500AAF885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9E82B92BA881F500AAF885 /* Assets.xcassets */; };
@@ -263,6 +264,7 @@
 		CE7210322BD818020043DB7F /* Double+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounded.swift"; sourceTree = "<group>"; };
 		CE72E61A2D4B922800E8066F /* WalletSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSendView.swift; sourceTree = "<group>"; };
 		CE72E67F2D4BBBE100E8066F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecoveryFeatureView.swift; sourceTree = "<group>"; };
 		CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiError.swift; sourceTree = "<group>"; };
 		CE9E82B22BA881F400AAF885 /* Edan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9E82B52BA881F400AAF885 /* EdanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdanApp.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 		CE72E67D2D4BBBCB00E8066F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */,
 				CE72E67F2D4BBBE100E8066F /* ProfileView.swift */,
 			);
 			path = Views;
@@ -1107,6 +1110,7 @@
 				CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */,
 				CE1D92822D1D97D4008979AF /* QRUtils.swift in Sources */,
 				CEA6F4B72D2D2B9A00DAA79D /* Images.swift in Sources */,
+				CE72E6822D4BC69600E8066F /* ProfileRecoveryFeatureView.swift in Sources */,
 				CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */,
 				CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */,
 				CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */,
