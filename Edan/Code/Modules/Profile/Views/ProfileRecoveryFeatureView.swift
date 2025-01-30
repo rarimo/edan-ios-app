@@ -9,6 +9,8 @@ enum ProfileRecoveryFeatureState {
 struct ProfileRecoveryFeatureView: View {
     let state: ProfileRecoveryFeatureState
 
+    let text: String
+
     var body: some View {
         ZStack {
             if state == .unavailable {
@@ -17,6 +19,13 @@ struct ProfileRecoveryFeatureView: View {
             }
             RoundedRectangle(cornerRadius: 24)
                 .foregroundStyle(backgroundColor)
+            HStack {
+                Text(text)
+                    .subtitle3()
+                    .foregroundStyle(textColor)
+                Spacer()
+            }
+            .padding(.horizontal, 30)
         }
         .frame(width: 358, height: 72)
     }
@@ -31,12 +40,23 @@ struct ProfileRecoveryFeatureView: View {
             .baseWhite
         }
     }
+
+    var textColor: Color {
+        switch state {
+        case .completed:
+            .textPrimary
+        case .interactive:
+            .textPrimary
+        case .unavailable:
+            .textDisabled
+        }
+    }
 }
 
 #Preview {
     VStack {
-        ProfileRecoveryFeatureView(state: .completed)
-        ProfileRecoveryFeatureView(state: .interactive)
-        ProfileRecoveryFeatureView(state: .unavailable)
+        ProfileRecoveryFeatureView(state: .completed, text: "ZK Face")
+        ProfileRecoveryFeatureView(state: .interactive, text: "Passport or ID")
+        ProfileRecoveryFeatureView(state: .unavailable, text: "Geolocation")
     }
 }
