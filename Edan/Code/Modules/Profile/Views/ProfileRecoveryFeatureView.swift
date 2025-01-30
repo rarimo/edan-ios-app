@@ -29,6 +29,7 @@ struct ProfileRecoveryFeatureView: View {
                     .foregroundStyle(textColor)
                     .padding(.leading, 5)
                 Spacer()
+                actionSlot
             }
             .padding(.horizontal, 30)
         }
@@ -54,6 +55,36 @@ struct ProfileRecoveryFeatureView: View {
             .textPrimary
         case .unavailable:
             .textDisabled
+        }
+    }
+
+    var actionSlot: some View {
+        VStack {
+            switch state {
+            case .completed:
+                Image(systemName: "checkmark")
+                    .foregroundStyle(.textSecondary)
+            case .interactive:
+                Button(action: action) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 1000)
+                            .foregroundStyle(.primaryMain)
+                        Text("Add")
+                            .subtitle3()
+                            .foregroundStyle(.baseBlack)
+                    }
+                    .frame(width: 56, height: 32)
+                }
+            case .unavailable:
+                ZStack {
+                    RoundedRectangle(cornerRadius: 1000)
+                        .foregroundStyle(.componentPrimary)
+                    Text("Soon")
+                        .subtitle3()
+                        .foregroundStyle(.textDisabled)
+                }
+                .frame(width: 56, height: 32)
+            }
         }
     }
 }
