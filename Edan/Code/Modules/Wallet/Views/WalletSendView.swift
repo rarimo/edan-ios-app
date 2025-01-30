@@ -38,7 +38,14 @@ struct WalletSendView: View {
                 errorMessage: $amountError,
                 label: "Withdraw amount",
                 placeholder: "0.00",
-                keyboardType: .numbersAndPunctuation
+                keyboardType: .numbersAndPunctuation,
+                action: {
+                    Button(action: { amount = walletManager.balanceString }) {
+                        Text("MAX")
+                            .buttonMedium()
+                            .foregroundStyle(.textSecondary)
+                    }
+                }
             )
             Spacer()
             Divider()
