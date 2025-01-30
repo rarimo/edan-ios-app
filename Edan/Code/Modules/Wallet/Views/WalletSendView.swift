@@ -82,9 +82,7 @@ struct WalletSendView: View {
                 Text("Receiver gets")
                     .body3()
                     .foregroundStyle(.textSecondary)
-                Text("\(0) \(walletManager.tokenName)")
-                    .subtitle3()
-                    .foregroundStyle(.textPrimary)
+                receiverGets
             }
             .padding(.leading)
             Spacer()
@@ -92,6 +90,14 @@ struct WalletSendView: View {
                 .frame(width: 170)
                 .isLoading(isSending)
         }
+    }
+
+    var receiverGets: some View {
+        let amount = amount.isEmpty ? "0" : amount
+
+        return Text("\(amount) \(walletManager.tokenName)")
+            .subtitle3()
+            .foregroundStyle(.textPrimary)
     }
 
     func send() {
