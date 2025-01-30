@@ -101,6 +101,7 @@
 		CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */; };
 		CE7210292BD7D0D10043DB7F /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210282BD7D0D10043DB7F /* String+Hex.swift */; };
 		CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210322BD818020043DB7F /* Double+Rounded.swift */; };
+		CE72E61B2D4B922C00E8066F /* WalletSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E61A2D4B922800E8066F /* WalletSendView.swift */; };
 		CE7D8AAC2BFB52EE009AF212 /* OpenApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */; };
 		CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E82B52BA881F400AAF885 /* EdanApp.swift */; };
 		CE9E82BA2BA881F500AAF885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9E82B92BA881F500AAF885 /* Assets.xcassets */; };
@@ -259,6 +260,7 @@
 		CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utf8.swift"; sourceTree = "<group>"; };
 		CE7210282BD7D0D10043DB7F /* String+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		CE7210322BD818020043DB7F /* Double+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounded.swift"; sourceTree = "<group>"; };
+		CE72E61A2D4B922800E8066F /* WalletSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSendView.swift; sourceTree = "<group>"; };
 		CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiError.swift; sourceTree = "<group>"; };
 		CE9E82B22BA881F400AAF885 /* Edan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9E82B52BA881F400AAF885 /* EdanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdanApp.swift; sourceTree = "<group>"; };
@@ -880,6 +882,7 @@
 		CEC55AF52D4A5CAE00A366CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE72E61A2D4B922800E8066F /* WalletSendView.swift */,
 				CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */,
 				CEC55AF62D4A5CB400A366CC /* WalletView.swift */,
 			);
@@ -1120,6 +1123,7 @@
 				CEA6F4C22D2D3AFE00DAA79D /* InternetConnectionManager.swift in Sources */,
 				CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
+				CE72E61B2D4B922C00E8066F /* WalletSendView.swift in Sources */,
 				CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */,
 				CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */,
 				CEC55AF92D4A5D3B00A366CC /* WarningView.swift in Sources */,

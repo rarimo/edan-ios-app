@@ -22,7 +22,7 @@ struct WalletView: View {
             }
         }
         .sheet(isPresented: $isReceiveSheetShown, content: WalletReceiveView.init)
-        .sheet(isPresented: $isSendSheetShown, content: EmptyView.init)
+        .sheet(isPresented: $isSendSheetShown, content: WalletSendView.init)
     }
 
     func wrapInGradient(_ body: () -> some View) -> some View {
