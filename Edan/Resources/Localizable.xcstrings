@@ -120,7 +120,6 @@
 
     },
     "Account" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -311,6 +310,9 @@
           }
         }
       }
+    },
+    "Biometric self-recovery" : {
+
     },
     "Birth date" : {
       "extractionState" : "stale",
@@ -680,6 +682,9 @@
           }
         }
       }
+    },
+    "Enable all recovery features for maximum protection" : {
+
     },
     "Enable Face ID in Settings > RariMe." : {
       "extractionState" : "stale",

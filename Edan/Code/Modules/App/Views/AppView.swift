@@ -19,6 +19,9 @@ struct AppView: View {
             AlertManagerView()
         }
         .environmentObject(viewModel)
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
     }
 }
 
