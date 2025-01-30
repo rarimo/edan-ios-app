@@ -12,7 +12,7 @@ struct HomeView: View {
         TabView(selection: $selectedTab) {
             WalletView()
                 .tag(HomeTabs.wallet)
-            VStack {}
+            ProfileView()
                 .tag(HomeTabs.profile)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
