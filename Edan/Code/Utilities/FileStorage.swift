@@ -15,6 +15,14 @@ class FileStorage {
     static func saveData(_ data: Data, key: FileStorageKeys) throws {
         let savePath = storageFolder.appendingPathComponent(key.rawValue)
 
+        if !FileManager.default.fileExists(atPath: storageFolder.path) {
+            try FileManager.default.createDirectory(at: storageFolder, withIntermediateDirectories: true, attributes: nil)
+        }
+
+        if FileManager.default.fileExists(atPath: savePath.path) {
+            FileManager.default.createFile(atPath: savePath.path, contents: nil, attributes: nil)
+        }
+
         try data.write(to: savePath)
     }
 

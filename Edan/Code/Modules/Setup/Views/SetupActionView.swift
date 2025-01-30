@@ -41,8 +41,8 @@ struct SetupActionView: View {
             if isFaceScanned {
                 VStack {}
             } else {
-                SetupFaceView {
-                    userManager.userFace = viewModel.faceImage
+                SetupFaceView { faceImage in
+                    userManager.updateFaceImage(faceImage)
 
                     onComplete()
 

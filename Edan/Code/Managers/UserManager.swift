@@ -5,23 +5,7 @@ class UserManager: ObservableObject {
 
     static let shared = UserManager()
 
-    @Published var userFace: UIImage? {
-        didSet {
-            guard let userFace = userFace else {
-                return
-            }
-
-            do {
-                guard let faceImageData = userFace.pngData() else {
-                    throw "failed to retrive user face"
-                }
-
-                try FileStorage.saveData(faceImageData, key: .userFace)
-            } catch {
-                LoggerUtil.common.error("Failed to save face image: \(error.localizedDescription)")
-            }
-        }
-    }
+    @Published var userFace: UIImage?
 
     @Published var userCompletionLevel: Int
 
@@ -35,10 +19,10 @@ class UserManager: ObservableObject {
 
             self.userFace = userFace
         } catch {
-            userFace = nil
+            self.userFace = nil
         }
 
-        userCompletionLevel = UserManager.calculateUserCompletionLevel()
+        self.userCompletionLevel = UserManager.calculateUserCompletionLevel()
     }
 
     private static func calculateUserCompletionLevel() -> Int {
@@ -49,5 +33,19 @@ class UserManager: ObservableObject {
         }
 
         return userCompetionLevel
+    }
+
+    func updateFaceImage(_ faceImage: UIImage) {
+        do {
+            guard let faceImageData = faceImage.pngData() else {
+                throw "failed to retrive user face"
+            }
+
+            try FileStorage.saveData(faceImageData, key: .userFace)
+        } catch {
+            LoggerUtil.common.error("Failed to save face image: \(error.localizedDescription)")
+        }
+
+        self.userFace = faceImage
     }
 }

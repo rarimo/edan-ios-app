@@ -5,7 +5,7 @@ struct SetupFaceView: View {
 
     @State private var currentFace: Image? = PreviewUtils.isPreview ? Image(Images.man) : nil
 
-    let onComplete: () -> Void
+    let onComplete: (UIImage) -> Void
 
     var body: some View {
         VStack {
@@ -39,7 +39,13 @@ struct SetupFaceView: View {
                 Task {
                     try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
 
-                    onComplete()
+                    guard let faceImage = viewModel.faceImage else {
+                        LoggerUtil.common.fault("failed to get user face")
+
+                        return
+                    }
+
+                    onComplete(faceImage)
                 }
             }
         }
@@ -70,6 +76,6 @@ struct SetupFaceView: View {
 }
 
 #Preview {
-    SetupFaceView {}
+    SetupFaceView { _ in }
         .environmentObject(BiometryViewModel())
 }

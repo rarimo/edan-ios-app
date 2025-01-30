@@ -59,6 +59,7 @@ enum SetupRegisterProgress: Int, CaseIterable, SetupActionProgress {
 class BiometryViewModel: ObservableObject {
     @Published var currentFrame: CGImage?
     @Published var faceImage: UIImage?
+
     var faceImages: [UIImage] = []
         
     private let cameraManager = BiomatryCaptureSession()
