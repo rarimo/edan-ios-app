@@ -18,6 +18,7 @@ struct WalletSendView: View {
     var body: some View {
         VStack {
             header
+                .padding(.top)
             Divider()
                 .padding(.vertical)
             AppTextField(
@@ -81,7 +82,7 @@ struct WalletSendView: View {
 
     var header: some View {
         HStack {
-            Text("Receive")
+            Text("Send")
                 .h6()
                 .foregroundStyle(.textPrimary)
             Spacer()
