@@ -6,7 +6,7 @@ struct ProfileView: View {
     @EnvironmentObject private var walletManager: WalletManager
 
     var body: some View {
-        VStack(spacing: 50) {
+        VStack {
             Text("Account")
                 .subtitle3()
                 .align()
@@ -23,7 +23,13 @@ struct ProfileView: View {
                     }
                 }
             }
+            .padding(.top, 50)
             info
+                .padding(.top, 30)
+                .padding(.bottom, 10)
+            ScrollView {
+                recoveryFeatures
+            }
             Spacer()
             VStack {
                 Divider()
@@ -56,7 +62,11 @@ struct ProfileView: View {
     }
 
     var recoveryFeatures: some View {
-        VStack {}
+        VStack {
+            ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face") {}
+            ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID") {}
+            ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation") {}
+        }
     }
 
     var deleteAccountButton: some View {
