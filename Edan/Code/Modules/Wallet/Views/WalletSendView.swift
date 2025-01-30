@@ -22,9 +22,22 @@ struct WalletSendView: View {
             Divider()
                 .padding(.vertical)
             AppTextField(
+                text: .constant("\(walletManager.tokenName)"),
+                errorMessage: .constant(""),
+                label: "Token",
+                placeholder: "",
+                action: {
+                    Image(Icons.carretDown)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(.textSecondary)
+                }
+            )
+            .disabled(true)
+            AppTextField(
                 text: $address,
                 errorMessage: $addressError,
-                label: "Aaddress",
+                label: "Address",
                 placeholder: "0x000...00",
                 action: {
                     Button(action: { isScanning = true }) {
@@ -65,7 +78,7 @@ struct WalletSendView: View {
             footer
         }
         .padding()
-        .presentationDetents([.medium])
+        .presentationDetents([.fraction(0.65)])
         .fullScreenCover(isPresented: $isScanning) {
             ScanQR(onBack: { isScanning = false }) { scanResult in
                 isScanning = false
