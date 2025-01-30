@@ -9,6 +9,7 @@ enum ProfileRecoveryFeatureState {
 struct ProfileRecoveryFeatureView: View {
     let state: ProfileRecoveryFeatureState
 
+    let iconName: String
     let text: String
 
     var body: some View {
@@ -20,9 +21,11 @@ struct ProfileRecoveryFeatureView: View {
             RoundedRectangle(cornerRadius: 24)
                 .foregroundStyle(backgroundColor)
             HStack {
+                Image(iconName)
                 Text(text)
                     .subtitle3()
                     .foregroundStyle(textColor)
+                    .padding(.leading, 5)
                 Spacer()
             }
             .padding(.horizontal, 30)
@@ -55,8 +58,8 @@ struct ProfileRecoveryFeatureView: View {
 
 #Preview {
     VStack {
-        ProfileRecoveryFeatureView(state: .completed, text: "ZK Face")
-        ProfileRecoveryFeatureView(state: .interactive, text: "Passport or ID")
-        ProfileRecoveryFeatureView(state: .unavailable, text: "Geolocation")
+        ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face")
+        ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID")
+        ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation")
     }
 }

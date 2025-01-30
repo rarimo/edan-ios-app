@@ -103,4 +103,7 @@ enum Icons {
     static let warning = "Warning"
     static let xCircle = "XCircle"
     static let qrFrame = "QrFrame"
+    static let accounPin = "AccounPin"
+    static let bodyScanLine = "BodyScanLine"
+    static let passportLine = "PassportLine"
 }
