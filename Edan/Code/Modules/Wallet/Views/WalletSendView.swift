@@ -45,6 +45,17 @@ struct WalletSendView: View {
                             .buttonMedium()
                             .foregroundStyle(.textSecondary)
                     }
+                },
+                hint: {
+                    HStack {
+                        Text("Avaiable:")
+                            .body4()
+                            .foregroundStyle(.textSecondary)
+                        Spacer()
+                        Text("\(walletManager.balanceString) \(walletManager.tokenName)")
+                            .body4()
+                            .foregroundStyle(.textPrimary)
+                    }
                 }
             )
             Spacer()
