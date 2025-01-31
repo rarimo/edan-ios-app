@@ -21,7 +21,7 @@ class WalletManager: ObservableObject {
 
     @Published var isBalanceLoading: Bool = true
 
-    @Published var accountAddress = ""
+    @Published var accountAddress = "0x29B63B643964f5822CBED064e9A26e7A0662CE01"
 
     @Published var isAccountAddressLoading: Bool = true
 
@@ -36,19 +36,19 @@ class WalletManager: ObservableObject {
     func updateBalance() {
         isBalanceLoading = true
 
-        Task { @MainActor in
-            defer {
-                isBalanceLoading = false
-            }
-
-            do {
-                let ethereumAccountAddress = try EthereumAddress(hex: accountAddress, eip55: false)
-
-                self.balance = try await retriveBalance(ethereumAccountAddress)
-            } catch {
-                LoggerUtil.common.error("failed to fetch balance: \(error.localizedDescription)")
-            }
-        }
+//        Task { @MainActor in
+//            defer {
+//                isBalanceLoading = false
+//            }
+//
+//            do {
+//                let ethereumAccountAddress = try EthereumAddress(hex: accountAddress, eip55: false)
+//
+//                self.balance = try await retriveBalance(ethereumAccountAddress)
+//            } catch {
+//                LoggerUtil.common.error("failed to fetch balance: \(error.localizedDescription)")
+//            }
+//        }
     }
 
     func updateAccount() {
