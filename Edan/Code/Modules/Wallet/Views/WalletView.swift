@@ -15,10 +15,13 @@ struct WalletView: View {
                 Text("$\(walletManager.balanceString)")
                     .h3()
                     .foregroundStyle(.textPrimary)
+                    .padding(100)
                 Spacer()
-                actions
-                assets
-                history
+                ScrollView {
+                    actions
+                    assets
+                    history
+                }
             }
         }
         .sheet(isPresented: $isReceiveSheetShown, content: WalletReceiveView.init)

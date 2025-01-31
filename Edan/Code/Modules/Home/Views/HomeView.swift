@@ -1,6 +1,6 @@
 import SwiftUI
 
-private enum HomeTabs: Int {
+enum HomeTabs: Int {
     case wallet
     case profile
 }
@@ -9,18 +9,49 @@ struct HomeView: View {
     @State private var selectedTab: HomeTabs = .wallet
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            WalletView()
-                .tag(HomeTabs.wallet)
-            ProfileView()
-                .tag(HomeTabs.profile)
+        ZStack {
+            TabView(selection: $selectedTab) {
+                WalletView()
+                    .tag(HomeTabs.wallet)
+                ProfileView()
+                    .tag(HomeTabs.profile)
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .ignoresSafeArea()
+            HomeTabsView(selectedTab: $selectedTab)
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .ignoresSafeArea()
+    }
+}
+
+struct HomeTabsView: View {
+    @Binding var selectedTab: HomeTabs
+
+    var body: some View {
+        VStack {
+            Spacer()
+            ZStack {
+                RoundedRectangle(cornerRadius: 1000)
+                    .foregroundStyle(.secondaryDark)
+                    .frame(width: 108, height: 56)
+                HStack(spacing: 0) {
+                    tabButton(tab: .wallet, iconName: Icons.userWallet)
+                    tabButton(tab: .profile, iconName: Icons.userProfile)
+                }
+            }
+        }
     }
 
-    var tags: some View {
-        VStack {}
+    func tabButton(tab: HomeTabs, iconName: String) -> some View {
+        Button(action: { selectedTab = tab }) {
+            ZStack {
+                Circle()
+                    .foregroundStyle(selectedTab == tab ? .primaryMain : .secondaryDark)
+                Image(iconName)
+                    .renderingMode(.template)
+                    .foregroundStyle(selectedTab == tab ? .secondaryDark : .white)
+            }
+            .frame(width: 48, height: 48)
+        }
     }
 }
 

@@ -35,6 +35,7 @@ struct ProfileView: View {
                 Divider()
                 deleteAccountButton
                     .padding(.vertical)
+                    .padding(.bottom, 50)
             }
         }
         .padding()
