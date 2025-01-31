@@ -39,14 +39,17 @@ struct SetupActionView: View {
     var actionView: some View {
         Group {
             if isFaceScanned {
-                VStack {}
+                switch action {
+                case .create:
+                    SetupActionLoader<SetupRegisterTask>(onCompletion: completion)
+                case .restore:
+                    SetupActionLoader<SetupRecoveryTask>(onCompletion: completion)
+                }
             } else {
                 SetupFaceView { faceImage in
                     userManager.updateFaceImage(faceImage)
 
-                    onComplete()
-
-                    // isFaceScanned = true
+                    isFaceScanned = true
                 }
             }
         }
@@ -68,6 +71,14 @@ struct SetupActionView: View {
                 .frame(width: 40, height: 40)
             }
             .padding()
+        }
+    }
+
+    func completion() {
+        Task { @MainActor in
+            try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+
+            onComplete()
         }
     }
 }
