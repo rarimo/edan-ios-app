@@ -73,6 +73,9 @@ struct SetupActionLoaderEntry<ActionTask: SetupActionTask>: View {
         }
         .frame(width: 366, height: 60)
         .onAppear(perform: startTask)
+        .onChange(of: currentTask.rawValue) { _ in
+            startTask()
+        }
     }
 
     var isCompleted: Bool {
@@ -105,7 +108,11 @@ struct SetupActionLoaderEntry<ActionTask: SetupActionTask>: View {
                 try await Task.sleep(nanoseconds: UInt64(task.progressTime) * NSEC_PER_SEC / 100)
             }
 
-            if currentTask.rawValue == Array(ActionTask.allCases).last?.rawValue {}
+            if currentTask.rawValue == Array(ActionTask.allCases).last?.rawValue {
+                onCompletion()
+
+                return
+            }
 
             completedTasks.append(task)
             currentTask = Array(ActionTask.allCases)[currentTask.rawValue + 1]
