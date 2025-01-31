@@ -47,8 +47,7 @@ struct SetupActionLoaderEntry<ActionTask: SetupActionTask>: View {
             if isCompleted {
                 RoundedRectangle(cornerRadius: 24)
                     .foregroundStyle(.componentPrimary)
-            }
-            if isProgressing {
+            } else if isProgressing {
                 RoundedRectangle(cornerRadius: 24)
                     .frame(width: 366 * CGFloat(progress), height: 60)
                     .foregroundStyle(.primaryLighter)
