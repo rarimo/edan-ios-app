@@ -76,9 +76,16 @@ struct SetupActionView: View {
 
     func completion() {
         Task { @MainActor in
-            LoggerUtil.common.info("Account created successfully")
+            switch action {
+            case .create:
+                LoggerUtil.common.info("Account created successfully")
 
-            AlertManager.shared.emitSuccess("Account created successfully")
+                AlertManager.shared.emitSuccess("Account created successfully")
+            case .restore:
+                LoggerUtil.common.info("Account recovered successfully")
+
+                AlertManager.shared.emitSuccess("Account recovered successfully")
+            }
 
             try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
 
