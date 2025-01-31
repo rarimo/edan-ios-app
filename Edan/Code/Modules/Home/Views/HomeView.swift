@@ -18,6 +18,10 @@ struct HomeView: View {
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .ignoresSafeArea()
     }
+
+    var tags: some View {
+        VStack {}
+    }
 }
 
 #Preview {

@@ -106,4 +106,6 @@ enum Icons {
     static let accounPin = "AccounPin"
     static let bodyScanLine = "BodyScanLine"
     static let passportLine = "PassportLine"
+    static let userProfile = "UserProfile"
+    static let userWallet = "UserWallet"
 }
