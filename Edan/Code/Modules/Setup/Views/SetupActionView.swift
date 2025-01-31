@@ -76,6 +76,10 @@ struct SetupActionView: View {
 
     func completion() {
         Task { @MainActor in
+            LoggerUtil.common.info("Account created successfully")
+
+            AlertManager.shared.emitSuccess("Account created successfully")
+
             try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
 
             onComplete()

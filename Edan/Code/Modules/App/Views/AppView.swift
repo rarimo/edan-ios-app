@@ -20,6 +20,8 @@ struct AppView: View {
         }
         .environmentObject(viewModel)
         .onAppear {
+            LoggerUtil.common.info("App started")
+
             UIApplication.shared.isIdleTimerDisabled = true
         }
     }
