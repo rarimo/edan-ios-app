@@ -7,6 +7,8 @@ struct SetupActionLoader<Task: SetupActionTask>: View {
 
     @State private var progress: Double = 0
 
+    let onCompletion: () -> Void
+
     var body: some View {
         VStack {
             Text("Processing action")
@@ -15,7 +17,12 @@ struct SetupActionLoader<Task: SetupActionTask>: View {
                 .padding()
             VStack {
                 ForEach(Array(Task.allCases), id: \.rawValue) { task in
-                    SetupActionLoaderEntry(task: task, completedTasks: $completedTasks, currentTask: $currentTask)
+                    SetupActionLoaderEntry(
+                        task: task,
+                        completedTasks: $completedTasks,
+                        currentTask: $currentTask,
+                        onCompletion: onCompletion
+                    )
                 }
             }
             Spacer()
@@ -23,13 +30,15 @@ struct SetupActionLoader<Task: SetupActionTask>: View {
     }
 }
 
-struct SetupActionLoaderEntry<Task: SetupActionTask>: View {
-    let task: Task
+struct SetupActionLoaderEntry<ActionTask: SetupActionTask>: View {
+    let task: ActionTask
 
-    @Binding var completedTasks: [Task]
-    @Binding var currentTask: Task
+    @Binding var completedTasks: [ActionTask]
+    @Binding var currentTask: ActionTask
 
-    @State private var progress: Double = 0.5
+    let onCompletion: () -> Void
+
+    @State private var progress: Double = 0
 
     var body: some View {
         ZStack {
@@ -63,6 +72,7 @@ struct SetupActionLoaderEntry<Task: SetupActionTask>: View {
             .padding(.horizontal, 25)
         }
         .frame(width: 366, height: 60)
+        .onAppear(perform: startTask)
     }
 
     var isCompleted: Bool {
@@ -82,8 +92,27 @@ struct SetupActionLoaderEntry<Task: SetupActionTask>: View {
             return .textSecondary
         }
     }
+
+    func startTask() {
+        if !isProgressing {
+            return
+        }
+
+        Task { @MainActor in
+            while progress <= 0.99 {
+                progress += 0.01
+
+                try await Task.sleep(nanoseconds: UInt64(task.progressTime) * NSEC_PER_SEC / 100)
+            }
+
+            if currentTask.rawValue == Array(ActionTask.allCases).last?.rawValue {}
+
+            completedTasks.append(task)
+            currentTask = Array(ActionTask.allCases)[currentTask.rawValue + 1]
+        }
+    }
 }
 
 #Preview {
-    SetupActionLoader<SetupRegisterTask>()
+    SetupActionLoader<SetupRegisterTask>() {}
 }
