@@ -132,6 +132,9 @@
     "Account setup" : {
 
     },
+    "Add" : {
+
+    },
     "Address" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1564,6 +1567,9 @@
           }
         }
       }
+    },
+    "Soon" : {
+
     },
     "Sorry, there was a problem reading the passport. %@. Error codes: [0x%u, 0x%u]" : {
       "localizations" : {
