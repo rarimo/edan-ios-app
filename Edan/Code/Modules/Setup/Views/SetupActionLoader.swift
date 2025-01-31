@@ -108,13 +108,14 @@ struct SetupActionLoaderEntry<ActionTask: SetupActionTask>: View {
                 try await Task.sleep(nanoseconds: UInt64(task.progressTime) * NSEC_PER_SEC / 100)
             }
 
+            completedTasks.append(task)
+
             if currentTask.rawValue == Array(ActionTask.allCases).last?.rawValue {
                 onCompletion()
 
                 return
             }
 
-            completedTasks.append(task)
             currentTask = Array(ActionTask.allCases)[currentTask.rawValue + 1]
         }
     }
