@@ -2,15 +2,14 @@ import SwiftUI
 
 struct ScanPassportMRZView: View {
     let onNext: (String) -> Void
-    let onClose: () -> Void
 
     var body: some View {
-        ScanPassportLayoutView(
-            step: 1,
-            title: "Scan your Passport",
-            text: "Data never leaves this device",
-            onClose: onClose
-        ) {
+        VStack {
+            Text("Scan Passport")
+                .h4()
+                .align()
+                .padding()
+            Spacer()
             ZStack {
                 MRZScanView(onMrzKey: onNext)
                 Image(Images.passportFrame)
@@ -31,8 +30,5 @@ struct ScanPassportMRZView: View {
 }
 
 #Preview {
-    ScanPassportMRZView(
-        onNext: { _ in },
-        onClose: {}
-    )
+    ScanPassportMRZView { _ in }
 }

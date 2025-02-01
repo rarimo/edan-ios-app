@@ -583,6 +583,7 @@
       }
     },
     "Data never leaves this device" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1407,6 +1408,7 @@
       }
     },
     "Reading Passport data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1495,6 +1497,9 @@
         }
       }
     },
+    "Scan Passport" : {
+
+    },
     "Scan QR" : {
       "localizations" : {
         "uk" : {
@@ -1509,6 +1514,7 @@
 
     },
     "Scan your Passport" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {

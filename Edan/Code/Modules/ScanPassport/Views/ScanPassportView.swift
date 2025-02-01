@@ -8,7 +8,6 @@ private enum ScanPassportState {
 
 struct ScanPassportView: View {
     let onComplete: (_ passport: Passport) -> Void
-    let onClose: () -> Void
 
     @State private var state: ScanPassportState = .scanMRZ
 
@@ -23,8 +22,7 @@ struct ScanPassportView: View {
                         passportViewModel.setMrzKey(mrzKey)
 
                         withAnimation { state = .readNFC }
-                    },
-                    onClose: onClose
+                    }
                 )
             }
             .padding(.bottom, 20)
@@ -39,8 +37,7 @@ struct ScanPassportView: View {
 
                     LoggerUtil.common.info("Passport read successfully: \(passport.fullName)")
                 },
-                onBack: { withAnimation { state = .scanMRZ } },
-                onClose: onClose
+                onBack: { withAnimation { state = .scanMRZ } }
             )
             .environmentObject(passportViewModel)
             .transition(.backslide)
@@ -49,8 +46,5 @@ struct ScanPassportView: View {
 }
 
 #Preview {
-    return ScanPassportView(
-        onComplete: { _ in },
-        onClose: {}
-    )
+    ScanPassportView { _ in }
 }

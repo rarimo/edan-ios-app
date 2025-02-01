@@ -5,6 +5,8 @@ struct ProfileView: View {
 
     @EnvironmentObject private var walletManager: WalletManager
 
+    @State private var isAddDocumentSheetPresented = false
+
     var body: some View {
         VStack {
             Text("Account")
@@ -39,6 +41,7 @@ struct ProfileView: View {
             }
         }
         .padding()
+        .sheet(isPresented: $isAddDocumentSheetPresented, content: AddPassportRecoveryView.init)
     }
 
     var info: some View {
@@ -65,7 +68,9 @@ struct ProfileView: View {
     var recoveryFeatures: some View {
         VStack {
             ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face") {}
-            ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID") {}
+            ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID") {
+                isAddDocumentSheetPresented = true
+            }
             ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation") {}
         }
     }

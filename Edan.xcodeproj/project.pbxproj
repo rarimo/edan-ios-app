@@ -81,6 +81,7 @@
 		CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */; };
 		CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92952D1DC904008979AF /* PubSignals.swift */; };
 		CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */; };
+		CE2396AB2D4E623900EC4872 /* AddPassportRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35296A2D2E839600549481 /* MemoryUtils.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
@@ -245,6 +246,7 @@
 		CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKBiometricsSvc.swift; sourceTree = "<group>"; };
 		CE1D92952D1DC904008979AF /* PubSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubSignals.swift; sourceTree = "<group>"; };
 		CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesUtils.swift; sourceTree = "<group>"; };
+		CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassportRecoveryView.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE35296A2D2E839600549481 /* MemoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryUtils.swift; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
@@ -887,6 +889,7 @@
 		CEC55AED2D4A4EAA00A366CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */,
 				CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */,
 				CEC55AEE2D4A4EB500A366CC /* HomeView.swift */,
 			);
@@ -1128,6 +1131,7 @@
 				CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */,
 				CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */,
 				CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */,
+				CE2396AB2D4E623900EC4872 /* AddPassportRecoveryView.swift in Sources */,
 				CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */,
 				5655E42E2BD2C94F00B86C5C /* AppUserDefaults.swift in Sources */,
 				CEA6F4C02D2D2DE900DAA79D /* PassportUtils.swift in Sources */,

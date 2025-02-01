@@ -6,17 +6,16 @@ struct ReadPassportNFCView: View {
 
     let onNext: (_ passport: Passport) -> Void
     let onBack: () -> Void
-    let onClose: () -> Void
 
     @State private var useExtendedMode = false
 
     var body: some View {
-        ScanPassportLayoutView(
-            step: 2,
-            title: "NFC Reader",
-            text: "Reading Passport data",
-            onClose: onClose
-        ) {
+        VStack {
+            Text("NFC Reader")
+                .h4()
+                .align()
+                .padding()
+            Spacer()
             LottieView(animation: Animations.scanPassport)
                 .frame(width: .infinity, height: 300)
             Text("Place your passport cover to the back of your phone")
@@ -54,9 +53,5 @@ struct ReadPassportNFCView: View {
 }
 
 #Preview {
-    return ReadPassportNFCView(
-        onNext: { _ in },
-        onBack: {},
-        onClose: {}
-    )
+    ReadPassportNFCView(onNext: { _ in }, onBack: {})
 }
