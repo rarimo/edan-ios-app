@@ -8,6 +8,7 @@ struct AddPassportRecoveryView: View {
             ScanPassportView { passport in
                 try? AppKeychain.setValue(.passportJson, passport.json)
             }
+            .padding(.top, 75)
         }
     }
 

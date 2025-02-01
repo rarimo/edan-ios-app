@@ -26,7 +26,6 @@ struct ScanPassportView: View {
                 )
             }
             .padding(.bottom, 20)
-            .background(.backgroundPrimary)
             .transition(.backslide)
         case .readNFC:
             ReadPassportNFCView(
