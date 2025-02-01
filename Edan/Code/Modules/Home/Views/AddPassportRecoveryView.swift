@@ -7,6 +7,10 @@ struct AddPassportRecoveryView: View {
         withCloseButton {
             ScanPassportView { passport in
                 try? AppKeychain.setValue(.passportJson, passport.json)
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
+
+                presentationMode.wrappedValue.dismiss()
             }
             .padding(.top, 75)
         }
