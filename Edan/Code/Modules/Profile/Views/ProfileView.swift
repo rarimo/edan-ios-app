@@ -69,7 +69,7 @@ struct ProfileView: View {
         VStack {
             ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face") {}
             ProfileRecoveryFeatureView(
-                state: appViewModel.isPassportPresent ? .interactive : .unavailable,
+                state: appViewModel.isPassportPresent ? .completed : .interactive,
                 iconName: Icons.passportLine, text: "Passport or ID"
             ) {
                 isAddDocumentSheetPresented = true
