@@ -68,7 +68,10 @@ struct ProfileView: View {
     var recoveryFeatures: some View {
         VStack {
             ProfileRecoveryFeatureView(state: .completed, iconName: Icons.bodyScanLine, text: "ZK Face") {}
-            ProfileRecoveryFeatureView(state: .interactive, iconName: Icons.passportLine, text: "Passport or ID") {
+            ProfileRecoveryFeatureView(
+                state: appViewModel.isPassportPresent ? .interactive : .unavailable,
+                iconName: Icons.passportLine, text: "Passport or ID"
+            ) {
                 isAddDocumentSheetPresented = true
             }
             ProfileRecoveryFeatureView(state: .unavailable, iconName: Icons.accounPin, text: "Geolocation") {}

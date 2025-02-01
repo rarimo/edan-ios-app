@@ -1,12 +1,14 @@
 import SwiftUI
 
 struct AddPassportRecoveryView: View {
+    @EnvironmentObject private var appViewModel: AppView.ViewModel
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         withCloseButton {
             ScanPassportView { passport in
                 try? AppKeychain.setValue(.passportJson, passport.json)
+                appViewModel.isPassportPresent = true
 
                 AlertManager.shared.emitSuccess("New recovery method added sucessfully")
 
@@ -38,4 +40,5 @@ struct AddPassportRecoveryView: View {
 #Preview {
     VStack {}
         .sheet(isPresented: .constant(true), content: AddPassportRecoveryView.init)
+        .environmentObject(AppView.ViewModel())
 }
