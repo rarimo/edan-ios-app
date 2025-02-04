@@ -47,7 +47,6 @@
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */; };
-		CE10E3792D2C24C4002A99E1 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3782D2C24C4002A99E1 /* Identity.xcframework */; };
 		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
 		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
 		CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */; };
@@ -124,6 +123,7 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEAB42922D523AF100835C4C /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAB42912D523AF100835C4C /* Identity.xcframework */; };
 		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
 		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
@@ -213,7 +213,6 @@
 		C75512952C87617B000258AD /* RemoveCase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoveCase.mp4; sourceTree = "<group>"; };
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
-		CE10E3782D2C24C4002A99E1 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE10E37A2D2C36F4002A99E1 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
 		CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScanner.swift; sourceTree = "<group>"; };
 		CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewModel.swift; sourceTree = "<group>"; };
@@ -286,6 +285,7 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CEAB42912D523AF100835C4C /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
-				CE10E3792D2C24C4002A99E1 /* Identity.xcframework in Frameworks */,
+				CEAB42922D523AF100835C4C /* Identity.xcframework in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
@@ -917,7 +917,7 @@
 		CEC562122BD92804002D4954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE10E3782D2C24C4002A99E1 /* Identity.xcframework */,
+				CEAB42912D523AF100835C4C /* Identity.xcframework */,
 				CEC561FF2BD923B3002D4954 /* bridge.h */,
 				CEC562002BD923B3002D4954 /* prover.h */,
 				CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */,

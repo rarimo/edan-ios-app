@@ -1,3 +1,5 @@
+import Web3
+
 import SwiftUI
 
 protocol SetupActionTask: CaseIterable {
@@ -193,7 +195,8 @@ class BiometryViewModel: ObservableObject {
         
         try AccountManager.shared.generateNewPrivateKey()
         
-        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount(zkProof)
+        // TODO: you know what you should do
+        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount()
         
         let response = try await ZKBiometricsSvc.shared.relay(
             registerCalldata,
@@ -241,7 +244,7 @@ class BiometryViewModel: ObservableObject {
         
         let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
         
-        let accountAddress = try await AccountFactory.shared.getAccount(similarFeaturesHash)
+        let accountAddress = try EthereumAddress(hex: "", eip55: false)
         
         let biometryAccount = BiometryAccount(accountAddress)
         let nonce = try Int(await biometryAccount.recoveryNonce().description) ?? 0

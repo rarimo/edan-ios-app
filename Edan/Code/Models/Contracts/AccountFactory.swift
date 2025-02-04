@@ -22,8 +22,10 @@ class AccountFactory {
         )
     }
     
-    func getAccount(_ biometricHash: Data) async throws -> EthereumAddress {
-        let response = try contract["getAccount"]!(biometricHash).call().wait()
+    func getAccountByOwner(_ owner: String) async throws -> EthereumAddress {
+        let ownerAddress = try EthereumAddress(hex: owner, eip55: false)
+        
+        let response = try contract["getAccountByOwner"]!(ownerAddress).call().wait()
         
         guard let account = response[""] as? EthereumAddress else {
             throw "Response does not contain root"

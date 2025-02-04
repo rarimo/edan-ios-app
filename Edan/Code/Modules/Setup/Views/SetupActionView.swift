@@ -10,7 +10,6 @@ struct SetupActionView: View {
     let onComplete: () -> Void
     let onClose: () -> Void
 
-    @State private var shouldShowCreateNewIntro = true
     @State private var isFaceScanned = false
 
     var body: some View {
@@ -18,13 +17,7 @@ struct SetupActionView: View {
             VStack {
                 switch action {
                 case .create:
-                    if shouldShowCreateNewIntro {
-                        SetupCreateNewIntroView {
-                            shouldShowCreateNewIntro = false
-                        }
-                    } else {
-                        actionView
-                    }
+                    SetupCreateNewIntroView(onComplete: onComplete, onError: handleCreateAccountError)
                 case .restore:
                     actionView
                 }
@@ -41,7 +34,7 @@ struct SetupActionView: View {
             if isFaceScanned {
                 switch action {
                 case .create:
-                    SetupActionLoader<SetupRegisterTask>(onCompletion: completion)
+                    EmptyView()
                 case .restore:
                     SetupActionLoader<SetupRecoveryTask>(onCompletion: completion)
                 }
@@ -60,18 +53,28 @@ struct SetupActionView: View {
         ZStack(alignment: .topLeading) {
             body()
             VStack {
-                Button(action: onClose) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.componentPrimary)
-                        Image(systemName: "xmark")
-                            .foregroundColor(.textPrimary)
+                if !isFaceScanned {
+                    Button(action: onClose) {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.componentPrimary)
+                            Image(systemName: "xmark")
+                                .foregroundColor(.textPrimary)
+                        }
                     }
+                    .frame(width: 40, height: 40)
                 }
-                .frame(width: 40, height: 40)
             }
             .padding()
         }
+    }
+
+    func handleCreateAccountError(_ error: Error) {
+        LoggerUtil.common.error("failed to create account: \(error)")
+
+        AlertManager.shared.emitError("Failed to create account, node is not available")
+
+        onClose()
     }
 
     func completion() {

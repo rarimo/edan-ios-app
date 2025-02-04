@@ -2,12 +2,12 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "biometricHash_",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "owner_",
+                "type": "address"
             }
         ],
-        "name": "getAccount",
+        "name": "getAccountByOwner",
         "outputs": [
             {
                 "internalType": "address",

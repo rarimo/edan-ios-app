@@ -7,8 +7,10 @@ private enum IntroTab: Int {
 
 struct SetupCreateNewIntroView: View {
     @State private var selectedTab: IntroTab = .first
+    @State private var isLoading = false
 
-    var onFinish: () -> Void
+    var onComplete: () -> Void
+    var onError: (Error) -> Void
 
     var body: some View {
         VStack {
@@ -25,7 +27,9 @@ struct SetupCreateNewIntroView: View {
             Spacer()
             VStack(spacing: 32) {
                 Divider()
-                AppButton(text: "Create an unforgettable wallet", action: onFinish)
+                AppButton(text: "Create an unforgettable wallet", action: createAccount)
+                    .isLoading(isLoading)
+                    .frame(height: 40)
             }
             .frame(width: 342)
         }
@@ -66,8 +70,22 @@ struct SetupCreateNewIntroView: View {
             .frame(width: isActive ? 16 : 8, height: 8)
             .foregroundStyle(isActive ? .primaryMain : .componentPrimary)
     }
+
+    func createAccount() {
+        Task { @MainActor in
+            isLoading = true
+
+            do {
+                try await AccountManager.shared.deployNewAccount()
+
+                onComplete()
+            } catch {
+                onError(error)
+            }
+        }
+    }
 }
 
 #Preview {
-    SetupCreateNewIntroView {}
+    SetupCreateNewIntroView(onComplete: {}, onError: { _ in })
 }
