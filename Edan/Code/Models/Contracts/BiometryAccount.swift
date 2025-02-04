@@ -19,13 +19,13 @@ class BiometryAccount {
     }
     
     func recoveryNonce() async throws -> BigUInt {
+        LoggerUtil.common.info("called")
+        
         let response = try contract["recoveryNonce"]!().call().wait()
         
         guard let nonce = response[""] as? BigUInt else {
             throw "Response does not contain nonce"
         }
-        
-        
         
         return nonce
     }
@@ -35,6 +35,8 @@ class BiometryAccount {
         _ to: EthereumAddress,
         _ value: BigUInt
     ) async throws -> Data {
+        LoggerUtil.common.info("called 2")
+        
         let response = try contract["getTransferERC20SignHash"]!(token, to, value).call().wait()
         
         guard let signHash = response[""] as? Data else {

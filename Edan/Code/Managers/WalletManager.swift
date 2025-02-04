@@ -66,6 +66,7 @@ class WalletManager: ObservableObject {
 
                 self.accountAddress = ethereumAccountAddress.hex(eip55: false)
                 self.balance = try await self.retriveBalance(ethereumAccountAddress)
+                self.balance = 0
             } catch {
                 LoggerUtil.common.error("failed to fetch account address: \(error.localizedDescription)")
             }

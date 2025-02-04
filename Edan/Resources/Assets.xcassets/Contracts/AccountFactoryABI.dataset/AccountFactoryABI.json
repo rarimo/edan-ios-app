@@ -1,21 +1,21 @@
 [
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "owner_",
-                "type": "address"
-            }
-        ],
-        "name": "getAccountByOwner",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "name": "getAccountByOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
 ]
