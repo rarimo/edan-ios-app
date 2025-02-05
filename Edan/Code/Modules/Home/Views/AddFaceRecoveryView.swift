@@ -9,19 +9,17 @@ struct AddFaceRecoveryView: View {
 
     @StateObject var viewModel = BiometryViewModel()
 
-    @State private var isFaceScanned = false
+    @State private var faceImage: UIImage? = nil
 
     var body: some View {
         withCloseButton {
             VStack {
-                if isFaceScanned {
+                if face != nil {
                     SetupActionLoader<SetupRegisterTask>(onCompletion: completion)
                         .onAppear(perform: runProcess)
                 } else {
-                    SetupFaceView { faceImage in
-                        userManager.updateFaceImage(faceImage)
-
-                        isFaceScanned = true
+                    SetupFaceView { scannedFaceImage in
+                        faceImage = scannedFaceImage
                     }
                 }
             }
@@ -51,7 +49,19 @@ struct AddFaceRecoveryView: View {
     func runProcess() {
         Task { @MainActor in
             do {
-                try await viewModel.addFaceRecoveryMethod(walletManager.accountAddress)
+                guard let faceImage else {
+                    throw "No face image found"
+                }
+
+                try await viewModel.addFaceRecoveryMethod(faceImage, walletManager.accountAddress)
+
+                userManager.updateFaceImage(faceImage)
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
+
+                appViewModel.isFaceRecoveryEnabled = true
+
+                presentationMode.wrappedValue.dismiss()
             } catch {
                 LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
 

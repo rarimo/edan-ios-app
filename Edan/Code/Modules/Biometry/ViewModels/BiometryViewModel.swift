@@ -148,12 +148,11 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func addFaceRecoveryMethod(_ accountAddress: String) async throws {
-        LoggerUtil.common.info("Add the face recovery method")
-        
-        guard let mainFaceImage = faceImage else {
-            throw "No face image found"
-        }
+    func addFaceRecoveryMethod(
+        _ mainFaceImage: UIImage,
+        _ accountAddress: String
+    ) async throws {
+        LoggerUtil.common.info("Adding the face recovery method")
         
         var imagesFeatures: [[Double]] = []
         for image in faceImages {
