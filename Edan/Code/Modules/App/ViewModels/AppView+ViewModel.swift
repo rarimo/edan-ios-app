@@ -10,9 +10,16 @@ extension AppView {
 
         @Published var isPassportPresent = (try? AppKeychain.containsValue(.passportJson)) ?? false
 
+        @Published var isFaceRecoveryEnabled = AppUserDefaults.shared.isFaceRecoveryEnabled {
+            didSet {
+                AppUserDefaults.shared.isFaceRecoveryEnabled = isFaceRecoveryEnabled
+            }
+        }
+
         func reset() {
             isIntroFinished = false
             isPassportPresent = false
+            isFaceRecoveryEnabled = false
         }
     }
 }

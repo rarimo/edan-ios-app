@@ -19,6 +19,9 @@ public class AppUserDefaults: ObservableObject {
     @AppStorage("account_address")
     public var accountAddress = ""
 
+    @AppStorage("is_face_recovery_enabled")
+    public var isFaceRecoveryEnabled = false
+
     func reset() {
         isIntroFinished = false
         historyEntries = Data()
