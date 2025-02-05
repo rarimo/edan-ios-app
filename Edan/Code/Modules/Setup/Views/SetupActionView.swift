@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SetupActionView: View {
+    @EnvironmentObject private var appViewModel: AppView.ViewModel
+    @EnvironmentObject private var walletManager: WalletManager
     @EnvironmentObject private var userManager: UserManager
 
     @StateObject var viewModel = BiometryViewModel()
@@ -12,12 +14,17 @@ struct SetupActionView: View {
 
     @State private var isFaceScanned = false
 
+    @State private var faceImage: UIImage? = nil
+
+    @State private var isLoaderFinished = false
+
     var body: some View {
         withCloseButton {
             VStack {
                 switch action {
                 case .create:
                     SetupCreateNewIntroView(onComplete: onComplete, onError: handleCreateAccountError)
+                        .onAppear(perform: runProcess)
                 case .restore:
                     actionView
                 }
@@ -77,22 +84,41 @@ struct SetupActionView: View {
         onClose()
     }
 
+    func runProcess() {
+        Task { @MainActor in
+            do {
+                guard let faceImage else {
+                    throw "No face image found"
+                }
+
+                try await viewModel.recoverByBiometry(faceImage)
+
+                while !isLoaderFinished {
+                    try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+                }
+
+                userManager.updateFaceImage(faceImage)
+
+                appViewModel.isFaceRecoveryEnabled = true
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
+
+                onComplete()
+            } catch {
+                LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
+
+                AlertManager.shared.emitError(error.localizedDescription)
+
+                onClose()
+            }
+        }
+    }
+
     func completion() {
         Task { @MainActor in
-            switch action {
-            case .create:
-                LoggerUtil.common.info("Account created successfully")
-
-                AlertManager.shared.emitSuccess("Account created successfully")
-            case .restore:
-                LoggerUtil.common.info("Account recovered successfully")
-
-                AlertManager.shared.emitSuccess("Account recovered successfully")
-            }
-
             try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
 
-            onComplete()
+            isLoaderFinished = true
         }
     }
 }

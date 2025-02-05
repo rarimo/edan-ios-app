@@ -63,4 +63,5 @@ struct HomeTabsView: View {
     return HomeView()
         .environmentObject(WalletManager.shared)
         .environmentObject(userManager)
+        .environmentObject(AppView.ViewModel())
 }

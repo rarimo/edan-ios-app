@@ -237,16 +237,15 @@ class BiometryViewModel: ObservableObject {
         
         let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
         
-        let accountAddress = try EthereumAddress(hex: "", eip55: false)
+        let accountAddress = try await AccountFactory.shared.getAccountByBioHash(similarFeaturesHash)
         
-        let biometryAccount = BiometryAccount(accountAddress)
-        let nonce = try Int(await biometryAccount.recoveryNonce().description) ?? 0
+        let nonce = try await AccountFactory.shared.getRecoveryNonce(accountAddress)
         
         let (_, mainGrayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(mainFaceImage)
         
         let mainComputableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(mainGrayscalePixelsData)
         
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, nonce)
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, Int(nonce))
         
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
