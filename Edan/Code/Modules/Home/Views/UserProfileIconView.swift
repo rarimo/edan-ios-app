@@ -24,6 +24,10 @@ struct UserProfileIconView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(.circle)
                         .frame(width: imageSize, height: imageSize)
+                } else {
+                    Image(systemName: "person")
+                        .resizable()
+                        .frame(width: placeholderImageSize, height: placeholderImageSize)
                 }
             }
         }
@@ -34,6 +38,14 @@ struct UserProfileIconView: View {
         case .mini: 34
         case .regular: 114
         default: 114
+        }
+    }
+
+    var placeholderImageSize: CGFloat {
+        switch controlSize {
+        case .mini: 20
+        case .regular: 80
+        default: 80
         }
     }
 
@@ -61,7 +73,7 @@ struct UserProfileIconView: View {
 #Preview {
     let userManager = UserManager.shared
 
-    userManager.userFace = UIImage(named: Images.man)
+//    userManager.userFace = UIImage(named: Images.man)
 
     return VStack(spacing: 100) {
         UserProfileIconView()

@@ -37,4 +37,14 @@ class FileStorage {
 
         return FileManager.default.fileExists(atPath: savePath.path)
     }
+
+    static func remove(key: FileStorageKeys) {
+        let savePath = storageFolder.appendingPathComponent(key.rawValue)
+
+        do {
+            try FileManager.default.removeItem(at: savePath)
+        } catch {
+            print("Error removing file: \(error)")
+        }
+    }
 }

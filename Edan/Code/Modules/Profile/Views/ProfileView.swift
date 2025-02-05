@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject private var appViewModel: AppView.ViewModel
-
+    @EnvironmentObject private var userManager: UserManager
     @EnvironmentObject private var walletManager: WalletManager
 
     @State private var isAddDocumentSheetPresented = false
@@ -100,6 +100,10 @@ struct ProfileView: View {
             appViewModel.reset()
 
             try AppKeychain.removeAll()
+
+            userManager.userFace = nil
+            FileStorage.remove(key: .userFace)
+
         } catch {
             LoggerUtil.common.error("Failed to logout: \(error.localizedDescription)")
         }
