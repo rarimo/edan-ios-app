@@ -14,7 +14,7 @@ struct AddFaceRecoveryView: View {
     var body: some View {
         withCloseButton {
             VStack {
-                if face != nil {
+                if faceImage != nil {
                     SetupActionLoader<SetupRegisterTask>(onCompletion: completion)
                         .onAppear(perform: runProcess)
                 } else {
