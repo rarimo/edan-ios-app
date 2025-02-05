@@ -91,14 +91,14 @@ struct SetupActionView: View {
                 try await viewModel.recoverByBiometry(faceImage)
 
                 while !isLoaderFinished {
-                    try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+                    try await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
                 }
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
 
                 userManager.updateFaceImage(faceImage)
 
                 appViewModel.isFaceRecoveryEnabled = true
-
-                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
 
                 onComplete()
             } catch {

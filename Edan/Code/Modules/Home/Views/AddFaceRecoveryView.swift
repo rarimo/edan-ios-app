@@ -62,16 +62,16 @@ struct AddFaceRecoveryView: View {
                 try await viewModel.addFaceRecoveryMethod(faceImage, walletManager.accountAddress)
 
                 while !isLoaderFinished {
-                    try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+                    try await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
                 }
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
 
                 userManager.updateFaceImage(faceImage)
 
                 appViewModel.isFaceRecoveryEnabled = true
 
                 presentationMode.wrappedValue.dismiss()
-
-                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
             } catch {
                 LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
 
