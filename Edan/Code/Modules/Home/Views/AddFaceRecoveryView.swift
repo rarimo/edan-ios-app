@@ -57,6 +57,10 @@ struct AddFaceRecoveryView: View {
 
                 try await viewModel.addFaceRecoveryMethod(faceImage, walletManager.accountAddress)
 
+                while !isLoaderFinished {
+                    try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
+                }
+
                 userManager.updateFaceImage(faceImage)
 
                 AlertManager.shared.emitSuccess("New recovery method added sucessfully")
