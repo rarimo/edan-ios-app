@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AppView: View {
+    @EnvironmentObject private var walletManager: WalletManager
     @EnvironmentObject private var internetConnectionManager: InternetConnectionManager
 
     @StateObject var viewModel = ViewModel()
@@ -13,6 +14,8 @@ struct AppView: View {
                 HomeView()
             } else {
                 SetupView {
+                    walletManager.updateAccount()
+                    
                     viewModel.isIntroFinished = true
                 }
             }
@@ -31,4 +34,5 @@ struct AppView: View {
     AppView()
         .environmentObject(AlertManager.shared)
         .environmentObject(InternetConnectionManager.shared)
+        .environmentObject(WalletManager.shared)
 }
