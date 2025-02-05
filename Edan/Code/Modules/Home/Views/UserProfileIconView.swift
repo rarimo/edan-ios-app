@@ -25,7 +25,7 @@ struct UserProfileIconView: View {
                         .clipShape(.circle)
                         .frame(width: imageSize, height: imageSize)
                 } else {
-                    Image(Icons.userProfile)
+                    Image(systemName: "person")
                         .resizable()
                         .frame(width: placeholderImageSize, height: placeholderImageSize)
                 }
