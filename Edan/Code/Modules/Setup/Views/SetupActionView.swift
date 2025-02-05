@@ -12,8 +12,6 @@ struct SetupActionView: View {
     let onComplete: () -> Void
     let onClose: () -> Void
 
-    @State private var isFaceScanned = false
-
     @State private var faceImage: UIImage? = nil
 
     @State private var isLoaderFinished = false
@@ -24,7 +22,6 @@ struct SetupActionView: View {
                 switch action {
                 case .create:
                     SetupCreateNewIntroView(onComplete: onComplete, onError: handleCreateAccountError)
-                        .onAppear(perform: runProcess)
                 case .restore:
                     actionView
                 }
@@ -38,18 +35,17 @@ struct SetupActionView: View {
 
     var actionView: some View {
         Group {
-            if isFaceScanned {
+            if faceImage != nil {
                 switch action {
                 case .create:
                     EmptyView()
                 case .restore:
                     SetupActionLoader<SetupRecoveryTask>(onCompletion: completion)
+                        .onAppear(perform: runProcess)
                 }
             } else {
-                SetupFaceView { faceImage in
-                    userManager.updateFaceImage(faceImage)
-
-                    isFaceScanned = true
+                SetupFaceView { scannedFaceImage in
+                    faceImage = scannedFaceImage
                 }
             }
         }
@@ -60,7 +56,7 @@ struct SetupActionView: View {
         ZStack(alignment: .topLeading) {
             body()
             VStack {
-                if !isFaceScanned {
+                if faceImage == nil {
                     Button(action: onClose) {
                         ZStack {
                             Circle()

@@ -209,13 +209,9 @@ class BiometryViewModel: ObservableObject {
         WalletManager.shared.updateAccount()
     }
         
-    func recoverByBiometry(_ image: UIImage) async throws {
+    func recoverByBiometry(_ mainFaceImage: UIImage) async throws {
         LoggerUtil.common.info("Start recover by biometry")
-        
-        guard let mainFaceImage = faceImage else {
-            throw "No face image found"
-        }
-        
+
         var imagesFeatures: [[Double]] = []
         for image in faceImages {
             let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
