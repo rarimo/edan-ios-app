@@ -52,6 +52,8 @@ struct AddFaceRecoveryView: View {
 
             AlertManager.shared.emitSuccess("New recovery method added sucessfully")
 
+            appViewModel.isFaceRecoveryEnabled = true
+
             presentationMode.wrappedValue.dismiss()
         }
     }

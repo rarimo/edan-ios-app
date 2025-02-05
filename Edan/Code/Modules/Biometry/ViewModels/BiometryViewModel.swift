@@ -44,7 +44,7 @@ enum SetupRegisterTask: Int, CaseIterable, SetupActionTask {
         case .downloadingCircuitData: return "Downloading circuit data"
         case .extractionImageFeatures: return "Extracting image features"
         case .runningZKMK: return "Running ZKML"
-        case .creatingAccount: return "Creating account"
+        case .creatingAccount: return "Registering recovery method"
         }
     }
     
