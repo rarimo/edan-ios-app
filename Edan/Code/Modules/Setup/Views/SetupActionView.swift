@@ -27,7 +27,7 @@ struct SetupActionView: View {
                 }
             }
         }
-        .environmentObject(BiometryViewModel())
+        .environmentObject(viewModel)
     }
 
     var actionView: some View {
