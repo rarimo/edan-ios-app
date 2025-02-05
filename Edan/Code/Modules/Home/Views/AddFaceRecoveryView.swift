@@ -63,17 +63,17 @@ struct AddFaceRecoveryView: View {
 
                 userManager.updateFaceImage(faceImage)
 
-                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
-
                 appViewModel.isFaceRecoveryEnabled = true
 
                 presentationMode.wrappedValue.dismiss()
+
+                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
             } catch {
                 LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
 
-                AlertManager.shared.emitError(error.localizedDescription)
-
                 presentationMode.wrappedValue.dismiss()
+
+                AlertManager.shared.emitError(error.localizedDescription)
             }
         }
     }
