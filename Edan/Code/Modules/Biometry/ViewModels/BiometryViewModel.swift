@@ -196,7 +196,7 @@ class BiometryViewModel: ObservableObject {
         
         let response = try await ZKBiometricsSvc.shared.relay(setRecoveryMethodCalldata, accountAddress)
         
-        LoggerUtil.common.info("Register by biometry TX hash: \(response.data.attributes.txHash)")
+        LoggerUtil.common.info("Add the recovery method TX hash: \(response.data.attributes.txHash)")
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         

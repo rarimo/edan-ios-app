@@ -49,7 +49,7 @@ class AccountManager {
             ConfigManager.shared.general.accountFactoryAddress
         )
 
-        LoggerUtil.common.info("Register by biometry TX hash: \(response.data.attributes.txHash)")
+        LoggerUtil.common.info("Deploy account TX hash: \(response.data.attributes.txHash)")
 
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
     }
