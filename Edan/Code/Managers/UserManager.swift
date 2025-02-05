@@ -1,13 +1,9 @@
 import SwiftUI
 
 class UserManager: ObservableObject {
-    static let MAX_COMPLETION_LEVEL = 3
-
     static let shared = UserManager()
 
     @Published var userFace: UIImage?
-
-    @Published var userCompletionLevel: Int
 
     init() {
         do {
@@ -21,18 +17,6 @@ class UserManager: ObservableObject {
         } catch {
             self.userFace = nil
         }
-
-        self.userCompletionLevel = UserManager.calculateUserCompletionLevel()
-    }
-
-    private static func calculateUserCompletionLevel() -> Int {
-        var userCompetionLevel = 1
-
-        if (try? AppKeychain.containsValue(.passportJson)) ?? false {
-            userCompetionLevel += 1
-        }
-
-        return userCompetionLevel
     }
 
     func updateFaceImage(_ faceImage: UIImage) {

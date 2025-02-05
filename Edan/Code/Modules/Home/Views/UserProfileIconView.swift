@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct UserProfileIconView: View {
+    @EnvironmentObject private var appViewModel: AppView.ViewModel
     @EnvironmentObject private var userManager: UserManager
 
     @Environment(\.controlSize) var controlSize
@@ -66,7 +67,15 @@ struct UserProfileIconView: View {
     }
 
     var progress: CGFloat {
-        CGFloat(0.33)
+        var progress: Double = 0
+        if appViewModel.isPassportPresent {
+            progress += 0.33
+        }
+        if appViewModel.isFaceRecoveryEnabled {
+            progress += 0.33
+        }
+
+        return CGFloat(progress)
     }
 }
 
@@ -82,4 +91,5 @@ struct UserProfileIconView: View {
             .controlSize(.mini)
     }
     .environmentObject(userManager)
+    .environmentObject(AppView.ViewModel())
 }
