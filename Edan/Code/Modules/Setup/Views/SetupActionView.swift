@@ -94,7 +94,7 @@ struct SetupActionView: View {
                     try await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
                 }
 
-                AlertManager.shared.emitSuccess("New recovery method added sucessfully")
+                AlertManager.shared.emitSuccess("Access to account restored")
 
                 userManager.updateFaceImage(faceImage)
 
