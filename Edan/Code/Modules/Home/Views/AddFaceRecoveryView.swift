@@ -11,6 +11,8 @@ struct AddFaceRecoveryView: View {
 
     @State private var faceImage: UIImage? = nil
 
+    @State private var isLoaderFinished = false
+
     var body: some View {
         withCloseButton {
             VStack {
@@ -76,11 +78,7 @@ struct AddFaceRecoveryView: View {
         Task { @MainActor in
             try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
 
-            AlertManager.shared.emitSuccess("New recovery method added sucessfully")
-
-            appViewModel.isFaceRecoveryEnabled = true
-
-            presentationMode.wrappedValue.dismiss()
+            isLoaderFinished = true
         }
     }
 }
