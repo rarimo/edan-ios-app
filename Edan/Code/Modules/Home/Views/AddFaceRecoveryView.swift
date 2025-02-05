@@ -3,6 +3,7 @@ import SwiftUI
 struct AddFaceRecoveryView: View {
     @Environment(\.presentationMode) var presentationMode
 
+    @EnvironmentObject private var walletManager: WalletManager
     @EnvironmentObject private var userManager: UserManager
     @EnvironmentObject private var appViewModel: AppView.ViewModel
 
@@ -15,6 +16,7 @@ struct AddFaceRecoveryView: View {
             VStack {
                 if isFaceScanned {
                     SetupActionLoader<SetupRegisterTask>(onCompletion: completion)
+                        .onAppear(perform: runProcess)
                 } else {
                     SetupFaceView { faceImage in
                         userManager.updateFaceImage(faceImage)
@@ -46,6 +48,20 @@ struct AddFaceRecoveryView: View {
         }
     }
 
+    func runProcess() {
+        Task { @MainActor in
+            do {
+                try await viewModel.addFaceRecoveryMethod(walletManager.accountAddress)
+            } catch {
+                LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
+
+                AlertManager.shared.emitError(error.localizedDescription)
+
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+
     func completion() {
         Task { @MainActor in
             try await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
@@ -64,4 +80,5 @@ struct AddFaceRecoveryView: View {
         .sheet(isPresented: .constant(true), content: AddFaceRecoveryView.init)
         .environmentObject(AppView.ViewModel())
         .environmentObject(UserManager.shared)
+        .environmentObject(WalletManager.shared)
 }

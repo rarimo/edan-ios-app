@@ -200,7 +200,7 @@ struct BiometryFaceView: View {
             var isRecovered = false
             processingTask = Task {
                 do {
-                    try await viewModel.registerByBiometry()
+//                    try await viewModel.registerByBiometry()
 
                     isRecovered = true
                 } catch {

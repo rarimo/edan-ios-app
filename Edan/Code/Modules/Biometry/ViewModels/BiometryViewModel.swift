@@ -148,8 +148,8 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func registerByBiometry() async throws {
-        LoggerUtil.common.info("Start register by biometry")
+    func addFaceRecoveryMethod(_ accountAddress: String) async throws {
+        LoggerUtil.common.info("Add the face recovery method")
         
         guard let mainFaceImage = faceImage else {
             throw "No face image found"
@@ -193,15 +193,9 @@ class BiometryViewModel: ObservableObject {
         
         let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
         
-        try AccountManager.shared.generateNewPrivateKey()
+        let setRecoveryMethodCalldata = try CalldataBuilderManager.shared.biometryAccount.setRecoveryMethod(zkProof)
         
-        // TODO: you know what you should do
-        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount()
-        
-        let response = try await ZKBiometricsSvc.shared.relay(
-            registerCalldata,
-            ConfigManager.shared.general.accountFactoryAddress
-        )
+        let response = try await ZKBiometricsSvc.shared.relay(setRecoveryMethodCalldata, accountAddress)
         
         LoggerUtil.common.info("Register by biometry TX hash: \(response.data.attributes.txHash)")
         
