@@ -223,6 +223,8 @@ class BiometryViewModel: ObservableObject {
             imagesFeatures.append(features)
         }
         
+        LoggerUtil.common.info("imagesFeatures: \(imagesFeatures)")
+        
         let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
         
         guard let similarFeatures = try await getSimilarFeatures(imagesFeatures) else {
@@ -310,6 +312,8 @@ class BiometryViewModel: ObservableObject {
     }
     
     func getSimilarFeatures(_ features: [[Double]]) async throws -> [Double]? {
+        LoggerUtil.common.debug("features: \(features)")
+        
         guard let response = try await ZKBiometricsSvc.shared.getValue(features) else {
             return nil
         }

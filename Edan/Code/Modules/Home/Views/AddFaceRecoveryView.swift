@@ -50,6 +50,10 @@ struct AddFaceRecoveryView: View {
 
     func runProcess() {
         Task { @MainActor in
+            defer {
+                viewModel.clearImages()
+            }
+
             do {
                 guard let faceImage else {
                     throw "No face image found"
