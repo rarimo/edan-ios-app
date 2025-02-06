@@ -101,8 +101,10 @@ struct ProfileView: View {
 
             try AppKeychain.removeAll()
 
-            userManager.userFace = nil
-            FileStorage.remove(key: .userFace)
+            if userManager.userFace != nil {
+                userManager.userFace = nil
+                FileStorage.remove(key: .userFace)
+            }
 
         } catch {
             LoggerUtil.common.error("Failed to logout: \(error.localizedDescription)")
