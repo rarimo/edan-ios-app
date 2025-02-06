@@ -17,6 +17,8 @@ struct AppView: View {
                     walletManager.updateAccount()
 
                     viewModel.isIntroFinished = true
+
+                    AlertManager.shared.emitSuccess("Account created successfully")
                 }
             }
             AlertManagerView()
