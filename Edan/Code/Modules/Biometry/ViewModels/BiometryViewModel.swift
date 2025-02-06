@@ -205,8 +205,6 @@ class BiometryViewModel: ObservableObject {
         AppUserDefaults.shared.faceFeatures = features.json
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
-        
-        WalletManager.shared.updateAccount()
     }
         
     func recoverByBiometry(_ mainFaceImage: UIImage) async throws {
@@ -265,8 +263,6 @@ class BiometryViewModel: ObservableObject {
         AppUserDefaults.shared.faceFeatures = features.json
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
-        
-        WalletManager.shared.updateAccount()
     }
         
     func generateFisherface(_ inputs: Data) async throws -> ZkProof {

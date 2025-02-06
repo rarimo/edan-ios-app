@@ -15,7 +15,7 @@ struct AppView: View {
             } else {
                 SetupView {
                     walletManager.updateAccount()
-                    
+
                     viewModel.isIntroFinished = true
                 }
             }

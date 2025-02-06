@@ -78,8 +78,6 @@ struct SetupCreateNewIntroView: View {
             do {
                 try await AccountManager.shared.deployNewAccount()
 
-                AlertManager.shared.emitSuccess("Account created successfully")
-
                 onComplete()
             } catch {
                 onError(error)
