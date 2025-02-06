@@ -1,6 +1,6 @@
 // MARK: General
 SLASH=/
 EVM_RPC_URL = "https:${SLASH}/rpc.evm.mainnet.rarimo.com"
-ORGS_API = "https:${SLASH}/api.orgs.app.rarime.com"
+ORGS_API = "https:${SLASH}/api.orgs.app.stage.rarime.com"
 ACCOUNT_FACTORY_ADDRESS = "0x06D7Dcf5369aB56927f1f819643580ABD084B9F7"
 ERC20_ADDRESS = "0x238da5Fb56c2148b3D622243d06b9a6d6858aB4a"

@@ -12,9 +12,7 @@ struct WalletView: View {
                 header
                 WarningView(text: "ZK Face technology is currently in beta, with balance limits in place")
                 Spacer()
-                Text("$\(walletManager.balanceString)")
-                    .h3()
-                    .foregroundStyle(.textPrimary)
+                balance
                     .padding(100)
                 Spacer()
                 ScrollView {
@@ -37,6 +35,15 @@ struct WalletView: View {
                 body()
             }
         }
+    }
+
+    var balance: some View {
+        Button(action: walletManager.updateBalance) {
+            Text("$\(walletManager.balanceString)")
+                .h3()
+                .foregroundStyle(.textPrimary)
+        }
+        .isLoading(walletManager.isBalanceLoading)
     }
 
     var header: some View {
@@ -134,4 +141,5 @@ struct WalletView: View {
     return WalletView()
         .environmentObject(walletManager)
         .environmentObject(userManager)
+        .environmentObject(AppView.ViewModel())
 }
