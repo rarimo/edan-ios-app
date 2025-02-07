@@ -7,12 +7,11 @@ struct ProfileView: View {
 
     @State private var isAddDocumentSheetPresented = false
     @State private var isAddFaceSheetPresented = false
+    @State private var isCheetSheetPresented = false
 
     var body: some View {
         VStack {
-            Text("Account")
-                .subtitle3()
-                .align()
+            header
             VStack(spacing: 30) {
                 UserProfileIconView()
                 VStack {
@@ -44,6 +43,19 @@ struct ProfileView: View {
         .padding()
         .sheet(isPresented: $isAddDocumentSheetPresented, content: AddPassportRecoveryView.init)
         .sheet(isPresented: $isAddFaceSheetPresented, content: AddFaceRecoveryView.init)
+        .sheet(isPresented: $isCheetSheetPresented, content: CheatView.init)
+    }
+
+    var header: some View {
+        HStack {
+            Text("Account")
+                .subtitle3()
+                .align()
+            Spacer()
+            Button(action: { isCheetSheetPresented = true }) {
+                Image(systemName: "gear")
+            }
+        }
     }
 
     var info: some View {

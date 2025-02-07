@@ -86,6 +86,7 @@
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
 		CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE397C392D11D372000D254F /* ZKFaceManager.swift */; };
+		CE3BBF552D5625C100DE427E /* CheatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BBF542D5625BA00DE427E /* CheatView.swift */; };
 		CE3CD3B12C6CEBEF008313B8 /* JSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */; };
 		CE3E0D3B2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */; };
 		CE3E261F2D536DAF002A1AA9 /* AddFaceRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E261E2D536DAA002A1AA9 /* AddFaceRecoveryView.swift */; };
@@ -252,6 +253,7 @@
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
 		CE397C392D11D372000D254F /* ZKFaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceManager.swift; sourceTree = "<group>"; };
+		CE3BBF542D5625BA00DE427E /* CheatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatView.swift; sourceTree = "<group>"; };
 		CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodable.swift; sourceTree = "<group>"; };
 		CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+RetriveOpenApiHttpCode.swift"; sourceTree = "<group>"; };
 		CE3E261E2D536DAA002A1AA9 /* AddFaceRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFaceRecoveryView.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 		CE72E67D2D4BBBCB00E8066F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE3BBF542D5625BA00DE427E /* CheatView.swift */,
 				CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */,
 				CE72E67F2D4BBBE100E8066F /* ProfileView.swift */,
 			);
@@ -1089,6 +1092,7 @@
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
 				CE3E261F2D536DAF002A1AA9 /* AddFaceRecoveryView.swift in Sources */,
 				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
+				CE3BBF552D5625C100DE427E /* CheatView.swift in Sources */,
 				CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */,
 				CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */,
 				CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */,
