@@ -7,7 +7,7 @@ import SwiftUI
 class WalletManager: ObservableObject {
     static let shared = WalletManager()
 
-    let decimals: Int = 6
+    let decimals: Int = 18
 
     let tokenName: String = "USDC"
 
@@ -148,7 +148,7 @@ class WalletManager: ObservableObject {
     func mintERC20() async throws {
         let mintCalldata = try CalldataBuilderManager.shared.mockErc20Account.mint(
             accountAddress,
-            "1000000000000000000"
+            "10000000000000000000"
         )
 
         let response = try await ZKBiometricsSvc.shared.relay(
