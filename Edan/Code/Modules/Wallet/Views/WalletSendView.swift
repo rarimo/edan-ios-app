@@ -150,6 +150,8 @@ struct WalletSendView: View {
 //                    amount: Double(amount) ?? 0
 //                )
 
+                walletManager.updateBalance()
+
                 AlertManager.shared.emitSuccess("Transaction sent!")
 
                 presentationMode.wrappedValue.dismiss()
