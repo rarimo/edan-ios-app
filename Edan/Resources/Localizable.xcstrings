@@ -1490,6 +1490,9 @@
         }
       }
     },
+    "Request tokens from the main wallet" : {
+
+    },
     "Scan" : {
       "localizations" : {
         "uk" : {
@@ -1656,9 +1659,6 @@
       }
     },
     "Tag not valid." : {
-
-    },
-    "Take tokens from the main wallet" : {
 
     },
     "Terms of Use" : {
