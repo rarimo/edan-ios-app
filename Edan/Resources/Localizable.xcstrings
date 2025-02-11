@@ -26,6 +26,16 @@
     "%@" : {
 
     },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
     "%@ %@ " : {
       "localizations" : {
         "en" : {
@@ -103,8 +113,16 @@
         }
       }
     },
+    "%lld%%" : {
+
+    },
+    "+ ZK Face  for managing all" : {
+
+    },
+    "$%@" : {
+
+    },
     "Account" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -117,6 +135,9 @@
     "Account setup" : {
 
     },
+    "Add" : {
+
+    },
     "Address" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -127,6 +148,9 @@
           }
         }
       }
+    },
+    "Address:" : {
+
     },
     "Address: %@" : {
       "extractionState" : "stale",
@@ -208,6 +232,9 @@
         }
       }
     },
+    "Assets" : {
+
+    },
     "Auth Method" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -242,6 +269,9 @@
           }
         }
       }
+    },
+    "Avaiable:" : {
+
     },
     "Available RMO" : {
       "extractionState" : "stale",
@@ -286,6 +316,9 @@
           }
         }
       }
+    },
+    "Biometric self-recovery" : {
+
     },
     "Birth date" : {
       "extractionState" : "stale",
@@ -477,6 +510,9 @@
     "Create a new account" : {
 
     },
+    "Create a new one" : {
+
+    },
     "Create Account" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -487,6 +523,9 @@
           }
         }
       }
+    },
+    "Create an unforgettable wallet" : {
+
     },
     "Creating a confidential profile" : {
       "extractionState" : "stale",
@@ -544,6 +583,7 @@
       }
     },
     "Data never leaves this device" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -600,6 +640,9 @@
         }
       }
     },
+    "Done!" : {
+
+    },
     "Downloading data" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -646,6 +689,9 @@
           }
         }
       }
+    },
+    "Enable all recovery features for maximum protection" : {
+
     },
     "Enable Face ID in Settings > RariMe." : {
       "extractionState" : "stale",
@@ -889,6 +935,9 @@
         }
       }
     },
+    "It’s just You" : {
+
+    },
     "Join a waitlist" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -910,6 +959,9 @@
           }
         }
       }
+    },
+    "Just like that" : {
+
     },
     "Language" : {
       "extractionState" : "stale",
@@ -973,7 +1025,6 @@
       }
     },
     "MAX" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1059,8 +1110,10 @@
     "No internet connection" : {
 
     },
+    "No more seed\nphrases" : {
+
+    },
     "No transactions yet" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1095,6 +1148,9 @@
       }
     },
     "Operation completed successfully" : {
+
+    },
+    "Options" : {
 
     },
     "Other passport holders" : {
@@ -1170,6 +1226,9 @@
         }
       }
     },
+    "Please look directly at the screen under good lighting conditions" : {
+
+    },
     "Please store the private key safely and do not share it with anyone. If you lose this key, you will not be able to recover the account and will lose access forever." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1226,6 +1285,9 @@
           }
         }
       }
+    },
+    "Processing action" : {
+
     },
     "Profile" : {
       "extractionState" : "stale",
@@ -1349,6 +1411,7 @@
       }
     },
     "Reading Passport data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1401,7 +1464,6 @@
       }
     },
     "Receiver gets" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1412,6 +1474,9 @@
       }
     },
     "Recover a lost account" : {
+
+    },
+    "Regain access" : {
 
     },
     "Repeat Passcode" : {
@@ -1425,6 +1490,9 @@
         }
       }
     },
+    "Request tokens from the main wallet" : {
+
+    },
     "Scan" : {
       "localizations" : {
         "uk" : {
@@ -1434,6 +1502,9 @@
           }
         }
       }
+    },
+    "Scan Passport" : {
+
     },
     "Scan QR" : {
       "localizations" : {
@@ -1445,7 +1516,11 @@
         }
       }
     },
+    "Scan your face" : {
+
+    },
     "Scan your Passport" : {
+      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {
@@ -1507,6 +1582,9 @@
           }
         }
       }
+    },
+    "Soon" : {
+
     },
     "Sorry, there was a problem reading the passport. %@. Error codes: [0x%u, 0x%u]" : {
       "localizations" : {
@@ -1616,6 +1694,9 @@
         }
       }
     },
+    "The first self-recovery crypto wallet based on ZK biometrics" : {
+
+    },
     "The rewards program will allow you to receive weekly airdrops.\n\nYou can earn additional rewards by using RariMe’s incognito proofs with other ecosystem apps." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1693,6 +1774,9 @@
         }
       }
     },
+    "Unforgettable" : {
+
+    },
     "Unknown" : {
 
     },
@@ -1711,7 +1795,6 @@
       }
     },
     "Wallet" : {
-      "extractionState" : "stale",
       "localizations" : {
         "uk" : {
           "stringUnit" : {

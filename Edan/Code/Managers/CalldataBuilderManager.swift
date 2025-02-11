@@ -11,10 +11,8 @@ class CalldataBuilderManager {
 
 extension CalldataBuilderManager {
     class AccountFactory {
-        func deployAccount(_ zkProof: ZkProof) throws -> Data {
-            let owner = AccountManager.shared.ethreumAddress
-
-            return try IdentityCalldataBuilder().buildDeployAccountCalldata(owner, zkProofJSON: zkProof.json)
+        func deployAccount() throws -> Data {
+            return try IdentityCalldataBuilder().buildDeployAccountCalldata(AccountManager.shared.ethreumAddress)
         }
 
         func deleteAccount(_ biometricHashDec: String) throws -> Data {
@@ -29,6 +27,10 @@ extension CalldataBuilderManager {
             let newOwner = AccountManager.shared.ethreumAddress
 
             return try IdentityCalldataBuilder().buildRecoverCalldata(newOwner, zkProofJSON: zkProof.json)
+        }
+
+        func setRecoveryMethod(_ zkProof: ZkProof) throws -> Data {
+            return try IdentityCalldataBuilder().buildSetRecoveryMethod(zkProof.json)
         }
 
         func transferERC20(

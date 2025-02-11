@@ -47,7 +47,6 @@
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */; };
-		CE10E3792D2C24C4002A99E1 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3782D2C24C4002A99E1 /* Identity.xcframework */; };
 		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
 		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
 		CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */; };
@@ -81,13 +80,17 @@
 		CE1D92942D1DBF63008979AF /* ZKBiometricsSvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */; };
 		CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92952D1DC904008979AF /* PubSignals.swift */; };
 		CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */; };
+		CE2396AB2D4E623900EC4872 /* AddPassportRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */; };
 		CE3477622C78892F005E91FE /* View+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3477612C78892F005E91FE /* View+Align.swift */; };
 		CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35296A2D2E839600549481 /* MemoryUtils.swift */; };
 		CE38FD0C2D12F43B006BA8E9 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */; };
 		CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */; };
 		CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE397C392D11D372000D254F /* ZKFaceManager.swift */; };
+		CE3BBF552D5625C100DE427E /* CheatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BBF542D5625BA00DE427E /* CheatView.swift */; };
 		CE3CD3B12C6CEBEF008313B8 /* JSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */; };
 		CE3E0D3B2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */; };
+		CE3E261F2D536DAF002A1AA9 /* AddFaceRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E261E2D536DAA002A1AA9 /* AddFaceRecoveryView.swift */; };
+		CE3E26212D537C43002A1AA9 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3E26202D537C43002A1AA9 /* Identity.xcframework */; };
 		CE5777B12D1AE40B001A6270 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5777B02D1AE406001A6270 /* AppView.swift */; };
 		CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5777B22D1AE9E7001A6270 /* Errors.swift */; };
 		CE66B1462CA4148B002F658E /* ScanPassport.json in Resources */ = {isa = PBXBuildFile; fileRef = CE66B1452CA4148B002F658E /* ScanPassport.json */; };
@@ -95,9 +98,15 @@
 		CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE68BE442BD9B6EA00D92EBB /* Web3 */; };
 		CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = CE68BE462BD9B6EA00D92EBB /* Web3ContractABI */; };
 		CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE68BE482BD9B6EA00D92EBB /* Web3PromiseKit */; };
+		CE697FE82D48FDB20099D8B2 /* SetupActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FE72D48FD760099D8B2 /* SetupActionView.swift */; };
+		CE697FEA2D4901BD0099D8B2 /* SetupFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */; };
+		CE697FEC2D4905840099D8B2 /* SetupFaceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */; };
 		CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */; };
 		CE7210292BD7D0D10043DB7F /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210282BD7D0D10043DB7F /* String+Hex.swift */; };
 		CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7210322BD818020043DB7F /* Double+Rounded.swift */; };
+		CE72E61B2D4B922C00E8066F /* WalletSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E61A2D4B922800E8066F /* WalletSendView.swift */; };
+		CE72E6802D4BBBE100E8066F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E67F2D4BBBE100E8066F /* ProfileView.swift */; };
+		CE72E6822D4BC69600E8066F /* ProfileRecoveryFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */; };
 		CE7D8AAC2BFB52EE009AF212 /* OpenApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */; };
 		CE9E82B62BA881F400AAF885 /* EdanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E82B52BA881F400AAF885 /* EdanApp.swift */; };
 		CE9E82BA2BA881F500AAF885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9E82B92BA881F500AAF885 /* Assets.xcassets */; };
@@ -117,6 +126,17 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
+		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
+		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
+		CEC55AEA2D4A3EFA00A366CC /* SetupActionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */; };
+		CEC55AEF2D4A4EC900A366CC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AEE2D4A4EB500A366CC /* HomeView.swift */; };
+		CEC55AF12D4A4FBD00A366CC /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF02D4A4FB800A366CC /* FileStorage.swift */; };
+		CEC55AF32D4A555800A366CC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF22D4A555500A366CC /* UserManager.swift */; };
+		CEC55AF72D4A5CBA00A366CC /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF62D4A5CB400A366CC /* WalletView.swift */; };
+		CEC55AF92D4A5D3B00A366CC /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AF82D4A5D3700A366CC /* WarningView.swift */; };
+		CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */; };
+		CEC55AFD2D4A89BE00A366CC /* WalletReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */; };
 		CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC561FC2BD923B3002D4954 /* librapidsnark.a */; };
 		CEC562072BD923B4002D4954 /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC562022BD923B4002D4954 /* libfq.a */; };
 		CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5620E2BD925D6002D4954 /* Circuits.swift */; };
@@ -195,7 +215,6 @@
 		C75512952C87617B000258AD /* RemoveCase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoveCase.mp4; sourceTree = "<group>"; };
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
-		CE10E3782D2C24C4002A99E1 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE10E37A2D2C36F4002A99E1 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
 		CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScanner.swift; sourceTree = "<group>"; };
 		CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewModel.swift; sourceTree = "<group>"; };
@@ -228,20 +247,30 @@
 		CE1D92932D1DBF5B008979AF /* ZKBiometricsSvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKBiometricsSvc.swift; sourceTree = "<group>"; };
 		CE1D92952D1DC904008979AF /* PubSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubSignals.swift; sourceTree = "<group>"; };
 		CE1D92972D1DCB2A008979AF /* FeaturesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesUtils.swift; sourceTree = "<group>"; };
+		CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassportRecoveryView.swift; sourceTree = "<group>"; };
 		CE3477612C78892F005E91FE /* View+Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Align.swift"; sourceTree = "<group>"; };
 		CE35296A2D2E839600549481 /* MemoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryUtils.swift; sourceTree = "<group>"; };
 		CE38FD0B2D12F435006BA8E9 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CE38FD0D2D130A17006BA8E9 /* ZKFaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceModel.swift; sourceTree = "<group>"; };
 		CE397C392D11D372000D254F /* ZKFaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKFaceManager.swift; sourceTree = "<group>"; };
+		CE3BBF542D5625BA00DE427E /* CheatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatView.swift; sourceTree = "<group>"; };
 		CE3CD3B02C6CEBEF008313B8 /* JSONCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodable.swift; sourceTree = "<group>"; };
 		CE3E0D3A2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+RetriveOpenApiHttpCode.swift"; sourceTree = "<group>"; };
+		CE3E261E2D536DAA002A1AA9 /* AddFaceRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFaceRecoveryView.swift; sourceTree = "<group>"; };
+		CE3E26202D537C43002A1AA9 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE5777B02D1AE406001A6270 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		CE5777B22D1AE9E7001A6270 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CE66B1452CA4148B002F658E /* ScanPassport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ScanPassport.json; sourceTree = "<group>"; };
 		CE68BE3C2BD9B23D00D92EBB /* ZkProof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZkProof.swift; sourceTree = "<group>"; };
+		CE697FE72D48FD760099D8B2 /* SetupActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupActionView.swift; sourceTree = "<group>"; };
+		CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFaceView.swift; sourceTree = "<group>"; };
+		CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFaceOverlay.swift; sourceTree = "<group>"; };
 		CE72101D2BD7BD9D0043DB7F /* Data+Utf8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utf8.swift"; sourceTree = "<group>"; };
 		CE7210282BD7D0D10043DB7F /* String+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		CE7210322BD818020043DB7F /* Double+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounded.swift"; sourceTree = "<group>"; };
+		CE72E61A2D4B922800E8066F /* WalletSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSendView.swift; sourceTree = "<group>"; };
+		CE72E67F2D4BBBE100E8066F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecoveryFeatureView.swift; sourceTree = "<group>"; };
 		CE7D8AAB2BFB52EE009AF212 /* OpenApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiError.swift; sourceTree = "<group>"; };
 		CE9E82B22BA881F400AAF885 /* Edan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9E82B52BA881F400AAF885 /* EdanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdanApp.swift; sourceTree = "<group>"; };
@@ -261,6 +290,17 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
+		CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupActionLoader.swift; sourceTree = "<group>"; };
+		CEC55AEE2D4A4EB500A366CC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CEC55AF02D4A4FB800A366CC /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		CEC55AF22D4A555500A366CC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CEC55AF62D4A5CB400A366CC /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		CEC55AF82D4A5D3700A366CC /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileIconView.swift; sourceTree = "<group>"; };
+		CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletReceiveView.swift; sourceTree = "<group>"; };
 		CEC561FC2BD923B3002D4954 /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEC561FF2BD923B3002D4954 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEC562002BD923B3002D4954 /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
@@ -304,7 +344,7 @@
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
 				CE68BE452BD9B6EA00D92EBB /* Web3 in Frameworks */,
 				CE68BE472BD9B6EA00D92EBB /* Web3ContractABI in Frameworks */,
-				CE10E3792D2C24C4002A99E1 /* Identity.xcframework in Frameworks */,
+				CE3E26212D537C43002A1AA9 /* Identity.xcframework in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
@@ -339,6 +379,7 @@
 		56474AD42BB985E00017AA25 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AF02D4A4FB800A366CC /* FileStorage.swift */,
 				CE35296A2D2E839600549481 /* MemoryUtils.swift */,
 				CEA6F4BF2D2D2DE600DAA79D /* PassportUtils.swift */,
 				CEDA6FCE2D283F2100CF5780 /* Poseidon.swift */,
@@ -357,6 +398,7 @@
 		5655E41D2BD2C38E00B86C5C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AF22D4A555500A366CC /* UserManager.swift */,
 				CEA6F4C12D2D3AF600DAA79D /* InternetConnectionManager.swift */,
 				CEDA6FC32D28135600CF5780 /* CalldataBuilderManager.swift */,
 				CE1D926E2D1C5261008979AF /* AccountManager.swift */,
@@ -394,6 +436,7 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEBD6A4C2D47C501002AAAFC /* Gradients.swift */,
 				CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */,
 				CEA6F4B62D2D2B9900DAA79D /* Images.swift */,
 				CEDA6FC72D28235D00CF5780 /* Contracts.swift */,
@@ -416,6 +459,7 @@
 		56F48BBC2BC02E02001F3AA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC55AF82D4A5D3700A366CC /* WarningView.swift */,
 				CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */,
 				CEA6F4B82D2D2C4100DAA79D /* LottieView.swift */,
 				CE1D92912D1DB15D008979AF /* CameraPermissionView.swift */,
@@ -583,6 +627,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CE72E67C2D4BBBC100E8066F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE72E67D2D4BBBCB00E8066F /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE72E67D2D4BBBCB00E8066F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE3BBF542D5625BA00DE427E /* CheatView.swift */,
+				CE72E6812D4BC68D00E8066F /* ProfileRecoveryFeatureView.swift */,
+				CE72E67F2D4BBBE100E8066F /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CE778B5B2BA9976C00B26485 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,12 +784,16 @@
 		CE9E82C72BA8852700AAF885 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE72E67C2D4BBBC100E8066F /* Profile */,
+				CEC55AF42D4A5C9A00A366CC /* Wallet */,
+				CEC55AEB2D4A4E9500A366CC /* Home */,
 				CE10E3912D2C37C1002A99E1 /* ScanPassport */,
 				CE1D92622D1C2366008979AF /* Biometry */,
 				CE1D92512D1C0DF2008979AF /* Intro */,
 				CEA7E90A2D1AFE7C00089589 /* Main */,
 				CE5777AE2D1AE3FC001A6270 /* App */,
 				CEA6F4AF2D2D27E500DAA79D /* MRZScan */,
+				CEBD6A482D47C1B1002AAAFC /* Setup */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -796,10 +862,68 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CEBD6A482D47C1B1002AAAFC /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				CEBD6A492D47C1EB002AAAFC /* Views */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		CEBD6A492D47C1EB002AAAFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEC55AE92D4A3EE200A366CC /* SetupActionLoader.swift */,
+				CE697FEB2D49057A0099D8B2 /* SetupFaceOverlay.swift */,
+				CE697FE92D4901B80099D8B2 /* SetupFaceView.swift */,
+				CE697FE72D48FD760099D8B2 /* SetupActionView.swift */,
+				CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */,
+				CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEC55AEB2D4A4E9500A366CC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CEC55AED2D4A4EAA00A366CC /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CEC55AED2D4A4EAA00A366CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE3E261E2D536DAA002A1AA9 /* AddFaceRecoveryView.swift */,
+				CE2396AA2D4E623000EC4872 /* AddPassportRecoveryView.swift */,
+				CEC55AFA2D4A781000A366CC /* UserProfileIconView.swift */,
+				CEC55AEE2D4A4EB500A366CC /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEC55AF42D4A5C9A00A366CC /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				CEC55AF52D4A5CAE00A366CC /* Views */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		CEC55AF52D4A5CAE00A366CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE72E61A2D4B922800E8066F /* WalletSendView.swift */,
+				CEC55AFC2D4A89B800A366CC /* WalletReceiveView.swift */,
+				CEC55AF62D4A5CB400A366CC /* WalletView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CEC562122BD92804002D4954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE10E3782D2C24C4002A99E1 /* Identity.xcframework */,
+				CE3E26202D537C43002A1AA9 /* Identity.xcframework */,
 				CEC561FF2BD923B3002D4954 /* bridge.h */,
 				CEC562002BD923B3002D4954 /* prover.h */,
 				CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */,
@@ -927,6 +1051,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D926D2D1C5035008979AF /* WalletManager.swift in Sources */,
+				CE697FEC2D4905840099D8B2 /* SetupFaceOverlay.swift in Sources */,
+				CEC55AEF2D4A4EC900A366CC /* HomeView.swift in Sources */,
 				CE35296B2D2E83A100549481 /* MemoryUtils.swift in Sources */,
 				5613F4322BD18409008E6CBE /* AppSkeleton.swift in Sources */,
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
@@ -935,6 +1061,7 @@
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
+				CEC55AF72D4A5CBA00A366CC /* WalletView.swift in Sources */,
 				5609B6CC2C19922400CB6A1F /* LinearProgressView.swift in Sources */,
 				CEFD130C2D131E8800164DA6 /* FisherFaceInputs.swift in Sources */,
 				CE3E0D3B2C2025CE0039DD50 /* AFError+RetriveOpenApiHttpCode.swift in Sources */,
@@ -963,8 +1090,12 @@
 				CEDC57942CA2CA4100F02132 /* CMSampleBuffer+Extension.swift in Sources */,
 				CEFF68B92CB692A7008769EA /* BN.swift in Sources */,
 				562241432C107E16000239FA /* AppDropdown.swift in Sources */,
+				CE3E261F2D536DAF002A1AA9 /* AddFaceRecoveryView.swift in Sources */,
 				CE1D927C2D1D7A6A008979AF /* HistoryView.swift in Sources */,
+				CE3BBF552D5625C100DE427E /* CheatView.swift in Sources */,
+				CEC55AFB2D4A786400A366CC /* UserProfileIconView.swift in Sources */,
 				CEDA6FCF2D283F2400CF5780 /* Poseidon.swift in Sources */,
+				CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */,
 				CE1D92542D1C0EF8008979AF /* IntroView.swift in Sources */,
 				CE1D92732D1D66B4008979AF /* SettingsView.swift in Sources */,
 				CE68BE3D2BD9B23D00D92EBB /* ZkProof.swift in Sources */,
@@ -976,6 +1107,7 @@
 				561C3C2B2BADBF1000FBB3B9 /* View+Typography.swift in Sources */,
 				CEA6F4BE2D2D2CDE00DAA79D /* ThemedAnimation.swift in Sources */,
 				CE1D926F2D1C5265008979AF /* AccountManager.swift in Sources */,
+				CEC55AEA2D4A3EFA00A366CC /* SetupActionLoader.swift in Sources */,
 				CEA6F4C42D2D3B3A00DAA79D /* InternetConnectionRequiredView.swift in Sources */,
 				CE38FD0E2D130A25006BA8E9 /* ZKFaceModel.swift in Sources */,
 				CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */,
@@ -989,6 +1121,7 @@
 				CE5777B32D1AE9E8001A6270 /* Errors.swift in Sources */,
 				CE1D92822D1D97D4008979AF /* QRUtils.swift in Sources */,
 				CEA6F4B72D2D2B9A00DAA79D /* Images.swift in Sources */,
+				CE72E6822D4BC69600E8066F /* ProfileRecoveryFeatureView.swift in Sources */,
 				CE7210332BD818020043DB7F /* Double+Rounded.swift in Sources */,
 				CEDA6FC42D28135B00CF5780 /* CalldataBuilderManager.swift in Sources */,
 				CEC5620F2BD925D6002D4954 /* Circuits.swift in Sources */,
@@ -999,11 +1132,14 @@
 				56E2D9202BCED460006E725D /* AppCheckbox.swift in Sources */,
 				CE1D92632D1C2366008979AF /* BiometryFaceView.swift in Sources */,
 				CE1D92642D1C2366008979AF /* BiometryViewModel.swift in Sources */,
+				CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */,
+				CEC55AF32D4A555800A366CC /* UserManager.swift in Sources */,
 				CE1D92652D1C2366008979AF /* BiometrySuccessView.swift in Sources */,
 				CE1D92662D1C2366008979AF /* BiometryRecoveryView.swift in Sources */,
 				CE1D92672D1C2366008979AF /* BiomatryCaptureSession.swift in Sources */,
 				CE72101E2BD7BD9D0043DB7F /* Data+Utf8.swift in Sources */,
 				CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */,
+				CE2396AB2D4E623900EC4872 /* AddPassportRecoveryView.swift in Sources */,
 				CE397C3A2D11D389000D254F /* ZKFaceManager.swift in Sources */,
 				5655E42E2BD2C94F00B86C5C /* AppUserDefaults.swift in Sources */,
 				CEA6F4C02D2D2DE900DAA79D /* PassportUtils.swift in Sources */,
@@ -1017,15 +1153,23 @@
 				CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */,
 				CE10E3982D2C37C1002A99E1 /* ScanPassportLayoutView.swift in Sources */,
 				CE10E39D2D2C37C1002A99E1 /* PassportViewModel.swift in Sources */,
+				CE697FEA2D4901BD0099D8B2 /* SetupFaceView.swift in Sources */,
 				CE10E39F2D2C37C1002A99E1 /* ScanPassportView.swift in Sources */,
 				CEA6F4C22D2D3AFE00DAA79D /* InternetConnectionManager.swift in Sources */,
 				CE10E3A02D2C37C1002A99E1 /* ScanPassportMRZView.swift in Sources */,
 				CEDC4D832BE949F300459D4E /* Ethereum.swift in Sources */,
+				CE72E61B2D4B922C00E8066F /* WalletSendView.swift in Sources */,
 				CE1D927E2D1D8C7C008979AF /* PreviewUtils.swift in Sources */,
 				CEA03F0A2C7C7A17002F218A /* View+IsLoading.swift in Sources */,
+				CEC55AF92D4A5D3B00A366CC /* WarningView.swift in Sources */,
+				CEC55AF12D4A4FBD00A366CC /* FileStorage.swift in Sources */,
+				CE697FE82D48FDB20099D8B2 /* SetupActionView.swift in Sources */,
 				CE7210292BD7D0D10043DB7F /* String+Hex.swift in Sources */,
+				CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */,
+				CE72E6802D4BBBE100E8066F /* ProfileView.swift in Sources */,
 				563529F62BB077AB0027C910 /* CardContainer.swift in Sources */,
 				560F0C252BD036F900067054 /* AppTextField.swift in Sources */,
+				CEC55AFD2D4A89BE00A366CC /* WalletReceiveView.swift in Sources */,
 				CE3CD3B12C6CEBEF008313B8 /* JSONCodable.swift in Sources */,
 				CE5777B12D1AE40B001A6270 /* AppView.swift in Sources */,
 				CE1D92802D1D9659008979AF /* ReceiveView.swift in Sources */,

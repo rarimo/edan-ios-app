@@ -38,4 +38,19 @@ class AccountManager {
     var ethreumAddress: String {
         return (try? EthereumPrivateKey(privateKey).address.hex(eip55: false)) ?? ""
     }
+
+    func deployNewAccount() async throws {
+        try generateNewPrivateKey()
+
+        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount()
+
+        let response = try await ZKBiometricsSvc.shared.relay(
+            registerCalldata,
+            ConfigManager.shared.general.accountFactoryAddress
+        )
+
+        LoggerUtil.common.info("Deploy account TX hash: \(response.data.attributes.txHash)")
+
+        try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
+    }
 }

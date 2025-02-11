@@ -18,18 +18,6 @@ class BiometryAccount {
         )
     }
     
-    func recoveryNonce() async throws -> BigUInt {
-        let response = try contract["recoveryNonce"]!().call().wait()
-        
-        guard let nonce = response[""] as? BigUInt else {
-            throw "Response does not contain nonce"
-        }
-        
-        
-        
-        return nonce
-    }
-    
     func getTransferERC20SignHash(
         _ token: EthereumAddress,
         _ to: EthereumAddress,

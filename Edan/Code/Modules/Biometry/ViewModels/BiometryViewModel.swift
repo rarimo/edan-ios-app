@@ -1,12 +1,14 @@
+import Web3
+
 import SwiftUI
 
-protocol BiometryProgress {
+protocol SetupActionTask: CaseIterable {
     var rawValue: Int { get }
     var description: String { get }
     var progressTime: Int { get }
 }
 
-enum BiometryRecoveryProgress: Int, CaseIterable, BiometryProgress {
+enum SetupRecoveryTask: Int, SetupActionTask {
     case downloadingCircuitData = 0
     case extractionImageFeatures = 1
     case runningZKMK = 2
@@ -31,7 +33,7 @@ enum BiometryRecoveryProgress: Int, CaseIterable, BiometryProgress {
     }
 }
 
-enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
+enum SetupRegisterTask: Int, CaseIterable, SetupActionTask {
     case downloadingCircuitData = 0
     case extractionImageFeatures = 1
     case runningZKMK = 2
@@ -42,7 +44,7 @@ enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
         case .downloadingCircuitData: return "Downloading circuit data"
         case .extractionImageFeatures: return "Extracting image features"
         case .runningZKMK: return "Running ZKML"
-        case .creatingAccount: return "Creating account"
+        case .creatingAccount: return "Registering recovery method"
         }
     }
     
@@ -59,6 +61,7 @@ enum BiometryRegisterProgress: Int, CaseIterable, BiometryProgress {
 class BiometryViewModel: ObservableObject {
     @Published var currentFrame: CGImage?
     @Published var faceImage: UIImage?
+
     var faceImages: [UIImage] = []
         
     private let cameraManager = BiomatryCaptureSession()
@@ -67,20 +70,20 @@ class BiometryViewModel: ObservableObject {
         
     @Published var loadingProgress = 0.0
         
-    @Published var recoveryProgress: BiometryRecoveryProgress? = nil
-    @Published var registerProgress: BiometryRegisterProgress? = nil
+    @Published var recoveryProgress: SetupRecoveryTask? = nil
+    @Published var registerProgress: SetupRegisterTask? = nil
         
     @Published var processingTask: Task<Void, Never>? = nil
         
     private var recentZKProofResult: Result<ZkProof, Error>?
         
     @MainActor
-    func markRecoveryProgress(_ progress: BiometryRecoveryProgress) {
+    func markRecoveryProgress(_ progress: SetupRecoveryTask) {
         recoveryProgress = progress
     }
     
     @MainActor
-    func markRegisterProgress(_ progress: BiometryRegisterProgress) {
+    func markRegisterProgress(_ progress: SetupRegisterTask) {
         registerProgress = progress
     }
         
@@ -130,6 +133,8 @@ class BiometryViewModel: ObservableObject {
                     
                 if loadingProgress >= 1 {
                     self.faceImage = faceImage
+                    
+                    stopScanning()
                         
                     return
                 }
@@ -143,12 +148,11 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func registerByBiometry() async throws {
-        LoggerUtil.common.info("Start register by biometry")
-        
-        guard let mainFaceImage = faceImage else {
-            throw "No face image found"
-        }
+    func addFaceRecoveryMethod(
+        _ mainFaceImage: UIImage,
+        _ accountAddress: String
+    ) async throws {
+        LoggerUtil.common.info("Adding the face recovery method")
         
         var imagesFeatures: [[Double]] = []
         for image in faceImages {
@@ -188,16 +192,11 @@ class BiometryViewModel: ObservableObject {
         
         let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
         
-        try AccountManager.shared.generateNewPrivateKey()
+        let setRecoveryMethodCalldata = try CalldataBuilderManager.shared.biometryAccount.setRecoveryMethod(zkProof)
         
-        let registerCalldata = try CalldataBuilderManager.shared.accountFactory.deployAccount(zkProof)
+        let response = try await ZKBiometricsSvc.shared.relay(setRecoveryMethodCalldata, accountAddress)
         
-        let response = try await ZKBiometricsSvc.shared.relay(
-            registerCalldata,
-            ConfigManager.shared.general.accountFactoryAddress
-        )
-        
-        LoggerUtil.common.info("Register by biometry TX hash: \(response.data.attributes.txHash)")
+        LoggerUtil.common.info("Add the recovery method TX hash: \(response.data.attributes.txHash)")
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
@@ -206,17 +205,11 @@ class BiometryViewModel: ObservableObject {
         AppUserDefaults.shared.faceFeatures = features.json
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
-        
-        WalletManager.shared.updateAccount()
     }
         
-    func recoverByBiometry(_ image: UIImage) async throws {
+    func recoverByBiometry(_ mainFaceImage: UIImage) async throws {
         LoggerUtil.common.info("Start recover by biometry")
-        
-        guard let mainFaceImage = faceImage else {
-            throw "No face image found"
-        }
-        
+
         var imagesFeatures: [[Double]] = []
         for image in faceImages {
             let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
@@ -238,16 +231,15 @@ class BiometryViewModel: ObservableObject {
         
         let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
         
-        let accountAddress = try await AccountFactory.shared.getAccount(similarFeaturesHash)
+        let accountAddress = try await AccountFactory.shared.getAccountByBioHash(similarFeaturesHash)
         
-        let biometryAccount = BiometryAccount(accountAddress)
-        let nonce = try Int(await biometryAccount.recoveryNonce().description) ?? 0
+        let nonce = try await AccountFactory.shared.getRecoveryNonce(accountAddress)
         
         let (_, mainGrayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(mainFaceImage)
         
         let mainComputableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(mainGrayscalePixelsData)
         
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, nonce)
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, Int(nonce))
         
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
@@ -271,8 +263,6 @@ class BiometryViewModel: ObservableObject {
         AppUserDefaults.shared.faceFeatures = features.json
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
-        
-        WalletManager.shared.updateAccount()
     }
         
     func generateFisherface(_ inputs: Data) async throws -> ZkProof {

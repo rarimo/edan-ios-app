@@ -2,19 +2,19 @@ import Web3
 import Web3ContractABI
 import Web3PromiseKit
 
-import Foundation
+import SwiftUI
 
 class WalletManager: ObservableObject {
     static let shared = WalletManager()
 
     let decimals: Int = 18
 
-    let tokenName: String = "ETH"
+    let tokenName: String = "USDC"
 
     var balanceString: String {
         let balance = Double(balance) / pow(10, Double(decimals))
 
-        return String(format: "%.3f", balance)
+        return String(format: "%.2f", balance)
     }
 
     @Published var balance: BigUInt = 0
@@ -89,7 +89,17 @@ class WalletManager: ObservableObject {
     }
 
     func retriveAccountAddress() async throws -> EthereumAddress {
-        return try await AccountFactory.shared.getAccount(AccountManager.shared.featuresHash)
+        if !AppUserDefaults.shared.accountAddress.isEmpty {
+            return try EthereumAddress(hex: AppUserDefaults.shared.accountAddress, eip55: false)
+        }
+
+        let ownerAddress = try EthereumAddress(hex: AccountManager.shared.ethreumAddress, eip55: false)
+
+        let accountAddress = try await AccountFactory.shared.getAccountByOwner(ownerAddress)
+
+        AppUserDefaults.shared.accountAddress = accountAddress.hex(eip55: false)
+
+        return accountAddress
     }
 
     func transferERC20(
@@ -138,7 +148,7 @@ class WalletManager: ObservableObject {
     func mintERC20() async throws {
         let mintCalldata = try CalldataBuilderManager.shared.mockErc20Account.mint(
             accountAddress,
-            "1000000000000000000"
+            "10000000000000000000"
         )
 
         let response = try await ZKBiometricsSvc.shared.relay(

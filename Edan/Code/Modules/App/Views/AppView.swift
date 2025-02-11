@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AppView: View {
+    @EnvironmentObject private var walletManager: WalletManager
     @EnvironmentObject private var internetConnectionManager: InternetConnectionManager
 
     @StateObject var viewModel = ViewModel()
@@ -9,30 +10,24 @@ struct AppView: View {
         ZStack(alignment: .topLeading) {
             if !internetConnectionManager.isInternetPresent {
                 InternetConnectionRequiredView()
-            } else if !viewModel.isPassportPresent && viewModel.isIntroFinished {
-                ScanPassportView(
-                    onComplete: { passport in
-                        try? AppKeychain.setValue(.passportJson, passport.json)
-
-                        viewModel.isPassportPresent = true
-                    },
-                    onClose: {
-                        viewModel.isPassportPresent = true
-                    }
-                )
             } else if viewModel.isIntroFinished {
-                MainView()
+                HomeView()
             } else {
-                IntroView {
+                SetupView {
+                    walletManager.updateAccount()
+
                     viewModel.isIntroFinished = true
+
+                    AlertManager.shared.emitSuccess("Account created successfully")
                 }
             }
             AlertManagerView()
         }
-        .background(Color.backgroundPure)
         .environmentObject(viewModel)
         .onAppear {
             LoggerUtil.common.info("App started")
+
+            UIApplication.shared.isIdleTimerDisabled = true
         }
     }
 }
@@ -41,4 +36,5 @@ struct AppView: View {
     AppView()
         .environmentObject(AlertManager.shared)
         .environmentObject(InternetConnectionManager.shared)
+        .environmentObject(WalletManager.shared)
 }

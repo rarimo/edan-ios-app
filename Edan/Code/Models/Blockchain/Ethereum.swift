@@ -57,7 +57,7 @@ class Ethereum {
             
             if let isTxSuccessfulResult {
                 if isTxSuccessfulResult {
-                    break
+                    return
                 }
                 
                 throw "Transaction failed"
