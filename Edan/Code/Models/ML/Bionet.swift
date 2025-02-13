@@ -23,7 +23,7 @@ class Bionet {
 
         let outputTensor = try interpreter.output(at: 0)
 
-        var outputData = outputTensor.data
+        let outputData = outputTensor.data
 
         var ouputArrrayInt32 = [Float](repeating: 0, count: outputData.count / MemoryLayout<Float>.stride)
         _ = ouputArrrayInt32.withUnsafeMutableBytes { outputData.copyBytes(to: $0) }
