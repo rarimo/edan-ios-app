@@ -5,8 +5,8 @@ import Vision
 class ZKFaceManager {
     static let shared = ZKFaceManager()
 
-    static let grayscaleWidthInPixels: Int = 92
-    static let grayscaleHeightInPixels: Int = 112
+    static let grayscaleWidthInPixels: Int = 48
+    static let grayscaleHeightInPixels: Int = 48
 
     func extractFaceFromImage(_ image: UIImage) throws -> UIImage? {
         let detectFaceRequest = VNDetectFaceCaptureQualityRequest()
@@ -73,6 +73,10 @@ class ZKFaceManager {
 
     func convertGrayscaleDataToComputableModel(_ grayscaleData: Data) -> [Double] {
         return grayscaleData.map { Double($0) / 255.0 }
+    }
+    
+    func convertGrayscaleDataToMLInputs(_ grayscaleData: Data) -> [Float] {
+        return grayscaleData.map { Float($0) / 255.0 }
     }
 
     func extractFeaturesFromComputableModel(_ model: [Double]) throws -> [Double] {

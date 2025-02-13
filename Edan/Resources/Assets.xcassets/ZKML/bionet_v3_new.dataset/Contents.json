@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "bionet_v3_new.tflite",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

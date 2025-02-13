@@ -126,6 +126,8 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEB60FA22D5E419D00B90309 /* TensorFlowLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60FA12D5E419D00B90309 /* TensorFlowLiteSwift */; };
+		CEB60FA52D5E41D200B90309 /* Bionet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60FA42D5E41CE00B90309 /* Bionet.swift */; };
 		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
 		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
@@ -290,6 +292,7 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CEB60FA42D5E41CE00B90309 /* Bionet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bionet.swift; sourceTree = "<group>"; };
 		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
@@ -347,6 +350,7 @@
 				CE3E26212D537C43002A1AA9 /* Identity.xcframework in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
+				CEB60FA22D5E419D00B90309 /* TensorFlowLiteSwift in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
 				CEA6F4B52D2D288B00DAA79D /* Semaphore in Frameworks */,
 				CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */,
@@ -414,6 +418,7 @@
 		5655E4262BD2C3F500B86C5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEB60FA32D5E41C900B90309 /* ML */,
 				CEDA6FC92D28254E00CF5780 /* Contracts */,
 				CE7E957B2CE7577800D86A4F /* Errors */,
 				CE7E957A2CE7574200D86A4F /* Blockchain */,
@@ -862,6 +867,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CEB60FA32D5E41C900B90309 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60FA42D5E41CE00B90309 /* Bionet.swift */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
 		CEBD6A482D47C1B1002AAAFC /* Setup */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +988,7 @@
 				CE1D928F2D1DB0EC008979AF /* CodeScanner */,
 				CEA6F4B42D2D288B00DAA79D /* Semaphore */,
 				CEA6F4BB2D2D2C9B00DAA79D /* Lottie */,
+				CEB60FA12D5E419D00B90309 /* TensorFlowLiteSwift */,
 			);
 			productName = Edan;
 			productReference = CE9E82B22BA881F400AAF885 /* Edan.app */;
@@ -1014,6 +1028,7 @@
 				CE1D928E2D1DB0EC008979AF /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */,
 				CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				CEB60FA02D5E419D00B90309 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */,
 			);
 			productRefGroup = CE9E82B32BA881F400AAF885 /* Products */;
 			projectDirPath = "";
@@ -1058,6 +1073,7 @@
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */,
 				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
+				CEB60FA52D5E41D200B90309 /* Bionet.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
@@ -1732,6 +1748,14 @@
 				revision = 4c463a687f59eb6cc5c7955af854c7d41295d54f;
 			};
 		};
+		CEB60FA02D5E419D00B90309 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kewlbear/TensorFlowLiteSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1783,6 +1807,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CEA7E9052D1AF3AA00089589 /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
 			productName = NFCPassportReader;
+		};
+		CEB60FA12D5E419D00B90309 /* TensorFlowLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEB60FA02D5E419D00B90309 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */;
+			productName = TensorFlowLiteSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

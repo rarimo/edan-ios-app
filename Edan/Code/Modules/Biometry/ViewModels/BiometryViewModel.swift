@@ -158,6 +158,14 @@ class BiometryViewModel: ObservableObject {
         for image in faceImages {
             let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
             
+            let mlInputs = ZKFaceManager.shared.convertGrayscaleDataToMLInputs(grayscalePixelsData)
+            
+            let outputs = try Bionet.shared.compute(mlInputs)
+            
+            LoggerUtil.common.debug("outputs: \(outputs)")
+            
+            throw "expecetd throw"
+            
             let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
             
             let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
