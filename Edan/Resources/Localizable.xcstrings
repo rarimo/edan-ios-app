@@ -1493,6 +1493,9 @@
     "Request tokens from the main wallet" : {
 
     },
+    "Restart features" : {
+
+    },
     "Scan" : {
       "localizations" : {
         "uk" : {
