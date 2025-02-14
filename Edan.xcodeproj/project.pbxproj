@@ -1322,7 +1322,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Edan;
+				INFOPLIST_KEY_CFBundleDisplayName = Unforgettable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read the MRZ from the document";
@@ -1374,7 +1374,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Edan;
+				INFOPLIST_KEY_CFBundleDisplayName = Unforgettable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read the MRZ from the document";
@@ -1492,7 +1492,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Edan;
+				INFOPLIST_KEY_CFBundleDisplayName = Unforgettable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read the MRZ from the document";
@@ -1603,7 +1603,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Edan;
+				INFOPLIST_KEY_CFBundleDisplayName = Unforgettable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read the MRZ from the document";
