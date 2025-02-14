@@ -5,8 +5,11 @@ import Vision
 class ZKFaceManager {
     static let shared = ZKFaceManager()
 
-    static let grayscaleWidthInPixels: Int = 48
-    static let grayscaleHeightInPixels: Int = 48
+    static let grayscaleWidthInPixels: Int = 92
+    static let grayscaleHeightInPixels: Int = 112
+
+    static let rgbWidthInPixels: Int = 112
+    static let rgbHeightInPixels: Int = 112
 
     func extractFaceFromImage(_ image: UIImage) throws -> UIImage? {
         let detectFaceRequest = VNDetectFaceCaptureQualityRequest()
@@ -38,6 +41,44 @@ class ZKFaceManager {
         }
 
         return UIImage(cgImage: faceCgImage)
+    }
+
+    func convertFaceToRgb(_ image: UIImage) throws -> (UIImage, Data) {
+        let preProcessedImage = try image.resize(ZKFaceManager.rgbWidthInPixels, ZKFaceManager.rgbHeightInPixels)
+
+        guard let cgImage = preProcessedImage.cgImage else {
+            throw "Invalid image data"
+        }
+
+        let width = cgImage.width
+        let height = cgImage.height
+
+        let dataSize = width * height * 4
+        var pixelsData = [UInt8](repeating: 0, count: Int(dataSize))
+        let context = CGContext(
+            data: &pixelsData,
+            width: width,
+            height: height,
+            bitsPerComponent: 8,
+            bytesPerRow: 4 * width,
+            space: CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue
+        )
+
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+
+        guard let rgbCgImage = context?.makeImage() else {
+            throw "Failed to convert image to rgb"
+        }
+
+        var pixelsDataWithoutAlpha: [UInt8] = []
+        for i in 0 ..< pixelsData.count / 4 {
+            pixelsDataWithoutAlpha.append(pixelsData[i * 4])
+            pixelsDataWithoutAlpha.append(pixelsData[i * 4 + 1])
+            pixelsDataWithoutAlpha.append(pixelsData[i * 4 + 2])
+        }
+
+        return (UIImage(cgImage: rgbCgImage), Data(pixelsDataWithoutAlpha))
     }
 
     func convertFaceToGrayscale(_ image: UIImage) throws -> (UIImage, Data) {
@@ -74,9 +115,9 @@ class ZKFaceManager {
     func convertGrayscaleDataToComputableModel(_ grayscaleData: Data) -> [Double] {
         return grayscaleData.map { Double($0) / 255.0 }
     }
-    
-    func convertGrayscaleDataToMLInputs(_ grayscaleData: Data) -> [Float] {
-        return grayscaleData.map { Float($0) / 255.0 }
+
+    func convertDataToMLInputs(_ data: Data) -> [Float] {
+        return data.map { Float($0) / 255.0 }
     }
 
     func extractFeaturesFromComputableModel(_ model: [Double]) throws -> [Double] {

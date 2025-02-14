@@ -154,24 +154,32 @@ class BiometryViewModel: ObservableObject {
     ) async throws {
         LoggerUtil.common.info("Adding the face recovery method")
         
+        faceImages = [UIImage](faceImages.dropFirst(20))
+        
         var imagesFeatures: [[Double]] = []
+        
+        var imageFeatures: [Exportable] = []
         for image in faceImages {
-            let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
+            let (faceImage, rgbPixelsData) = try ZKFaceManager.shared.convertFaceToRgb(image)
             
-            let mlInputs = ZKFaceManager.shared.convertGrayscaleDataToMLInputs(grayscalePixelsData)
+            let rgbPixelsDataFloats = ZKFaceManager.shared.convertDataToMLInputs(rgbPixelsData)
             
-            let outputs = try Bionet.shared.compute(mlInputs)
+            let features = try MLFace.shared.computeArcface(rgbPixelsDataFloats)
             
-            LoggerUtil.common.debug("outputs: \(outputs)")
+            imageFeatures.append(.init(features: features, rgbData: faceImage.pngData()!))
             
-            throw "expecetd throw"
-            
-            let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
-            
-            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
-            
-            imagesFeatures.append(features)
+//            let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
+//
+//            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+//
+//            imagesFeatures.append(features)
         }
+        
+        UIPasteboard.general.string = imageFeatures.json.utf8
+        
+        let documentData = imageFeatures.json
+        
+        throw "expected throw"
         
         let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
         
@@ -325,4 +333,9 @@ class BiometryViewModel: ObservableObject {
         faceImage = nil
         faceImages = []
     }
+}
+
+struct Exportable: Codable {
+    let features: [Float]
+    let rgbData: Data
 }

@@ -46,7 +46,6 @@
 		C75512942C870AFD000258AD /* StepIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75512932C870AFD000258AD /* StepIndicator.swift */; };
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
-		CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */; };
 		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
 		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
 		CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */; };
@@ -126,8 +125,10 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEAB35732D5F787500C2008E /* ZKML.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB35722D5F787300C2008E /* ZKML.swift */; };
+		CEAB35F32D5F91AA00C2008E /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAB35F22D5F91AA00C2008E /* libwitnesscalc_fisherface.a */; };
 		CEB60FA22D5E419D00B90309 /* TensorFlowLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60FA12D5E419D00B90309 /* TensorFlowLiteSwift */; };
-		CEB60FA52D5E41D200B90309 /* Bionet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60FA42D5E41CE00B90309 /* Bionet.swift */; };
+		CEB60FA52D5E41D200B90309 /* MLFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60FA42D5E41CE00B90309 /* MLFace.swift */; };
 		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
 		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
@@ -216,7 +217,6 @@
 		C75512932C870AFD000258AD /* StepIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepIndicator.swift; sourceTree = "<group>"; };
 		C75512952C87617B000258AD /* RemoveCase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoveCase.mp4; sourceTree = "<group>"; };
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CE10E37A2D2C36F4002A99E1 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
 		CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScanner.swift; sourceTree = "<group>"; };
 		CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewModel.swift; sourceTree = "<group>"; };
@@ -292,7 +292,9 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		CEB60FA42D5E41CE00B90309 /* Bionet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bionet.swift; sourceTree = "<group>"; };
+		CEAB35722D5F787300C2008E /* ZKML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKML.swift; sourceTree = "<group>"; };
+		CEAB35F22D5F91AA00C2008E /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
+		CEB60FA42D5E41CE00B90309 /* MLFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFace.swift; sourceTree = "<group>"; };
 		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
@@ -338,10 +340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D92872D1DA689008979AF /* QRCode in Frameworks */,
-				CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */,
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
 				CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */,
+				CEAB35F32D5F91AA00C2008E /* libwitnesscalc_fisherface.a in Frameworks */,
 				CEC562072BD923B4002D4954 /* libfq.a in Frameworks */,
 				CEA6F4BC2D2D2C9B00DAA79D /* Lottie in Frameworks */,
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
@@ -441,6 +443,7 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEAB35722D5F787300C2008E /* ZKML.swift */,
 				CEBD6A4C2D47C501002AAAFC /* Gradients.swift */,
 				CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */,
 				CEA6F4B62D2D2B9900DAA79D /* Images.swift */,
@@ -870,7 +873,7 @@
 		CEB60FA32D5E41C900B90309 /* ML */ = {
 			isa = PBXGroup;
 			children = (
-				CEB60FA42D5E41CE00B90309 /* Bionet.swift */,
+				CEB60FA42D5E41CE00B90309 /* MLFace.swift */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -944,7 +947,7 @@
 				CEC562022BD923B4002D4954 /* libfq.a */,
 				CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */,
 				CEC561FC2BD923B3002D4954 /* librapidsnark.a */,
-				CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */,
+				CEAB35F22D5F91AA00C2008E /* libwitnesscalc_fisherface.a */,
 				CEC562132BD9281A002D4954 /* libresolv.9.tbd */,
 				CEC562142BD9281A002D4954 /* libresolv.tbd */,
 			);
@@ -1073,7 +1076,7 @@
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */,
 				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
-				CEB60FA52D5E41D200B90309 /* Bionet.swift in Sources */,
+				CEB60FA52D5E41D200B90309 /* MLFace.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
@@ -1130,6 +1133,7 @@
 				CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */,
 				CE1D928D2D1DB094008979AF /* ScanQR.swift in Sources */,
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
+				CEAB35732D5F787500C2008E /* ZKML.swift in Sources */,
 				CE3477622C78892F005E91FE /* View+Align.swift in Sources */,
 				5641CC452C874E2B007B7A0D /* AppAlert.swift in Sources */,
 				CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */,

@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "arcface.tflite",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

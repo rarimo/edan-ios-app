@@ -29,6 +29,15 @@ struct AppView: View {
 
             UIApplication.shared.isIdleTimerDisabled = true
         }
+//        VStack {}
+//            .onAppear {
+//                do {
+//                    let inputs = NSDataAsset("inputs")!.data
+//
+//                } catch {
+//                    LoggerUtil.common.error("error: \(error.localizedDescription)")
+//                }
+//            }
     }
 }
 
