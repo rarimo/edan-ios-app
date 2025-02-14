@@ -6,7 +6,7 @@ class MLFace {
     static let shared = MLFace()
 
     func computeArcface(_ inputs: [Float]) throws -> [Float] {
-        let tfile = NSDataAsset(name: "arcface")!.data
+        let tfile = ZKML.arcface
 
         let interpreter = try Interpreter(modelData: tfile)
 

@@ -11,16 +11,17 @@ class ZKBiometricsSvc {
         url = ConfigManager.shared.general.orgsApi
     }
 
-    func addValue2(_ feature: [Double]) async throws -> ZKBiometricsValueResponse {
+    func addValue2(_ feature: [Double], _ subfeatures: [Double]) async throws -> ZKBiometricsValue2Response {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value2")
 
-        let request = ZKBiometricsAddValueRequest(
+        let request = ZKBiometricsAddValue2Request(
             data: .init(
                 id: "",
                 type: "value",
                 attributes: .init(
-                    feature: feature
+                    feature: feature,
+                    subfeatures: subfeatures
                 )
             )
         )
@@ -32,12 +33,12 @@ class ZKBiometricsSvc {
             encoder: JSONParameterEncoder.default
         )
         .validate(OpenApiError.catchInstance)
-        .serializingDecodable(ZKBiometricsValueResponse.self)
+        .serializingDecodable(ZKBiometricsValue2Response.self)
         .result
         .get()
     }
 
-    func getValue2(_ features: [[Double]]) async throws -> ZKBiometricsValueResponse? {
+    func getValue2(_ features: [[Double]]) async throws -> ZKBiometricsValue2Response? {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value2")
 
@@ -59,7 +60,7 @@ class ZKBiometricsSvc {
                 encoder: JSONParameterEncoder.default
             )
             .validate(OpenApiError.catchInstance)
-            .serializingDecodable(ZKBiometricsValueResponse.self)
+            .serializingDecodable(ZKBiometricsValue2Response.self)
             .result
             .get()
         } catch {
@@ -227,6 +228,20 @@ struct ZKBiometricsAddValueRequestAttributes: Codable {
     let feature: [Double]
 }
 
+struct ZKBiometricsAddValue2Request: Codable {
+    let data: ZKBiometricsAddValue2RequestData
+}
+
+struct ZKBiometricsAddValue2RequestData: Codable {
+    let id, type: String
+    let attributes: ZKBiometricsAddValue2RequestAttributes
+}
+
+struct ZKBiometricsAddValue2RequestAttributes: Codable {
+    let feature: [Double]
+    let subfeatures: [Double]
+}
+
 struct ZKBiometricsGetValueRequest: Codable {
     let data: ZKBiometricsGetValueRequestData
 }
@@ -252,6 +267,22 @@ struct ZKBiometricsValueResponseData: Codable {
 struct ZKBiometricsValueResponseAttributes: Codable {
     let key: String
     let feature: [Double]
+}
+
+struct ZKBiometricsValue2Response: Codable {
+    let data: ZKBiometricsValue2ResponseData
+}
+
+struct ZKBiometricsValue2ResponseData: Codable {
+    let id, type: String
+    let attributes: ZKBiometricsValue2ResponseAttributes
+}
+
+struct ZKBiometricsValue2ResponseAttributes: Codable {
+    let key: String
+    let feature: [Double]
+    let subfeatures: [Double]
+    let closestFeatures: [Double]
 }
 
 struct ZKBiometricsRelayRequest: Codable {
