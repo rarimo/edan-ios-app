@@ -35,9 +35,15 @@ struct CheatView: View {
 
     func delete() {
         Task { @MainActor in
-            try? await ZKBiometricsSvc.shared.deleteValue(feature: AppUserDefaults.shared.keyFaceFeatures)
+            do {
+                try await ZKBiometricsSvc.shared.deleteValue2(feature: AppUserDefaults.shared.keyFaceFeatures)
 
-            logout()
+                logout()
+            } catch {
+                LoggerUtil.common.error("failed to reset features: \(error.localizedDescription)")
+
+                AlertManager.shared.emitError("Unable to reset features")
+            }
         }
     }
 
