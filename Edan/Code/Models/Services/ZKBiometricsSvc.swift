@@ -11,7 +11,7 @@ class ZKBiometricsSvc {
         url = ConfigManager.shared.general.orgsApi
     }
 
-    func addValue2(_ feature: [Double], _ subfeatures: [Double]) async throws -> ZKBiometricsValue2Response {
+    func addValue2(_ feature: [Double], _ subfeatures: [Double]) async throws {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value2")
 
@@ -26,14 +26,14 @@ class ZKBiometricsSvc {
             )
         )
 
-        return try await AF.request(
+        _ = try await AF.request(
             requestURL,
             method: .post,
             parameters: request,
             encoder: JSONParameterEncoder.default
         )
         .validate(OpenApiError.catchInstance)
-        .serializingDecodable(ZKBiometricsValue2Response.self)
+        .serializingData()
         .result
         .get()
     }

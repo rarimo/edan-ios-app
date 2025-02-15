@@ -182,7 +182,7 @@ class BiometryViewModel: ObservableObject {
         
         if let similarFeaturesResponse {
             if FeaturesUtils.areFeaturesSimilar(features, similarFeaturesResponse.subfeatures) {
-                throw "Account already registered"
+                throw "Face is already used"
             }
         } else {
             LoggerUtil.common.info("No similar features found")

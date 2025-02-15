@@ -13,6 +13,8 @@ struct AddFaceRecoveryView: View {
 
     @State private var isLoaderFinished = false
 
+    @State private var processTask: Task<Void, Error>? = nil
+
     var body: some View {
         withCloseButton {
             VStack {
@@ -28,6 +30,9 @@ struct AddFaceRecoveryView: View {
             .padding(.top, 50)
         }
         .environmentObject(viewModel)
+        .onDisappear {
+            processTask?.cancel()
+        }
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {
@@ -49,7 +54,7 @@ struct AddFaceRecoveryView: View {
     }
 
     func runProcess() {
-        Task { @MainActor in
+        processTask = Task { @MainActor in
             defer {
                 viewModel.clearImages()
             }
