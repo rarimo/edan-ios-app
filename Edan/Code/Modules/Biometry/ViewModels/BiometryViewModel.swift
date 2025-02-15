@@ -245,8 +245,6 @@ class BiometryViewModel: ObservableObject {
             imagesFeatures.append(features.map { Double($0) })
         }
         
-        let features = FeaturesUtils.calculateAverageFeatures(imagesSubFeatures)
-        
         guard let similarFeaturesResponse = try await getSimilarFeatures(imagesFeatures) else {
             throw "Account not found"
         }
@@ -284,7 +282,7 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        AppUserDefaults.shared.keyFaceFeatures = similarFeaturesResponse.closestFeatures
+        AppUserDefaults.shared.keyFaceFeatures = similarFeaturesResponse.feature
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
     }

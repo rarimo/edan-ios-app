@@ -26,6 +26,7 @@ public class AppUserDefaults: ObservableObject {
         get {
             return (try? JSONDecoder().decode([Double].self, from: keyFaceFeaturesJson)) ?? []
         }
+
         set {
             keyFaceFeaturesJson = newValue.json
         }
