@@ -35,13 +35,7 @@ struct CheatView: View {
 
     func delete() {
         Task { @MainActor in
-            guard let features = try? JSONDecoder().decode([Double].self, from: AppUserDefaults.shared.faceFeatures) else {
-                logout()
-
-                return
-            }
-
-            try? await ZKBiometricsSvc.shared.deleteValue(feature: features)
+            try? await ZKBiometricsSvc.shared.deleteValue(feature: AppUserDefaults.shared.keyFaceFeatures)
 
             logout()
         }

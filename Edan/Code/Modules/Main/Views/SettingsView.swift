@@ -26,21 +26,7 @@ struct SettingsView: View {
         }
     }
 
-    func delete() {
-        Task { @MainActor in
-            do {
-                let features = try JSONDecoder().decode([Double].self, from: AppUserDefaults.shared.faceFeatures)
-
-                try? await ZKBiometricsSvc.shared.deleteValue(feature: features)
-
-                logout()
-            } catch {
-                LoggerUtil.common.error("failed to delete account: \(error.localizedDescription)")
-
-                AlertManager.shared.emitError("Failed to delete account")
-            }
-        }
-    }
+    func delete() {}
 }
 
 #Preview {

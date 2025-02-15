@@ -13,19 +13,28 @@ public class AppUserDefaults: ObservableObject {
     @AppStorage("is_first_run")
     public var isFirstRun = true
 
-    @AppStorage("face_features")
-    public var faceFeatures = Data()
-
     @AppStorage("account_address")
     public var accountAddress = ""
 
     @AppStorage("is_face_recovery_enabled")
     public var isFaceRecoveryEnabled = false
 
+    @AppStorage("key_face_features_json")
+    public var keyFaceFeaturesJson = Data()
+
+    var keyFaceFeatures: [Double] {
+        get {
+            return (try? JSONDecoder().decode([Double].self, from: keyFaceFeaturesJson)) ?? []
+        }
+        set {
+            keyFaceFeaturesJson = newValue.json
+        }
+    }
+
     func reset() {
         isIntroFinished = false
         historyEntries = Data()
-        faceFeatures = Data()
         accountAddress = ""
+        keyFaceFeaturesJson = Data()
     }
 }

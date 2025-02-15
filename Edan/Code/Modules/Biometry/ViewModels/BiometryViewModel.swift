@@ -211,9 +211,11 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        _ = try await ZKBiometricsSvc.shared.addValue2(FeaturesUtils.calculateAverageFeatures(imagesFeatures), features)
+        let averageFeatures = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
         
-        AppUserDefaults.shared.faceFeatures = features.json
+        _ = try await ZKBiometricsSvc.shared.addValue2(averageFeatures, features)
+        
+        AppUserDefaults.shared.keyFaceFeatures = averageFeatures
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
     }
@@ -282,7 +284,7 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        AppUserDefaults.shared.faceFeatures = features.json
+        AppUserDefaults.shared.keyFaceFeatures = similarFeaturesResponse.closestFeatures
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
     }
