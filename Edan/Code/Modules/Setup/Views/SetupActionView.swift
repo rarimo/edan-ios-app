@@ -16,6 +16,8 @@ struct SetupActionView: View {
 
     @State private var isLoaderFinished = false
 
+    @State private var processTask: Task<Void, Error>? = nil
+
     var body: some View {
         withCloseButton {
             VStack {
@@ -44,9 +46,15 @@ struct SetupActionView: View {
                 SetupFaceView { scannedFaceImage in
                     faceImage = scannedFaceImage
                 }
+                .onDisappear {
+                    viewModel.stopScanning()
+                }
             }
         }
         .padding(.top, 50)
+        .onDisappear {
+            processTask?.cancel()
+        }
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {
@@ -78,7 +86,7 @@ struct SetupActionView: View {
     }
 
     func runProcess() {
-        Task { @MainActor in
+        processTask = Task { @MainActor in
             defer {
                 viewModel.clearImages()
             }
