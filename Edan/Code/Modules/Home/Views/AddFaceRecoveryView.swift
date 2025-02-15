@@ -30,16 +30,17 @@ struct AddFaceRecoveryView: View {
             .padding(.top, 50)
         }
         .environmentObject(viewModel)
-        .onDisappear {
-            processTask?.cancel()
-        }
     }
 
     func withCloseButton(_ body: () -> some View) -> some View {
         ZStack(alignment: .topLeading) {
             body()
             VStack {
-                Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                Button(action: {
+                    processTask?.cancel()
+
+                    presentationMode.wrappedValue.dismiss()
+                }) {
                     ZStack {
                         Circle()
                             .foregroundColor(.componentPrimary)
@@ -78,6 +79,14 @@ struct AddFaceRecoveryView: View {
 
                 presentationMode.wrappedValue.dismiss()
             } catch {
+                if error.localizedDescription.contains("Provided data count") {
+                    presentationMode.wrappedValue.dismiss()
+                    
+                    AlertManager.shared.emitError("Failed to detect the computable face")
+                    
+                    return
+                }
+
                 LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
 
                 presentationMode.wrappedValue.dismiss()

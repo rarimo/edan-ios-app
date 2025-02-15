@@ -110,6 +110,14 @@ struct SetupActionView: View {
 
                 onComplete()
             } catch {
+                if error.localizedDescription.contains("Provided data count") {
+                    AlertManager.shared.emitError("Failed to detect the computable face")
+
+                    onClose()
+
+                    return
+                }
+
                 LoggerUtil.common.error("failed to add recovery method: \(error.localizedDescription)")
 
                 AlertManager.shared.emitError(error.localizedDescription)
