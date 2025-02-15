@@ -202,12 +202,6 @@ class BiometryViewModel: ObservableObject {
         }
         
         let zkFeatureHash = try fisherfacePubSignals.getSignal(.featuresHash)
-                
-        let similarFeaturesHash = try FeaturesUtils.hashFeatures(features)
-        
-        LoggerUtil.common.debug("similarFeaturesHash: \(similarFeaturesHash.hex)")
-        
-        LoggerUtil.common.debug("zkFeatureHash: \(zkFeatureHash.dec())")
         
         let setRecoveryMethodCalldata = try CalldataBuilderManager.shared.biometryAccount.setRecoveryMethod(zkProof)
         
@@ -259,9 +253,6 @@ class BiometryViewModel: ObservableObject {
         
         let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeaturesResponse.subfeatures)
         
-        LoggerUtil.common.debug("subfeatures: \(similarFeaturesResponse.subfeatures)")
-        LoggerUtil.common.debug("similarFeaturesHash: \(similarFeaturesHash.hex)")
-        
         let accountAddress = try await AccountFactory.shared.getAccountByBioHash(similarFeaturesHash)
         
         let nonce = try await AccountFactory.shared.getRecoveryNonce(accountAddress)
@@ -284,8 +275,6 @@ class BiometryViewModel: ObservableObject {
         try AccountManager.shared.generateNewPrivateKey()
         
         let recoveryCalldata = try CalldataBuilderManager.shared.biometryAccount.recover(zkProof)
-        
-        LoggerUtil.common.debug("accountAddress.hex(eip55: false): \(accountAddress.hex(eip55: false))")
         
         let response = try await ZKBiometricsSvc.shared.relay(recoveryCalldata, accountAddress.hex(eip55: false))
         
