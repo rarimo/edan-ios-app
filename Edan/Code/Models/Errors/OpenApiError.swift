@@ -39,6 +39,10 @@ extension OpenApiError {
         _ response: HTTPURLResponse,
         _ data: Data?
     ) -> Result<Void, Error> {
+        if let data {
+            LoggerUtil.common.debug("data: \(data.utf8)")
+        }
+
         switch response.statusCode {
         case 200...299:
             return .success(())

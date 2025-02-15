@@ -220,6 +220,8 @@ class BiometryViewModel: ObservableObject {
         
     func recoverByBiometry(_ mainFaceImage: UIImage) async throws {
         LoggerUtil.common.info("Start recover by biometry")
+        
+        faceImages = [UIImage](faceImages.dropFirst(20))
 
         var imagesFeatures: [[Double]] = []
         var imagesSubFeatures: [[Double]] = []
