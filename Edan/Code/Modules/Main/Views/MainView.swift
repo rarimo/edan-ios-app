@@ -20,8 +20,8 @@ struct MainView: View {
                     actionBar
                         .padding()
                     Spacer()
-                    HistoryView()
-                        .frame(height: 350)
+//                    HistoryView()
+//                        .frame(height: 350)
                 }
             },
             header: header

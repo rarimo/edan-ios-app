@@ -7,11 +7,6 @@ struct QRCodeView: View {
 
     var qrImage: UIImage? {
         let doc = QRCode.Document(utf8String: code)
-        doc.logoTemplate = QRCode.LogoTemplate(
-            image: UIImage(named: Icons.edan)!.cgImage!,
-            path: CGPath(rect: CGRect(x: 0.35, y: 0.35, width: 0.3, height: 0.3), transform: nil),
-            inset: 3
-        )
 
         let cgImage = doc.cgImage(CGSize(width: 400, height: 400))
         return cgImage == nil ? nil : UIImage(cgImage: cgImage!)
