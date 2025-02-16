@@ -45,6 +45,7 @@
 		C75512882C8603D3000258AD /* ScanMrz.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512862C8603D3000258AD /* ScanMrz.mp4 */; };
 		C75512942C870AFD000258AD /* StepIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75512932C870AFD000258AD /* StepIndicator.swift */; };
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
+		CE06FF232D62421F00BE8A55 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE06FF222D62421F00BE8A55 /* DeviceKit */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
 		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
 		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
@@ -354,6 +355,7 @@
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
 				CEE652E12D6102C600CD2A86 /* TensorFlowLiteSwift in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
+				CE06FF232D62421F00BE8A55 /* DeviceKit in Frameworks */,
 				CEA6F4B52D2D288B00DAA79D /* Semaphore in Frameworks */,
 				CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */,
 				CE1D92902D1DB0EC008979AF /* CodeScanner in Frameworks */,
@@ -992,6 +994,7 @@
 				CEA6F4B42D2D288B00DAA79D /* Semaphore */,
 				CEA6F4BB2D2D2C9B00DAA79D /* Lottie */,
 				CEE652E02D6102C600CD2A86 /* TensorFlowLiteSwift */,
+				CE06FF222D62421F00BE8A55 /* DeviceKit */,
 			);
 			productName = Edan;
 			productReference = CE9E82B22BA881F400AAF885 /* Edan.app */;
@@ -1032,6 +1035,7 @@
 				CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */,
 				CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				CEE652DF2D6102C600CD2A86 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */,
+				CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 			);
 			productRefGroup = CE9E82B32BA881F400AAF885 /* Products */;
 			projectDirPath = "";
@@ -1696,6 +1700,14 @@
 				version = 4.2.2;
 			};
 		};
+		CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:devicekit/DeviceKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
 		CE1D92852D1DA689008979AF /* XCRemoteSwiftPackageReference "QRCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:dagronf/QRCode.git";
@@ -1767,6 +1779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5655E4382BD51F5100B86C5C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		CE06FF222D62421F00BE8A55 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
 		};
 		CE1D92862D1DA689008979AF /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;

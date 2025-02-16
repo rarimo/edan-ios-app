@@ -18,7 +18,6 @@ struct WalletView: View {
                 ScrollView {
                     actions
                     assets
-//                    history
                 }
             }
         }
@@ -111,24 +110,6 @@ struct WalletView: View {
         }
         .frame(width: 358, height: 120)
     }
-
-//    var history: some View {
-//        ZStack {
-//            RoundedRectangle(cornerRadius: 32)
-//                .foregroundStyle(.componentPrimary)
-//            VStack(spacing: 25) {
-//                Text("History")
-//                    .subtitle3()
-//                    .foregroundStyle(.textPrimary)
-//                    .align()
-//                Text("No transactions yet")
-//                    .subtitle4()
-//                    .foregroundStyle(.textPrimary)
-//            }
-//            .padding(.horizontal, 25)
-//        }
-//        .frame(width: 358, height: 120)
-//    }
 }
 
 #Preview {
