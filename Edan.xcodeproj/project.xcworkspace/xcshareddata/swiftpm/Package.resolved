@@ -1,5 +1,5 @@
 {
-  "originHash" : "31b3fdf815467a9d73fbaab74059d803241c201f2878231f403d524ef2c7fbc3",
+  "originHash" : "d03f1ee2d3e5f18bf9d25118111d9b3963222ab370cc6c92a1ff94895f4ec345",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -35,6 +35,15 @@
       "state" : {
         "revision" : "678d442c6f7828def400a70ae15968aef67ef52d",
         "version" : "1.8.3"
+      }
+    },
+    {
+      "identity" : "devicekit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:devicekit/DeviceKit.git",
+      "state" : {
+        "revision" : "7ff5331960151aec74fb422e1d45f54ef6cc086d",
+        "version" : "5.5.0"
       }
     },
     {
@@ -205,6 +214,24 @@
       "state" : {
         "revision" : "96361ba7f9dce5184d95aba8ea90d9faa4acabb2",
         "version" : "1.6.1"
+      }
+    },
+    {
+      "identity" : "tensorflowlitec",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rarimo/TensorFlowLiteC.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cc3e2fe47d36c40360c86cd793c282a00e5e35e8"
+      }
+    },
+    {
+      "identity" : "tensorflowliteswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rarimo/TensorFlowLiteSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8c3b0f9638eedfa9138789cf07b55433c03b8225"
       }
     },
     {

@@ -11,6 +11,92 @@ class ZKBiometricsSvc {
         url = ConfigManager.shared.general.orgsApi
     }
 
+    func addValue2(_ feature: [Double], _ subfeatures: [Double]) async throws {
+        var requestURL = url
+        requestURL.append(path: "integrations/zk-biometrics-svc/value2")
+
+        let request = ZKBiometricsAddValue2Request(
+            data: .init(
+                id: "",
+                type: "value",
+                attributes: .init(
+                    feature: feature,
+                    subfeatures: subfeatures
+                )
+            )
+        )
+
+        _ = try await AF.request(
+            requestURL,
+            method: .post,
+            parameters: request,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate(OpenApiError.catchInstance)
+        .serializingData()
+        .result
+        .get()
+    }
+
+    func getValue2(_ features: [[Double]]) async throws -> ZKBiometricsValue2Response? {
+        var requestURL = url
+        requestURL.append(path: "integrations/zk-biometrics-svc/value2")
+
+        let request = ZKBiometricsGetValueRequest(
+            data: .init(
+                id: "",
+                type: "value",
+                attributes: .init(
+                    features: features
+                )
+            )
+        )
+
+        do {
+            return try await AF.request(
+                requestURL,
+                method: .patch,
+                parameters: request,
+                encoder: JSONParameterEncoder.default
+            )
+            .validate(OpenApiError.catchInstance)
+            .serializingDecodable(ZKBiometricsValue2Response.self)
+            .result
+            .get()
+        } catch {
+            let openApiHttpCode = try error.retriveOpenApiHttpCode()
+
+            if openApiHttpCode == HTTPStatusCode.notFound.rawValue {
+                return nil
+            }
+
+            throw error
+        }
+    }
+
+    func deleteValue2(key: String? = nil, feature: [Double]? = nil) async throws {
+        var requestURL = url
+        requestURL.append(path: "integrations/zk-biometrics-svc/value2")
+
+        if let key {
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[key]", value: key)])
+        }
+
+        if let feature {
+            requestURL.append(queryItems: [URLQueryItem(name: "filter[feature]", value: String(feature.json.utf8.dropFirst().dropLast()))])
+        }
+
+        // returns empty body
+        _ = try await AF.request(
+            requestURL,
+            method: .delete
+        )
+        .validate(OpenApiError.catchInstance)
+        .serializingData()
+        .result
+        .get()
+    }
+
     func addValue(_ feature: [Double]) async throws -> ZKBiometricsValueResponse {
         var requestURL = url
         requestURL.append(path: "integrations/zk-biometrics-svc/value")
@@ -142,6 +228,20 @@ struct ZKBiometricsAddValueRequestAttributes: Codable {
     let feature: [Double]
 }
 
+struct ZKBiometricsAddValue2Request: Codable {
+    let data: ZKBiometricsAddValue2RequestData
+}
+
+struct ZKBiometricsAddValue2RequestData: Codable {
+    let id, type: String
+    let attributes: ZKBiometricsAddValue2RequestAttributes
+}
+
+struct ZKBiometricsAddValue2RequestAttributes: Codable {
+    let feature: [Double]
+    let subfeatures: [Double]
+}
+
 struct ZKBiometricsGetValueRequest: Codable {
     let data: ZKBiometricsGetValueRequestData
 }
@@ -167,6 +267,22 @@ struct ZKBiometricsValueResponseData: Codable {
 struct ZKBiometricsValueResponseAttributes: Codable {
     let key: String
     let feature: [Double]
+}
+
+struct ZKBiometricsValue2Response: Codable {
+    let data: ZKBiometricsValue2ResponseData
+}
+
+struct ZKBiometricsValue2ResponseData: Codable {
+    let id, type: String
+    let attributes: ZKBiometricsValue2ResponseAttributes
+}
+
+struct ZKBiometricsValue2ResponseAttributes: Codable {
+    let key: String
+    let feature: [Double]
+    let subfeatures: [Double]
+    let closestFeatures: [Double]
 }
 
 struct ZKBiometricsRelayRequest: Codable {

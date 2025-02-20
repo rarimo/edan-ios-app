@@ -45,8 +45,8 @@
 		C75512882C8603D3000258AD /* ScanMrz.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512862C8603D3000258AD /* ScanMrz.mp4 */; };
 		C75512942C870AFD000258AD /* StepIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75512932C870AFD000258AD /* StepIndicator.swift */; };
 		C75512962C87617B000258AD /* RemoveCase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C75512952C87617B000258AD /* RemoveCase.mp4 */; };
+		CE06FF232D62421F00BE8A55 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE06FF222D62421F00BE8A55 /* DeviceKit */; };
 		CE0881A12BF773CC00B31735 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0881A02BF773CC00B31735 /* AlertManager.swift */; };
-		CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */; };
 		CE10E37B2D2C36F7002A99E1 /* Passport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37A2D2C36F4002A99E1 /* Passport.swift */; };
 		CE10E3952D2C37C1002A99E1 /* NFCScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */; };
 		CE10E3972D2C37C1002A99E1 /* ReadPassportNFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10E3882D2C37C1002A99E1 /* ReadPassportNFCView.swift */; };
@@ -126,6 +126,8 @@
 		CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CEA7E9062D1AF3AA00089589 /* NFCPassportReader */; };
 		CEA7E9092D1AF73D00089589 /* AlertManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */; };
 		CEA7E90D2D1AFEA900089589 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E90C2D1AFEA500089589 /* MainView.swift */; };
+		CEAB35732D5F787500C2008E /* ZKML.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB35722D5F787300C2008E /* ZKML.swift */; };
+		CEB60FA52D5E41D200B90309 /* MLFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60FA42D5E41CE00B90309 /* MLFace.swift */; };
 		CEBD6A4B2D47C1F2002AAAFC /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */; };
 		CEBD6A4D2D47C504002AAAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4C2D47C501002AAAFC /* Gradients.swift */; };
 		CEBD6A4F2D47D746002AAAFC /* SetupCreateNewIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */; };
@@ -154,6 +156,8 @@
 		CEDC57962CA30A9D00F02132 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */; };
 		CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4FEA82CFDB851007C31F3 /* libfr.a */; };
 		CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */; };
+		CEE652E12D6102C600CD2A86 /* TensorFlowLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEE652E02D6102C600CD2A86 /* TensorFlowLiteSwift */; };
+		CEE652E32D610A5C00CD2A86 /* libwitnesscalc_fisherface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE652E22D610A5C00CD2A86 /* libwitnesscalc_fisherface.a */; };
 		CEFD130C2D131E8800164DA6 /* FisherFaceInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */; };
 		CEFF68B72CB685C5008769EA /* Data+FindSubarrayIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF68B62CB685C5008769EA /* Data+FindSubarrayIndex.swift */; };
 		CEFF68B92CB692A7008769EA /* BN.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF68B82CB692A7008769EA /* BN.swift */; };
@@ -214,7 +218,6 @@
 		C75512932C870AFD000258AD /* StepIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepIndicator.swift; sourceTree = "<group>"; };
 		C75512952C87617B000258AD /* RemoveCase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoveCase.mp4; sourceTree = "<group>"; };
 		CE0881A02BF773CC00B31735 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CE10E37A2D2C36F4002A99E1 /* Passport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport.swift; sourceTree = "<group>"; };
 		CE10E37E2D2C37C1002A99E1 /* NFCScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScanner.swift; sourceTree = "<group>"; };
 		CE10E3802D2C37C1002A99E1 /* PassportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewModel.swift; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 		CEA6F4C32D2D3B3000DAA79D /* InternetConnectionRequiredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionRequiredView.swift; sourceTree = "<group>"; };
 		CEA7E9082D1AF6F700089589 /* AlertManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerView.swift; sourceTree = "<group>"; };
 		CEA7E90C2D1AFEA500089589 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CEAB35722D5F787300C2008E /* ZKML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZKML.swift; sourceTree = "<group>"; };
+		CEB60FA42D5E41CE00B90309 /* MLFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFace.swift; sourceTree = "<group>"; };
 		CEBD6A4A2D47C1EF002AAAFC /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CEBD6A4C2D47C501002AAAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CEBD6A4E2D47D728002AAAFC /* SetupCreateNewIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCreateNewIntroView.swift; sourceTree = "<group>"; };
@@ -321,6 +326,7 @@
 		CEDC57952CA30A9D00F02132 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 		CEE4FEA82CFDB851007C31F3 /* libfr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfr.a; sourceTree = "<group>"; };
 		CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgmp.a; sourceTree = "<group>"; };
+		CEE652E22D610A5C00CD2A86 /* libwitnesscalc_fisherface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_fisherface.a; sourceTree = "<group>"; };
 		CEFD130A2D131E8300164DA6 /* FisherFaceInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisherFaceInputs.swift; sourceTree = "<group>"; };
 		CEFD130D2D1322B300164DA6 /* witnesscalc_fisherface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_fisherface.h; sourceTree = "<group>"; };
 		CEFF68B62CB685C5008769EA /* Data+FindSubarrayIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+FindSubarrayIndex.swift"; sourceTree = "<group>"; };
@@ -335,10 +341,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1D92872D1DA689008979AF /* QRCode in Frameworks */,
-				CE10E3772D2BE53E002A99E1 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CEC562192BD92B3E002D4954 /* libresolv.9.tbd in Frameworks */,
 				CEE4FEA92CFDB851007C31F3 /* libfr.a in Frameworks */,
 				CEE4FEAB2CFDBA80007C31F3 /* libgmp.a in Frameworks */,
+				CEE652E32D610A5C00CD2A86 /* libwitnesscalc_fisherface.a in Frameworks */,
 				CEC562072BD923B4002D4954 /* libfq.a in Frameworks */,
 				CEA6F4BC2D2D2C9B00DAA79D /* Lottie in Frameworks */,
 				5655E43A2BD51F5100B86C5C /* KeychainAccess in Frameworks */,
@@ -347,7 +353,9 @@
 				CE3E26212D537C43002A1AA9 /* Identity.xcframework in Frameworks */,
 				CEA7E9042D1AF35B00089589 /* Alamofire in Frameworks */,
 				CEC562042BD923B4002D4954 /* librapidsnark.a in Frameworks */,
+				CEE652E12D6102C600CD2A86 /* TensorFlowLiteSwift in Frameworks */,
 				CEA7E9072D1AF3AA00089589 /* NFCPassportReader in Frameworks */,
+				CE06FF232D62421F00BE8A55 /* DeviceKit in Frameworks */,
 				CEA6F4B52D2D288B00DAA79D /* Semaphore in Frameworks */,
 				CE68BE492BD9B6EA00D92EBB /* Web3PromiseKit in Frameworks */,
 				CE1D92902D1DB0EC008979AF /* CodeScanner in Frameworks */,
@@ -414,6 +422,7 @@
 		5655E4262BD2C3F500B86C5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEB60FA32D5E41C900B90309 /* ML */,
 				CEDA6FC92D28254E00CF5780 /* Contracts */,
 				CE7E957B2CE7577800D86A4F /* Errors */,
 				CE7E957A2CE7574200D86A4F /* Blockchain */,
@@ -436,6 +445,7 @@
 		56E2D92B2BCFFC69006E725D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEAB35722D5F787300C2008E /* ZKML.swift */,
 				CEBD6A4C2D47C501002AAAFC /* Gradients.swift */,
 				CEA6F4BD2D2D2CCA00DAA79D /* ThemedAnimation.swift */,
 				CEA6F4B62D2D2B9900DAA79D /* Images.swift */,
@@ -862,6 +872,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CEB60FA32D5E41C900B90309 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60FA42D5E41CE00B90309 /* MLFace.swift */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
 		CEBD6A482D47C1B1002AAAFC /* Setup */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,7 +949,7 @@
 				CEC562022BD923B4002D4954 /* libfq.a */,
 				CEE4FEAA2CFDBA80007C31F3 /* libgmp.a */,
 				CEC561FC2BD923B3002D4954 /* librapidsnark.a */,
-				CE10E3762D2BE53E002A99E1 /* libwitnesscalc_fisherface.a */,
+				CEE652E22D610A5C00CD2A86 /* libwitnesscalc_fisherface.a */,
 				CEC562132BD9281A002D4954 /* libresolv.9.tbd */,
 				CEC562142BD9281A002D4954 /* libresolv.tbd */,
 			);
@@ -975,6 +993,8 @@
 				CE1D928F2D1DB0EC008979AF /* CodeScanner */,
 				CEA6F4B42D2D288B00DAA79D /* Semaphore */,
 				CEA6F4BB2D2D2C9B00DAA79D /* Lottie */,
+				CEE652E02D6102C600CD2A86 /* TensorFlowLiteSwift */,
+				CE06FF222D62421F00BE8A55 /* DeviceKit */,
 			);
 			productName = Edan;
 			productReference = CE9E82B22BA881F400AAF885 /* Edan.app */;
@@ -1014,6 +1034,8 @@
 				CE1D928E2D1DB0EC008979AF /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				CEA6F4B32D2D288B00DAA79D /* XCRemoteSwiftPackageReference "Semaphore" */,
 				CEA6F4BA2D2D2C9B00DAA79D /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				CEE652DF2D6102C600CD2A86 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */,
+				CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 			);
 			productRefGroup = CE9E82B32BA881F400AAF885 /* Products */;
 			projectDirPath = "";
@@ -1058,6 +1080,7 @@
 				56AC03402BB06A2D00A34A00 /* Image+Icon.swift in Sources */,
 				CE1D92962D1DC908008979AF /* PubSignals.swift in Sources */,
 				CE1D92772D1D6E1C008979AF /* AppView+ViewModel.swift in Sources */,
+				CEB60FA52D5E41D200B90309 /* MLFace.swift in Sources */,
 				561C3C432BAEE2D600FBB3B9 /* String+Error.swift in Sources */,
 				CE1D927A2D1D79F3008979AF /* MainView+ViewModel.swift in Sources */,
 				56DAA30B2BB8B977002CF710 /* View+DynamicSheet.swift in Sources */,
@@ -1114,6 +1137,7 @@
 				CE1D92982D1DCB31008979AF /* FeaturesUtils.swift in Sources */,
 				CE1D928D2D1DB094008979AF /* ScanQR.swift in Sources */,
 				560F0C342BD175EB00067054 /* LoggerUtil.swift in Sources */,
+				CEAB35732D5F787500C2008E /* ZKML.swift in Sources */,
 				CE3477622C78892F005E91FE /* View+Align.swift in Sources */,
 				5641CC452C874E2B007B7A0D /* AppAlert.swift in Sources */,
 				CEDA6FC82D28236300CF5780 /* Contracts.swift in Sources */,
@@ -1676,6 +1700,14 @@
 				version = 4.2.2;
 			};
 		};
+		CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:devicekit/DeviceKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
 		CE1D92852D1DA689008979AF /* XCRemoteSwiftPackageReference "QRCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:dagronf/QRCode.git";
@@ -1732,6 +1764,14 @@
 				revision = 4c463a687f59eb6cc5c7955af854c7d41295d54f;
 			};
 		};
+		CEE652DF2D6102C600CD2A86 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rarimo/TensorFlowLiteSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1739,6 +1779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5655E4382BD51F5100B86C5C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		CE06FF222D62421F00BE8A55 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE06FF212D62421F00BE8A55 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
 		};
 		CE1D92862D1DA689008979AF /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1783,6 +1828,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CEA7E9052D1AF3AA00089589 /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
 			productName = NFCPassportReader;
+		};
+		CEE652E02D6102C600CD2A86 /* TensorFlowLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE652DF2D6102C600CD2A86 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */;
+			productName = TensorFlowLiteSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -95,7 +95,10 @@ class WalletManager: ObservableObject {
 
         let ownerAddress = try EthereumAddress(hex: AccountManager.shared.ethreumAddress, eip55: false)
 
-        let accountAddress = try await AccountFactory.shared.getAccountByOwner(ownerAddress)
+        var accountAddress = try await AccountFactory.shared.getAccountByOwner(ownerAddress)
+        if accountAddress.hex(eip55: true) == "0x0000000000000000000000000000000000000000" {
+            accountAddress = try await AccountFactory.shared.getAccountByBioHash(AccountManager.shared.featuresHash)
+        }
 
         AppUserDefaults.shared.accountAddress = accountAddress.hex(eip55: false)
 

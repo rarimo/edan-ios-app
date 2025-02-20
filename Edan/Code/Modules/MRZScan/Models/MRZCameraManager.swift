@@ -1,4 +1,5 @@
 import AVFoundation
+import DeviceKit
 import Foundation
 
 class MRZCameraManager: NSObject {
@@ -46,9 +47,11 @@ class MRZCameraManager: NSObject {
     private func configureSession() async throws {
         guard await isAuthorized, let systemPreferredCamera else { return }
         
-        try systemPreferredCamera.lockForConfiguration()
-        systemPreferredCamera.focusMode = .continuousAutoFocus
-        systemPreferredCamera.unlockForConfiguration()
+        if Device.current != .iPhone13 && Device.current != .iPhone13Pro && Device.current != .iPhone13ProMax {
+            try systemPreferredCamera.lockForConfiguration()
+            systemPreferredCamera.focusMode = .continuousAutoFocus
+            systemPreferredCamera.unlockForConfiguration()
+        }
         
         let deviceInput = try AVCaptureDeviceInput(device: systemPreferredCamera)
         

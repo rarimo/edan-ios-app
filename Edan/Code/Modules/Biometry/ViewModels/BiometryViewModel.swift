@@ -154,24 +154,35 @@ class BiometryViewModel: ObservableObject {
     ) async throws {
         LoggerUtil.common.info("Adding the face recovery method")
         
+        faceImages = [UIImage](faceImages.dropFirst(20))
+        
         var imagesFeatures: [[Double]] = []
+        var imagesSubFeatures: [[Double]] = []
         for image in faceImages {
             let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
             
             let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
+
+            let subFeatures = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
             
-            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            imagesSubFeatures.append(subFeatures)
             
-            imagesFeatures.append(features)
+            let (_, rgbPixelsData) = try ZKFaceManager.shared.convertFaceToRgb(image)
+            
+            let rgbPixelsDataFloats = ZKFaceManager.shared.convertDataToMLInputs(rgbPixelsData)
+            
+            let features = try MLFace.shared.computeArcface(rgbPixelsDataFloats)
+            
+            imagesFeatures.append(features.map { Double($0) })
         }
         
-        let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
+        let similarFeaturesResponse = try await getSimilarFeatures(imagesFeatures)
         
-        let similarFeatures = try await getSimilarFeatures(imagesFeatures)
+        let features = FeaturesUtils.calculateAverageFeatures(imagesSubFeatures)
         
-        if let similarFeatures {
-            if FeaturesUtils.areFeaturesSimilar(features, similarFeatures) {
-                throw "Account already registered"
+        if let similarFeaturesResponse {
+            if FeaturesUtils.areFeaturesSimilar(features, similarFeaturesResponse.subfeatures) {
+                throw "Face is already used"
             }
         } else {
             LoggerUtil.common.info("No similar features found")
@@ -200,36 +211,47 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        _ = try await ZKBiometricsSvc.shared.addValue(features)
+        let averageFeatures = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
         
-        AppUserDefaults.shared.faceFeatures = features.json
+        _ = try await ZKBiometricsSvc.shared.addValue2(averageFeatures, features)
+        
+        AppUserDefaults.shared.keyFaceFeatures = averageFeatures
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
     }
         
     func recoverByBiometry(_ mainFaceImage: UIImage) async throws {
         LoggerUtil.common.info("Start recover by biometry")
+        
+        faceImages = [UIImage](faceImages.dropFirst(20))
 
         var imagesFeatures: [[Double]] = []
+        var imagesSubFeatures: [[Double]] = []
         for image in faceImages {
             let (_, grayscalePixelsData) = try ZKFaceManager.shared.convertFaceToGrayscale(image)
             
             let computableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(grayscalePixelsData)
+
+            let subFeatures = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
             
-            let features = try ZKFaceManager.shared.extractFeaturesFromComputableModel(computableModel)
+            imagesSubFeatures.append(subFeatures)
             
-            imagesFeatures.append(features)
+            let (_, rgbPixelsData) = try ZKFaceManager.shared.convertFaceToRgb(image)
+            
+            let rgbPixelsDataFloats = ZKFaceManager.shared.convertDataToMLInputs(rgbPixelsData)
+            
+            let features = try MLFace.shared.computeArcface(rgbPixelsDataFloats)
+            
+            imagesFeatures.append(features.map { Double($0) })
         }
         
-        let features = FeaturesUtils.calculateAverageFeatures(imagesFeatures)
-        
-        guard let similarFeatures = try await getSimilarFeatures(imagesFeatures) else {
+        guard let similarFeaturesResponse = try await getSimilarFeatures(imagesFeatures) else {
             throw "Account not found"
         }
         
         LoggerUtil.common.info("Account was found")
         
-        let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeatures)
+        let similarFeaturesHash = try FeaturesUtils.hashFeatures(similarFeaturesResponse.subfeatures)
         
         let accountAddress = try await AccountFactory.shared.getAccountByBioHash(similarFeaturesHash)
         
@@ -239,7 +261,7 @@ class BiometryViewModel: ObservableObject {
         
         let mainComputableModel = ZKFaceManager.shared.convertGrayscaleDataToComputableModel(mainGrayscalePixelsData)
         
-        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeatures, Int(nonce))
+        let inputs = CircuitBuilderManager.shared.fisherFaceCircuit.buildInputs(mainComputableModel, similarFeaturesResponse.subfeatures, Int(nonce))
         
         let zkProof = try await generateFisherface(inputs.json)
         let fisherfacePubSignals = FisherfacePubSignals(zkProof.pubSignals)
@@ -260,7 +282,7 @@ class BiometryViewModel: ObservableObject {
         
         try await Ethereum().waitForTxSuccess(response.data.attributes.txHash)
         
-        AppUserDefaults.shared.faceFeatures = features.json
+        AppUserDefaults.shared.keyFaceFeatures = similarFeaturesResponse.feature
         
         AccountManager.shared.saveFeaturesHash(zkFeatureHash.data())
     }
@@ -305,16 +327,21 @@ class BiometryViewModel: ObservableObject {
         }
     }
     
-    func getSimilarFeatures(_ features: [[Double]]) async throws -> [Double]? {
-        guard let response = try await ZKBiometricsSvc.shared.getValue(features) else {
+    func getSimilarFeatures(_ features: [[Double]]) async throws -> ZKBiometricsValue2ResponseAttributes? {
+        guard let response = try await ZKBiometricsSvc.shared.getValue2(features) else {
             return nil
         }
         
-        return response.data.attributes.feature
+        return response.data.attributes
     }
     
     func clearImages() {
         faceImage = nil
         faceImages = []
     }
+}
+
+struct Exportable: Codable {
+    let features: [Float]
+    let rgbData: Data
 }
